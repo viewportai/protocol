@@ -33,8 +33,9 @@ out explicitly.
 
 ## Current Status
 
-This package is private while the contracts are being hardened. It is public
-package-ready only after:
+This repository is public because protocol contracts are the shared OSS boundary.
+The npm package remains unpublished/private while the contracts are being
+hardened. It is package-release-ready only after:
 
 - exports point at built artifacts;
 - packed package import smoke passes;
