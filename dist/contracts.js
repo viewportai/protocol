@@ -111,6 +111,16 @@ export const CONTRACTS = [
         notes: 'Protocol package validates approval decision shape. Platform stores approval decisions, daemon receives approved digests on resume, and stale digest approvals fail closed.',
     },
     {
+        key: 'executionReceipt',
+        schemaId: SchemaIds.executionReceipt,
+        sampleFile: 'execution-receipt.github-pr.yaml',
+        status: 'implemented',
+        daemonCompatibility: 'validated',
+        platformCompatibility: 'validated',
+        webCompatibility: 'pending',
+        notes: 'Protocol package validates execution receipt shape. Platform stores execution receipts, daemon emits success/failure/dead-letter receipts, and managed action replay completion creates execution receipts.',
+    },
+    {
         key: 'contextReceipt',
         schemaId: SchemaIds.contextReceipt,
         sampleFile: 'context-receipt.payments-domain-rules.yaml',

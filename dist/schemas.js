@@ -193,6 +193,27 @@ export const ApprovalDecisionContractSchema = z
     createdAt: IsoDateTime,
 })
     .passthrough();
+export const ExecutionReceiptContractSchema = z
+    .object({
+    schema: z.literal(SchemaIds.executionReceipt),
+    id: NonEmptyString,
+    workflowRunId: NonEmptyString,
+    actionProposalId: NonEmptyString.optional(),
+    approvalDecisionId: NonEmptyString.optional(),
+    adapter: NonEmptyString,
+    action: NonEmptyString,
+    status: NonEmptyString,
+    providerReference: NonEmptyString.optional(),
+    providerUrl: NonEmptyString.optional(),
+    idempotencyKey: NonEmptyString,
+    payloadDigest: Digest.optional(),
+    proposalDigest: Digest.optional(),
+    approvalDecisionDigest: Digest.optional(),
+    payload: z.record(z.unknown()).optional(),
+    recovery: z.record(z.unknown()).optional(),
+    executedAt: IsoDateTime,
+})
+    .passthrough();
 export const ContextReceiptContractSchema = z
     .object({
     schema: z.literal(SchemaIds.contextReceipt),
@@ -269,6 +290,7 @@ export const ProtocolDocumentSchemas = {
     [SchemaIds.actionProposal]: ActionProposalContractSchema,
     [SchemaIds.authorizationDecision]: AuthorizationDecisionContractSchema,
     [SchemaIds.approvalDecision]: ApprovalDecisionContractSchema,
+    [SchemaIds.executionReceipt]: ExecutionReceiptContractSchema,
     [SchemaIds.contextReceipt]: ContextReceiptContractSchema,
     [SchemaIds.auditReceipt]: AuditReceiptContractSchema,
 };

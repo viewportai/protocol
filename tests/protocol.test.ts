@@ -23,6 +23,7 @@ describe('@viewportai/protocol registry', () => {
       'viewport.action_proposal/v1',
       'viewport.authorization_decision/v1',
       'viewport.approval_decision/v1',
+      'viewport.execution_receipt/v1',
       'viewport.context_receipt/v1',
       'viewport.audit_receipt/v1',
     ]);
@@ -38,6 +39,7 @@ describe('@viewportai/protocol registry', () => {
       'actionProposal',
       'authorizationDecision',
       'approvalDecision',
+      'executionReceipt',
       'auditReceipt',
     ]);
     expect(targetOnlyContracts().map((contract) => contract.key)).toEqual([
@@ -95,11 +97,13 @@ describe('@viewportai/protocol registry', () => {
     const evidence = samples.find((sample) => sample.contract.key === 'evidence');
     const action = samples.find((sample) => sample.contract.key === 'actionProposal');
     const approval = samples.find((sample) => sample.contract.key === 'approvalDecision');
+    const execution = samples.find((sample) => sample.contract.key === 'executionReceipt');
     const audit = samples.find((sample) => sample.contract.key === 'auditReceipt');
 
     expect(evidence).toBeDefined();
     expect(action).toBeDefined();
     expect(approval).toBeDefined();
+    expect(execution).toBeDefined();
     expect(audit).toBeDefined();
 
     expect(
@@ -128,6 +132,16 @@ describe('@viewportai/protocol registry', () => {
         document: {
           ...approval!.document,
           subjectDigest: 'not-a-digest',
+        },
+      }).ok,
+    ).toBe(false);
+
+    expect(
+      validateSampleEnvelope({
+        ...execution!,
+        document: {
+          ...execution!.document,
+          idempotencyKey: '',
         },
       }).ok,
     ).toBe(false);

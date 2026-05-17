@@ -10,6 +10,7 @@ export declare const SchemaIds: {
     readonly actionProposal: "viewport.action_proposal/v1";
     readonly authorizationDecision: "viewport.authorization_decision/v1";
     readonly approvalDecision: "viewport.approval_decision/v1";
+    readonly executionReceipt: "viewport.execution_receipt/v1";
     readonly contextReceipt: "viewport.context_receipt/v1";
     readonly auditReceipt: "viewport.audit_receipt/v1";
 };

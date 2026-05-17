@@ -1,0 +1,90 @@
+{
+  "$ref": "#/definitions/viewport.execution_receipt/v1",
+  "definitions": {
+    "viewport.execution_receipt/v1": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "const": "viewport.execution_receipt/v1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflowRunId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actionProposalId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approvalDecisionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adapter": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "providerReference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "providerUrl": {
+          "type": "string",
+          "minLength": 1
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "payloadDigest": {
+          "type": "string",
+          "pattern": "^sha256:[A-Za-z0-9._-]+$"
+        },
+        "proposalDigest": {
+          "type": "string",
+          "pattern": "^sha256:[A-Za-z0-9._-]+$"
+        },
+        "approvalDecisionDigest": {
+          "type": "string",
+          "pattern": "^sha256:[A-Za-z0-9._-]+$"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": {}
+        },
+        "recovery": {
+          "type": "object",
+          "additionalProperties": {}
+        },
+        "executedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "schema",
+        "id",
+        "workflowRunId",
+        "adapter",
+        "action",
+        "status",
+        "idempotencyKey",
+        "executedAt"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

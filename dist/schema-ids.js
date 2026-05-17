@@ -10,6 +10,7 @@ export const SchemaIds = {
     actionProposal: 'viewport.action_proposal/v1',
     authorizationDecision: 'viewport.authorization_decision/v1',
     approvalDecision: 'viewport.approval_decision/v1',
+    executionReceipt: 'viewport.execution_receipt/v1',
     contextReceipt: 'viewport.context_receipt/v1',
     auditReceipt: 'viewport.audit_receipt/v1',
 };

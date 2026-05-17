@@ -1,0 +1,21 @@
+schema: viewport.execution_receipt/v1
+id: exec_pay1842_open_pr
+workflowRunId: run_pay1842
+actionProposalId: act_pay1842_open_pr
+approvalDecisionId: appr_pay1842_open_pr_alice
+adapter: github
+action: open_pr
+status: succeeded
+providerReference: acme/payments-api#4821
+providerUrl: https://github.com/acme/payments-api/pull/4821
+idempotencyKey: jira:PAY-1842:github.open_pr
+payloadDigest: sha256:execution-payload-pay1842-open-pr
+proposalDigest: sha256:action-proposal-pay1842-open-pr
+approvalDecisionDigest: sha256:approval-pay1842-open-pr-alice
+payload:
+  response:
+    number: 4821
+    html_url: https://github.com/acme/payments-api/pull/4821
+recovery:
+  state: not_needed
+executedAt: "2026-05-16T12:06:00Z"

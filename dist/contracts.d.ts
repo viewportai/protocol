@@ -111,6 +111,15 @@ export declare const CONTRACTS: readonly [{
     readonly webCompatibility: "pending";
     readonly notes: "Protocol package validates approval decision shape. Platform stores approval decisions, daemon receives approved digests on resume, and stale digest approvals fail closed.";
 }, {
+    readonly key: "executionReceipt";
+    readonly schemaId: "viewport.execution_receipt/v1";
+    readonly sampleFile: "execution-receipt.github-pr.yaml";
+    readonly status: "implemented";
+    readonly daemonCompatibility: "validated";
+    readonly platformCompatibility: "validated";
+    readonly webCompatibility: "pending";
+    readonly notes: "Protocol package validates execution receipt shape. Platform stores execution receipts, daemon emits success/failure/dead-letter receipts, and managed action replay completion creates execution receipts.";
+}, {
     readonly key: "contextReceipt";
     readonly schemaId: "viewport.context_receipt/v1";
     readonly sampleFile: "context-receipt.payments-domain-rules.yaml";
