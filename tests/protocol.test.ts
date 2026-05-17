@@ -42,13 +42,13 @@ describe('@viewportai/protocol registry', () => {
       'approvalDecision',
       'executionGrant',
       'executionReceipt',
+      'contextReceipt',
       'auditReceipt',
     ]);
     expect(targetOnlyContracts().map((contract) => contract.key)).toEqual([
       'runnerWorkspace',
       'contextPackage',
       'agentEvent',
-      'contextReceipt',
     ]);
   });
 

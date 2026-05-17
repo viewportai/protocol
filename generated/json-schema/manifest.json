@@ -87,7 +87,7 @@
     {
       "key": "contextReceipt",
       "schemaId": "viewport.context_receipt/v1",
-      "status": "target-only",
+      "status": "implemented",
       "jsonSchema": "generated/json-schema/contextReceipt.schema.json"
     },
     {
