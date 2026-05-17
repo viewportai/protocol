@@ -132,11 +132,11 @@ export declare const CONTRACTS: readonly [{
     readonly key: "contextReceipt";
     readonly schemaId: "viewport.context_receipt/v1";
     readonly sampleFile: "context-receipt.payments-domain-rules.yaml";
-    readonly status: "target-only";
-    readonly daemonCompatibility: "pending";
-    readonly platformCompatibility: "pending";
+    readonly status: "implemented";
+    readonly daemonCompatibility: "validated";
+    readonly platformCompatibility: "validated";
     readonly webCompatibility: "pending";
-    readonly notes: "Protocol package validates sample shape, but context usage receipts are not emitted as this contract yet.";
+    readonly notes: "Protocol package validates context receipt shape. Daemon context-node resolution emits provider usage receipts and platform persists/replays/health-checks them. First-class context package governance remains pending.";
 }, {
     readonly key: "auditReceipt";
     readonly schemaId: "viewport.audit_receipt/v1";

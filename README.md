@@ -53,6 +53,8 @@ hardened. It is package-release-ready only after:
 - evidence, action proposal, authorization decision, approval decision, context
   receipt, and audit receipt shape validation
 - platform storage/replay compatibility for authorization decision records
+- daemon emission plus platform storage/replay/health compatibility for context
+  receipt records
 - execution receipt provider response digests and optional provider
   reconciliation metadata shape validation
 
@@ -62,9 +64,11 @@ production-ready when the relevant consumer repos prove it in CI.
 ## Target-Only
 
 The runner workspace, context package registry semantics, normalized agent
-event, authorization decision runtime emission, and context receipt emission are
-not fully implemented end to end yet. Their samples exist to lock vocabulary and
-review shape before product code relies on them.
+event, and authorization decision runtime emission are not fully implemented end
+to end yet. Their samples exist to lock vocabulary and review shape before
+product code relies on them. Context receipts are implemented as provider usage
+receipts, but the broader context package registry/update-governance contract is
+still target-only.
 
 ## Commands
 
