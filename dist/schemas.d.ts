@@ -883,6 +883,7 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
     providerUrl: z.ZodOptional<z.ZodString>;
     idempotencyKey: z.ZodString;
     payloadDigest: z.ZodOptional<z.ZodString>;
+    providerResponseDigest: z.ZodOptional<z.ZodString>;
     proposalDigest: z.ZodOptional<z.ZodString>;
     approvalDecisionDigest: z.ZodOptional<z.ZodString>;
     executionGrant: z.ZodOptional<z.ZodObject<{
@@ -920,6 +921,7 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
     providerUrl: z.ZodOptional<z.ZodString>;
     idempotencyKey: z.ZodString;
     payloadDigest: z.ZodOptional<z.ZodString>;
+    providerResponseDigest: z.ZodOptional<z.ZodString>;
     proposalDigest: z.ZodOptional<z.ZodString>;
     approvalDecisionDigest: z.ZodOptional<z.ZodString>;
     executionGrant: z.ZodOptional<z.ZodObject<{
@@ -957,6 +959,7 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
     providerUrl: z.ZodOptional<z.ZodString>;
     idempotencyKey: z.ZodString;
     payloadDigest: z.ZodOptional<z.ZodString>;
+    providerResponseDigest: z.ZodOptional<z.ZodString>;
     proposalDigest: z.ZodOptional<z.ZodString>;
     approvalDecisionDigest: z.ZodOptional<z.ZodString>;
     executionGrant: z.ZodOptional<z.ZodObject<{
@@ -2175,6 +2178,7 @@ export declare const ProtocolDocumentSchemas: {
         providerUrl: z.ZodOptional<z.ZodString>;
         idempotencyKey: z.ZodString;
         payloadDigest: z.ZodOptional<z.ZodString>;
+        providerResponseDigest: z.ZodOptional<z.ZodString>;
         proposalDigest: z.ZodOptional<z.ZodString>;
         approvalDecisionDigest: z.ZodOptional<z.ZodString>;
         executionGrant: z.ZodOptional<z.ZodObject<{
@@ -2212,6 +2216,7 @@ export declare const ProtocolDocumentSchemas: {
         providerUrl: z.ZodOptional<z.ZodString>;
         idempotencyKey: z.ZodString;
         payloadDigest: z.ZodOptional<z.ZodString>;
+        providerResponseDigest: z.ZodOptional<z.ZodString>;
         proposalDigest: z.ZodOptional<z.ZodString>;
         approvalDecisionDigest: z.ZodOptional<z.ZodString>;
         executionGrant: z.ZodOptional<z.ZodObject<{
@@ -2249,6 +2254,7 @@ export declare const ProtocolDocumentSchemas: {
         providerUrl: z.ZodOptional<z.ZodString>;
         idempotencyKey: z.ZodString;
         payloadDigest: z.ZodOptional<z.ZodString>;
+        providerResponseDigest: z.ZodOptional<z.ZodString>;
         proposalDigest: z.ZodOptional<z.ZodString>;
         approvalDecisionDigest: z.ZodOptional<z.ZodString>;
         executionGrant: z.ZodOptional<z.ZodObject<{

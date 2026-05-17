@@ -216,6 +216,7 @@ export const ExecutionReceiptContractSchema = z
     providerUrl: NonEmptyString.optional(),
     idempotencyKey: NonEmptyString,
     payloadDigest: Digest.optional(),
+    providerResponseDigest: Digest.optional(),
     proposalDigest: Digest.optional(),
     approvalDecisionDigest: Digest.optional(),
     executionGrant: ExecutionGrantContractSchema.optional(),
