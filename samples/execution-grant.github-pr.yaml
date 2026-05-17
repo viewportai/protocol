@@ -1,0 +1,5 @@
+schema: viewport.execution_grant/v1
+digest: sha256:execution-grant-pay1842-open-pr
+proposalKey: act_pay1842_open_pr
+approvalDecisionKey: appr_pay1842_open_pr_alice
+issuedAt: "2026-05-16T12:05:01Z"

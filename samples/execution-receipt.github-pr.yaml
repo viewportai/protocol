@@ -12,6 +12,12 @@ idempotencyKey: jira:PAY-1842:github.open_pr
 payloadDigest: sha256:execution-payload-pay1842-open-pr
 proposalDigest: sha256:action-proposal-pay1842-open-pr
 approvalDecisionDigest: sha256:approval-pay1842-open-pr-alice
+executionGrant:
+  schema: viewport.execution_grant/v1
+  digest: sha256:execution-grant-pay1842-open-pr
+  proposalKey: act_pay1842_open_pr
+  approvalDecisionKey: appr_pay1842_open_pr_alice
+  issuedAt: "2026-05-16T12:05:01Z"
 payload:
   response:
     number: 4821
