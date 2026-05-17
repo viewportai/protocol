@@ -19,6 +19,18 @@ executionGrant:
   proposalKey: act_pay1842_open_pr
   approvalDecisionKey: appr_pay1842_open_pr_alice
   issuedAt: "2026-05-16T12:05:01Z"
+providerReconciliation:
+  status: verified
+  method: github.pull_request.read_after_write
+  checkedAt: "2026-05-16T12:06:12Z"
+  checkedBy:
+    kind: runner
+    id: payments-vps-1
+    source: vpd
+  providerReference: acme/payments-api#4821
+  providerUrl: https://github.com/acme/payments-api/pull/4821
+  targetDigest: sha256:github-pr-4821-read-after-write
+  payloadDigest: sha256:github-pr-4821-reconciliation-payload
 payload:
   response:
     number: 4821

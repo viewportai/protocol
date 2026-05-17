@@ -53,6 +53,8 @@ hardened. It is package-release-ready only after:
 - evidence, action proposal, authorization decision, approval decision, context
   receipt, and audit receipt shape validation
 - platform storage/replay compatibility for authorization decision records
+- execution receipt provider response digests and optional provider
+  reconciliation metadata shape validation
 
 Compatibility claims are not release claims by themselves. A contract is only
 production-ready when the relevant consumer repos prove it in CI.

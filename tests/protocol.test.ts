@@ -162,6 +162,19 @@ describe('@viewportai/protocol registry', () => {
 
     expect(
       validateSampleEnvelope({
+        ...execution!,
+        document: {
+          ...execution!.document,
+          providerReconciliation: {
+            status: 'guessed',
+            checkedAt: '2026-05-16T12:06:12Z',
+          },
+        },
+      }).ok,
+    ).toBe(false);
+
+    expect(
+      validateSampleEnvelope({
         ...audit!,
         document: {
           ...audit!.document,

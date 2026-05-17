@@ -905,6 +905,85 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
         approvalDecisionKey: z.ZodString;
         issuedAt: z.ZodString;
     }, z.ZodTypeAny, "passthrough">>>;
+    providerReconciliation: z.ZodOptional<z.ZodObject<{
+        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+        method: z.ZodOptional<z.ZodString>;
+        checkedAt: z.ZodOptional<z.ZodString>;
+        checkedBy: z.ZodOptional<z.ZodObject<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        providerReference: z.ZodOptional<z.ZodString>;
+        providerUrl: z.ZodOptional<z.ZodString>;
+        targetDigest: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        error: z.ZodOptional<z.ZodString>;
+        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+        method: z.ZodOptional<z.ZodString>;
+        checkedAt: z.ZodOptional<z.ZodString>;
+        checkedBy: z.ZodOptional<z.ZodObject<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        providerReference: z.ZodOptional<z.ZodString>;
+        providerUrl: z.ZodOptional<z.ZodString>;
+        targetDigest: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        error: z.ZodOptional<z.ZodString>;
+        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+        method: z.ZodOptional<z.ZodString>;
+        checkedAt: z.ZodOptional<z.ZodString>;
+        checkedBy: z.ZodOptional<z.ZodObject<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        providerReference: z.ZodOptional<z.ZodString>;
+        providerUrl: z.ZodOptional<z.ZodString>;
+        targetDigest: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        error: z.ZodOptional<z.ZodString>;
+        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    }, z.ZodTypeAny, "passthrough">>>;
     payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     executedAt: z.ZodString;
@@ -943,6 +1022,85 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
         approvalDecisionKey: z.ZodString;
         issuedAt: z.ZodString;
     }, z.ZodTypeAny, "passthrough">>>;
+    providerReconciliation: z.ZodOptional<z.ZodObject<{
+        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+        method: z.ZodOptional<z.ZodString>;
+        checkedAt: z.ZodOptional<z.ZodString>;
+        checkedBy: z.ZodOptional<z.ZodObject<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        providerReference: z.ZodOptional<z.ZodString>;
+        providerUrl: z.ZodOptional<z.ZodString>;
+        targetDigest: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        error: z.ZodOptional<z.ZodString>;
+        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+        method: z.ZodOptional<z.ZodString>;
+        checkedAt: z.ZodOptional<z.ZodString>;
+        checkedBy: z.ZodOptional<z.ZodObject<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        providerReference: z.ZodOptional<z.ZodString>;
+        providerUrl: z.ZodOptional<z.ZodString>;
+        targetDigest: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        error: z.ZodOptional<z.ZodString>;
+        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+        method: z.ZodOptional<z.ZodString>;
+        checkedAt: z.ZodOptional<z.ZodString>;
+        checkedBy: z.ZodOptional<z.ZodObject<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        providerReference: z.ZodOptional<z.ZodString>;
+        providerUrl: z.ZodOptional<z.ZodString>;
+        targetDigest: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        error: z.ZodOptional<z.ZodString>;
+        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    }, z.ZodTypeAny, "passthrough">>>;
     payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     executedAt: z.ZodString;
@@ -980,6 +1138,85 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
         proposalKey: z.ZodString;
         approvalDecisionKey: z.ZodString;
         issuedAt: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">>>;
+    providerReconciliation: z.ZodOptional<z.ZodObject<{
+        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+        method: z.ZodOptional<z.ZodString>;
+        checkedAt: z.ZodOptional<z.ZodString>;
+        checkedBy: z.ZodOptional<z.ZodObject<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        providerReference: z.ZodOptional<z.ZodString>;
+        providerUrl: z.ZodOptional<z.ZodString>;
+        targetDigest: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        error: z.ZodOptional<z.ZodString>;
+        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+        method: z.ZodOptional<z.ZodString>;
+        checkedAt: z.ZodOptional<z.ZodString>;
+        checkedBy: z.ZodOptional<z.ZodObject<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        providerReference: z.ZodOptional<z.ZodString>;
+        providerUrl: z.ZodOptional<z.ZodString>;
+        targetDigest: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        error: z.ZodOptional<z.ZodString>;
+        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+        method: z.ZodOptional<z.ZodString>;
+        checkedAt: z.ZodOptional<z.ZodString>;
+        checkedBy: z.ZodOptional<z.ZodObject<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            kind: z.ZodString;
+            id: z.ZodString;
+            source: z.ZodOptional<z.ZodString>;
+            displayName: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        providerReference: z.ZodOptional<z.ZodString>;
+        providerUrl: z.ZodOptional<z.ZodString>;
+        targetDigest: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        error: z.ZodOptional<z.ZodString>;
+        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     }, z.ZodTypeAny, "passthrough">>>;
     payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
@@ -2200,6 +2437,85 @@ export declare const ProtocolDocumentSchemas: {
             approvalDecisionKey: z.ZodString;
             issuedAt: z.ZodString;
         }, z.ZodTypeAny, "passthrough">>>;
+        providerReconciliation: z.ZodOptional<z.ZodObject<{
+            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+            method: z.ZodOptional<z.ZodString>;
+            checkedAt: z.ZodOptional<z.ZodString>;
+            checkedBy: z.ZodOptional<z.ZodObject<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            providerReference: z.ZodOptional<z.ZodString>;
+            providerUrl: z.ZodOptional<z.ZodString>;
+            targetDigest: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            error: z.ZodOptional<z.ZodString>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+            method: z.ZodOptional<z.ZodString>;
+            checkedAt: z.ZodOptional<z.ZodString>;
+            checkedBy: z.ZodOptional<z.ZodObject<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            providerReference: z.ZodOptional<z.ZodString>;
+            providerUrl: z.ZodOptional<z.ZodString>;
+            targetDigest: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            error: z.ZodOptional<z.ZodString>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+            method: z.ZodOptional<z.ZodString>;
+            checkedAt: z.ZodOptional<z.ZodString>;
+            checkedBy: z.ZodOptional<z.ZodObject<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            providerReference: z.ZodOptional<z.ZodString>;
+            providerUrl: z.ZodOptional<z.ZodString>;
+            targetDigest: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            error: z.ZodOptional<z.ZodString>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, z.ZodTypeAny, "passthrough">>>;
         payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         executedAt: z.ZodString;
@@ -2238,6 +2554,85 @@ export declare const ProtocolDocumentSchemas: {
             approvalDecisionKey: z.ZodString;
             issuedAt: z.ZodString;
         }, z.ZodTypeAny, "passthrough">>>;
+        providerReconciliation: z.ZodOptional<z.ZodObject<{
+            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+            method: z.ZodOptional<z.ZodString>;
+            checkedAt: z.ZodOptional<z.ZodString>;
+            checkedBy: z.ZodOptional<z.ZodObject<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            providerReference: z.ZodOptional<z.ZodString>;
+            providerUrl: z.ZodOptional<z.ZodString>;
+            targetDigest: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            error: z.ZodOptional<z.ZodString>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+            method: z.ZodOptional<z.ZodString>;
+            checkedAt: z.ZodOptional<z.ZodString>;
+            checkedBy: z.ZodOptional<z.ZodObject<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            providerReference: z.ZodOptional<z.ZodString>;
+            providerUrl: z.ZodOptional<z.ZodString>;
+            targetDigest: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            error: z.ZodOptional<z.ZodString>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+            method: z.ZodOptional<z.ZodString>;
+            checkedAt: z.ZodOptional<z.ZodString>;
+            checkedBy: z.ZodOptional<z.ZodObject<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            providerReference: z.ZodOptional<z.ZodString>;
+            providerUrl: z.ZodOptional<z.ZodString>;
+            targetDigest: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            error: z.ZodOptional<z.ZodString>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, z.ZodTypeAny, "passthrough">>>;
         payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         executedAt: z.ZodString;
@@ -2275,6 +2670,85 @@ export declare const ProtocolDocumentSchemas: {
             proposalKey: z.ZodString;
             approvalDecisionKey: z.ZodString;
             issuedAt: z.ZodString;
+        }, z.ZodTypeAny, "passthrough">>>;
+        providerReconciliation: z.ZodOptional<z.ZodObject<{
+            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+            method: z.ZodOptional<z.ZodString>;
+            checkedAt: z.ZodOptional<z.ZodString>;
+            checkedBy: z.ZodOptional<z.ZodObject<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            providerReference: z.ZodOptional<z.ZodString>;
+            providerUrl: z.ZodOptional<z.ZodString>;
+            targetDigest: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            error: z.ZodOptional<z.ZodString>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+            method: z.ZodOptional<z.ZodString>;
+            checkedAt: z.ZodOptional<z.ZodString>;
+            checkedBy: z.ZodOptional<z.ZodObject<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            providerReference: z.ZodOptional<z.ZodString>;
+            providerUrl: z.ZodOptional<z.ZodString>;
+            targetDigest: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            error: z.ZodOptional<z.ZodString>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
+            method: z.ZodOptional<z.ZodString>;
+            checkedAt: z.ZodOptional<z.ZodString>;
+            checkedBy: z.ZodOptional<z.ZodObject<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                kind: z.ZodString;
+                id: z.ZodString;
+                source: z.ZodOptional<z.ZodString>;
+                displayName: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            providerReference: z.ZodOptional<z.ZodString>;
+            providerUrl: z.ZodOptional<z.ZodString>;
+            targetDigest: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            error: z.ZodOptional<z.ZodString>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         }, z.ZodTypeAny, "passthrough">>>;
         payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;

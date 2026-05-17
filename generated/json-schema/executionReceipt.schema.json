@@ -97,6 +97,83 @@
           ],
           "additionalProperties": true
         },
+        "providerReconciliation": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "not_checked",
+                "verified",
+                "mismatch",
+                "unavailable",
+                "failed"
+              ]
+            },
+            "method": {
+              "type": "string",
+              "minLength": 1
+            },
+            "checkedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "checkedBy": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "displayName": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "kind",
+                "id"
+              ],
+              "additionalProperties": true
+            },
+            "providerReference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "providerUrl": {
+              "type": "string",
+              "minLength": 1
+            },
+            "targetDigest": {
+              "type": "string",
+              "pattern": "^sha256:[A-Za-z0-9._-]+$"
+            },
+            "payloadDigest": {
+              "type": "string",
+              "pattern": "^sha256:[A-Za-z0-9._-]+$"
+            },
+            "error": {
+              "type": "string",
+              "minLength": 1
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": true
+        },
         "payload": {
           "type": "object",
           "additionalProperties": {}
