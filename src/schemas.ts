@@ -213,6 +213,21 @@ export const ExecutionGrantContractSchema = z
   })
   .passthrough();
 
+const ProviderReconciliationSchema = z
+  .object({
+    status: z.enum(['not_checked', 'verified', 'mismatch', 'unavailable', 'failed']),
+    method: NonEmptyString.optional(),
+    checkedAt: IsoDateTime.optional(),
+    checkedBy: ActorSchema.optional(),
+    providerReference: NonEmptyString.optional(),
+    providerUrl: NonEmptyString.optional(),
+    targetDigest: Digest.optional(),
+    payloadDigest: Digest.optional(),
+    error: NonEmptyString.optional(),
+    payload: z.record(z.unknown()).optional(),
+  })
+  .passthrough();
+
 export const ExecutionReceiptContractSchema = z
   .object({
     schema: z.literal(SchemaIds.executionReceipt),
@@ -231,6 +246,7 @@ export const ExecutionReceiptContractSchema = z
     proposalDigest: Digest.optional(),
     approvalDecisionDigest: Digest.optional(),
     executionGrant: ExecutionGrantContractSchema.optional(),
+    providerReconciliation: ProviderReconciliationSchema.optional(),
     payload: z.record(z.unknown()).optional(),
     recovery: z.record(z.unknown()).optional(),
     executedAt: IsoDateTime,

@@ -22,6 +22,9 @@ The protocol repo owns shared contracts, not every implementation detail.
   - session, workflow run, hook, and discovery message shapes
 - Samples and fixtures that all consumers use for compatibility.
 - Generated types/schemas for supported languages.
+- Optional provider reconciliation metadata on execution receipts. This records
+  a read-after-write/provider-check result; it is not a substitute for runner
+  signing, Merkle inclusion, or managed-provider attestation.
 
 ## Not Owned Here
 
