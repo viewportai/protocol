@@ -1,0 +1,49 @@
+{
+  "name": "@viewportai/protocol",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Canonical Viewport protocol contract ids, samples, and compatibility fixtures.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./schema-ids": {
+      "types": "./dist/schema-ids.d.ts",
+      "import": "./dist/schema-ids.js"
+    },
+    "./schemas": {
+      "types": "./dist/schemas.d.ts",
+      "import": "./dist/schemas.js"
+    },
+    "./samples": {
+      "types": "./dist/samples.d.ts",
+      "import": "./dist/samples.js"
+    }
+  },
+  "files": [
+    "dist",
+    "samples",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "validate:samples": "tsx scripts/validate-samples.ts",
+    "pack:smoke": "node scripts/pack-smoke.mjs"
+  },
+  "dependencies": {
+    "yaml": "^2.8.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
