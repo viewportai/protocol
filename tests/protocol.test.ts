@@ -36,6 +36,7 @@ describe('@viewportai/protocol registry', () => {
       'executionProfile',
       'evidence',
       'actionProposal',
+      'authorizationDecision',
       'approvalDecision',
       'auditReceipt',
     ]);
@@ -43,7 +44,6 @@ describe('@viewportai/protocol registry', () => {
       'runnerWorkspace',
       'contextPackage',
       'agentEvent',
-      'authorizationDecision',
       'contextReceipt',
     ]);
   });

@@ -49,18 +49,19 @@ hardened. It is package-release-ready only after:
 - repo config `schema: viewport.repo_config/v1` plus daemon-compatible
   `version: 1`
 - route and execution profile shape validation
-- evidence, action proposal, approval decision, authorization decision, context
+- evidence, action proposal, authorization decision, approval decision, context
   receipt, and audit receipt shape validation
+- platform storage/replay compatibility for authorization decision records
 
 Compatibility claims are not release claims by themselves. A contract is only
 production-ready when the relevant consumer repos prove it in CI.
 
 ## Target-Only
 
-The runner workspace, context package registry semantics, normalized agent event,
-authorization decision emission, and context receipt emission are not fully
-implemented end to end yet. Their samples exist to lock vocabulary and review
-shape before product code relies on them.
+The runner workspace, context package registry semantics, normalized agent
+event, authorization decision runtime emission, and context receipt emission are
+not fully implemented end to end yet. Their samples exist to lock vocabulary and
+review shape before product code relies on them.
 
 ## Commands
 

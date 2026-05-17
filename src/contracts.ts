@@ -115,12 +115,12 @@ export const CONTRACTS = [
     key: 'authorizationDecision',
     schemaId: SchemaIds.authorizationDecision,
     sampleFile: 'authorization-decision.workflow-run.yaml',
-    status: 'target-only',
+    status: 'implemented',
     daemonCompatibility: 'pending',
-    platformCompatibility: 'pending',
+    platformCompatibility: 'validated',
     webCompatibility: 'pending',
     notes:
-      'Current authorization is spread across controllers/services; no portable decision record exists yet.',
+      'Protocol package validates authorization decision shape. Platform stores and replays authorization decisions as first-class workflow run records; daemon/runtime emission and policy-engine decision recording remain pending.',
   },
   {
     key: 'approvalDecision',
