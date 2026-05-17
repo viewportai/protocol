@@ -20,9 +20,9 @@ compatibility tests rather than sibling-path imports.
 
 | Consumer | Current State | Next Required Move |
 | --- | --- | --- |
-| `platform` API | CI checks out public `viewportai/protocol` samples and proves route/profile/record storage and replay compatibility. | Add generated PHP validators or an explicit JSON Schema validation path from this repo. |
-| `platform` web | Still has local daemon/websocket/session protocol types. | Migrate only after stable app-runner wire contracts are exported here. |
-| `viewport` daemon | Still owns the working daemon/app wire implementation and protocol matrix. | Promote stable wire contracts here, then make daemon tests consume them. |
+| `platform` API | CI checks out public `viewportai/protocol` samples and generated JSON Schema artifacts, then proves PHP validation for implemented route/profile/operational records. | Keep the protocol ref pinned and add generated validators for newly promoted JSON Schema contracts. |
+| `platform` web | CI checks out public `viewportai/protocol` samples and generated JSON Schema artifacts for operational record validation; workflow-run schemas are still local until the new `./workflow-run` export is consumed. | Migrate run list/detail records and workflow-run message schemas to import `@viewportai/protocol/workflow-run`. |
+| `viewport` daemon | Still owns the working daemon/app wire implementation and protocol matrix. | Add daemon compatibility tests against `@viewportai/protocol/workflow-run`, then migrate shared run DTO types. |
 | `viewport` daemon test UI | Duplicates browser-side protocol helpers. | Remove after daemon/app wire contracts are imported from this repo. |
 | Docs/masterplan | Treats this repo as canonical and records target-only boundaries. | Generate public contract reference from this repo after schemas stabilize. |
 
@@ -32,9 +32,10 @@ compatibility tests rather than sibling-path imports.
 2. Add stable app-runner wire contracts to this repo from the existing daemon
    and web copies.
 3. Add package-level tests for those wire contracts.
-4. Update daemon protocol matrix tests to import the package.
-5. Update platform web websocket/session stores to import the package.
-6. Add generated PHP or JSON Schema validation for platform API request paths.
+4. Update platform web websocket/session stores to import the package.
+5. Update daemon protocol matrix tests to import the package.
+6. Migrate daemon shared run DTO types after web and daemon compatibility tests
+   are green.
 7. Delete migrated local duplicate files after all consumers are green.
 
 ## Explicit Debt Inventory
@@ -68,4 +69,3 @@ Allowed after package release:
 - imports from `@viewportai/protocol`;
 - generated validator artifacts from the package;
 - docs generated from package metadata and schemas.
-

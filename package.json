@@ -22,6 +22,10 @@
     "./samples": {
       "types": "./dist/samples.d.ts",
       "import": "./dist/samples.js"
+    },
+    "./workflow-run": {
+      "types": "./dist/workflow-run.d.ts",
+      "import": "./dist/workflow-run.js"
     }
   },
   "files": [

@@ -3,4 +3,5 @@ export * from './contracts.js';
 export * from './samples.js';
 export * from './schemas.js';
 export * from './validate.js';
+export * from './workflow-run.js';
 //# sourceMappingURL=index.d.ts.map
