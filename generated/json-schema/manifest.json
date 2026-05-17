@@ -1,0 +1,88 @@
+{
+  "generatedBy": "npm run generate:json-schemas",
+  "schemas": [
+    {
+      "key": "workflow",
+      "schemaId": "viewport.workflow/v1",
+      "status": "implemented",
+      "jsonSchema": null,
+      "reason": "No Zod contract exists yet for this schema id."
+    },
+    {
+      "key": "repoConfig",
+      "schemaId": "viewport.repo_config/v1",
+      "status": "implemented",
+      "jsonSchema": null,
+      "reason": "No Zod contract exists yet for this schema id."
+    },
+    {
+      "key": "route",
+      "schemaId": "viewport.route/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/route.schema.json"
+    },
+    {
+      "key": "executionProfile",
+      "schemaId": "viewport.execution_profile/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/executionProfile.schema.json"
+    },
+    {
+      "key": "runnerWorkspace",
+      "schemaId": "viewport.runner_workspace/v1",
+      "status": "target-only",
+      "jsonSchema": null,
+      "reason": "No Zod contract exists yet for this schema id."
+    },
+    {
+      "key": "contextPackage",
+      "schemaId": "viewport.context_package/v1",
+      "status": "target-only",
+      "jsonSchema": null,
+      "reason": "No Zod contract exists yet for this schema id."
+    },
+    {
+      "key": "agentEvent",
+      "schemaId": "viewport.agent_event/v1",
+      "status": "target-only",
+      "jsonSchema": null,
+      "reason": "No Zod contract exists yet for this schema id."
+    },
+    {
+      "key": "evidence",
+      "schemaId": "viewport.evidence/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/evidence.schema.json"
+    },
+    {
+      "key": "actionProposal",
+      "schemaId": "viewport.action_proposal/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/actionProposal.schema.json"
+    },
+    {
+      "key": "authorizationDecision",
+      "schemaId": "viewport.authorization_decision/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/authorizationDecision.schema.json"
+    },
+    {
+      "key": "approvalDecision",
+      "schemaId": "viewport.approval_decision/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/approvalDecision.schema.json"
+    },
+    {
+      "key": "contextReceipt",
+      "schemaId": "viewport.context_receipt/v1",
+      "status": "target-only",
+      "jsonSchema": "generated/json-schema/contextReceipt.schema.json"
+    },
+    {
+      "key": "auditReceipt",
+      "schemaId": "viewport.audit_receipt/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/auditReceipt.schema.json"
+    }
+  ]
+}

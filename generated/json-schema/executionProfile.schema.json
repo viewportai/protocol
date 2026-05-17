@@ -1,0 +1,168 @@
+{
+  "$ref": "#/definitions/viewport.execution_profile/v1",
+  "definitions": {
+    "viewport.execution_profile/v1": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "const": "viewport.execution_profile/v1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ownedBy": {
+          "type": "object",
+          "properties": {
+            "team": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "team"
+          ],
+          "additionalProperties": true
+        },
+        "repos": {
+          "type": "object",
+          "properties": {
+            "primary": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            },
+            "related": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "runner": {
+          "type": "object",
+          "properties": {
+            "pool": {
+              "type": "string",
+              "minLength": 1
+            },
+            "workspaceTemplate": {
+              "type": "string",
+              "minLength": 1
+            },
+            "isolation": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "pool"
+          ],
+          "additionalProperties": true
+        },
+        "agent": {
+          "type": "object",
+          "properties": {
+            "default": {
+              "type": "string",
+              "minLength": 1
+            },
+            "allowed": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "default"
+          ],
+          "additionalProperties": true
+        },
+        "context": {
+          "type": "object",
+          "properties": {
+            "packages": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "refresh": {
+              "type": "string",
+              "minLength": 1
+            },
+            "cacheTtlSeconds": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": true
+        },
+        "approvals": {
+          "type": "object",
+          "additionalProperties": {}
+        },
+        "actions": {
+          "type": "object",
+          "properties": {
+            "allowed": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "blocked": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "dataCapture": {
+          "type": "object",
+          "properties": {
+            "transcripts": {
+              "type": "string",
+              "minLength": 1
+            },
+            "logs": {
+              "type": "string",
+              "minLength": 1
+            },
+            "artifacts": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "schema",
+        "id",
+        "runner"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

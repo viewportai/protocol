@@ -17,7 +17,7 @@ Included:
 - stable app-to-runner message contracts once promoted from the current daemon
   and web copies;
 - samples and compatibility fixtures;
-- generated TypeScript types and future JSON Schema artifacts.
+- generated TypeScript types and JSON Schema artifacts.
 
 Excluded:
 
@@ -41,7 +41,8 @@ hardened. It is package-release-ready only after:
 - packed package import smoke passes;
 - platform and daemon consumer contract tests are required in CI;
 - target-only contracts are clearly separated from implemented contracts;
-- generated PHP/web/JSON Schema projections exist for claimed consumers.
+- generated JSON Schema projections exist for Zod-backed contracts;
+- generated PHP/web projections exist for claimed consumers.
 
 ## Implemented Today
 
@@ -70,9 +71,15 @@ npm ci
 npm run typecheck
 npm test
 npm run validate:samples
+npm run generate:json-schemas
 npm run build
 npm run pack:smoke
 ```
+
+Generated JSON Schema artifacts live under
+[`generated/json-schema`](generated/json-schema). The manifest records which
+contract keys currently have generated schemas and which still depend on
+consumer-specific validators or target-only planning docs.
 
 `validate:samples` performs package-local validation everywhere. If sibling
 Viewport repos are present, it also runs compatibility checks against them. For

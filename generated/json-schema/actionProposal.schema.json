@@ -1,0 +1,107 @@
+{
+  "$ref": "#/definitions/viewport.action_proposal/v1",
+  "definitions": {
+    "viewport.action_proposal/v1": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "const": "viewport.action_proposal/v1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflowRunId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adapter": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": {}
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proposalDigest": {
+          "type": "string",
+          "pattern": "^sha256:[A-Za-z0-9._-]+$"
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "policyEvaluation": {
+          "type": "object",
+          "properties": {
+            "decision": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "matchedRules": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "evaluatedAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "decision"
+          ],
+          "additionalProperties": true
+        },
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "schema",
+        "id",
+        "workflowRunId",
+        "adapter",
+        "action",
+        "payload",
+        "idempotencyKey",
+        "proposalDigest",
+        "state",
+        "createdAt"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

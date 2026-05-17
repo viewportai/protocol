@@ -1,0 +1,72 @@
+{
+  "$ref": "#/definitions/viewport.context_receipt/v1",
+  "definitions": {
+    "viewport.context_receipt/v1": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "const": "viewport.context_receipt/v1"
+        },
+        "package": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requested": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resolvedVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[A-Za-z0-9._-]+$"
+        },
+        "freshness": {
+          "type": "string",
+          "minLength": 1
+        },
+        "usedBy": {
+          "type": "object",
+          "properties": {
+            "runId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "nodeId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "runId"
+          ],
+          "additionalProperties": true
+        },
+        "resolvedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "schema",
+        "package",
+        "requested",
+        "resolvedVersion",
+        "provider",
+        "digest",
+        "freshness",
+        "usedBy",
+        "resolvedAt"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
