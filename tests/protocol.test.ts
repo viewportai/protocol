@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
   CONTRACTS,
   SchemaIds,
+  WireSchemaIds,
+  WIRE_SCHEMAS,
   implementedContracts,
   readAllSamples,
   sampleFiles,
@@ -27,6 +29,23 @@ describe('@viewportai/protocol registry', () => {
       'viewport.execution_receipt/v1',
       'viewport.context_receipt/v1',
       'viewport.audit_receipt/v1',
+    ]);
+  });
+
+  it('declares generated wire schemas separately from document contracts', () => {
+    expect(Object.values(WireSchemaIds)).toEqual([
+      'viewport.workflow_run_record/v1',
+      'viewport.workflow_runs_message/v1',
+      'viewport.workflow_run_started_message/v1',
+      'viewport.workflow_run_updated_message/v1',
+      'viewport.workflow_run_detail_message/v1',
+    ]);
+    expect(WIRE_SCHEMAS.map((schema) => schema.key)).toEqual([
+      'workflowRunRecord',
+      'workflowRunsMessage',
+      'workflowRunStartedMessage',
+      'workflowRunUpdatedMessage',
+      'workflowRunDetailMessage',
     ]);
   });
 

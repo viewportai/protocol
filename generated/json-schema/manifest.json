@@ -95,6 +95,46 @@
       "schemaId": "viewport.audit_receipt/v1",
       "status": "implemented",
       "jsonSchema": "generated/json-schema/auditReceipt.schema.json"
+    },
+    {
+      "key": "workflowRunRecord",
+      "schemaId": "viewport.workflow_run_record/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/workflowRunRecord.schema.json",
+      "category": "wire",
+      "notes": "Canonical daemon/platform/web workflow run record projection."
+    },
+    {
+      "key": "workflowRunsMessage",
+      "schemaId": "viewport.workflow_runs_message/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/workflowRunsMessage.schema.json",
+      "category": "wire",
+      "notes": "Daemon WebSocket list response envelope for workflow runs."
+    },
+    {
+      "key": "workflowRunStartedMessage",
+      "schemaId": "viewport.workflow_run_started_message/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/workflowRunStartedMessage.schema.json",
+      "category": "wire",
+      "notes": "Daemon WebSocket push envelope emitted when a workflow run starts."
+    },
+    {
+      "key": "workflowRunUpdatedMessage",
+      "schemaId": "viewport.workflow_run_updated_message/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/workflowRunUpdatedMessage.schema.json",
+      "category": "wire",
+      "notes": "Daemon WebSocket push envelope emitted when a workflow run changes."
+    },
+    {
+      "key": "workflowRunDetailMessage",
+      "schemaId": "viewport.workflow_run_detail_message/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/workflowRunDetailMessage.schema.json",
+      "category": "wire",
+      "notes": "Daemon WebSocket detail response envelope for a workflow run."
     }
   ]
 }

@@ -2,6 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { CONTRACTS, ProtocolDocumentSchemas } from '../src/index.js';
+import { WIRE_SCHEMAS } from '../src/wire-schemas.js';
 
 const outDir = path.resolve(import.meta.dirname, '../generated/json-schema');
 await mkdir(outDir, { recursive: true });
@@ -40,6 +41,30 @@ for (const contract of CONTRACTS) {
     schemaId: contract.schemaId,
     status: contract.status,
     jsonSchema: `generated/json-schema/${fileName}`,
+  });
+}
+
+for (const schema of WIRE_SCHEMAS) {
+  const fileName = `${schema.key}.schema.json`;
+  const jsonSchema = zodToJsonSchema(schema.zodSchema, {
+    $refStrategy: 'none',
+    name: schema.schemaId,
+    target: 'jsonSchema7',
+  });
+
+  await writeFile(
+    path.join(outDir, fileName),
+    `${JSON.stringify(jsonSchema, null, 2)}\n`,
+    'utf8',
+  );
+
+  manifest.push({
+    key: schema.key,
+    schemaId: schema.schemaId,
+    status: schema.status,
+    jsonSchema: `generated/json-schema/${fileName}`,
+    category: 'wire',
+    notes: schema.notes,
   });
 }
 
