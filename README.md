@@ -92,3 +92,6 @@ VIEWPORT_PLATFORM_ROOT=/path/to/platform
 
 Do not expand platform-local schemas to make a feature work. Move or generate
 the contract here first.
+
+See [`docs/consumer-migration.md`](docs/consumer-migration.md) for the active
+consumer migration guardrails and known duplicate contract inventory.
