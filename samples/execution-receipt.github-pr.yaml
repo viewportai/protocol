@@ -10,7 +10,7 @@ providerReference: acme/payments-api#4821
 providerUrl: https://github.com/acme/payments-api/pull/4821
 idempotencyKey: jira:PAY-1842:github.open_pr
 payloadDigest: sha256:execution-payload-pay1842-open-pr
-providerResponseDigest: sha256:github-open-pr-response-pay1842
+providerResponseDigest: sha256:e15a48f14cb0c9cbb687543292e62d32a1a2c24d09f64efa3bd8db22c3917e1e
 proposalDigest: sha256:action-proposal-pay1842-open-pr
 approvalDecisionDigest: sha256:approval-pay1842-open-pr-alice
 executionGrant:
