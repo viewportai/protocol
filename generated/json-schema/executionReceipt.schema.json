@@ -52,6 +52,10 @@
           "type": "string",
           "pattern": "^sha256:[A-Za-z0-9._-]+$"
         },
+        "providerResponseDigest": {
+          "type": "string",
+          "pattern": "^sha256:[A-Za-z0-9._-]+$"
+        },
         "proposalDigest": {
           "type": "string",
           "pattern": "^sha256:[A-Za-z0-9._-]+$"
