@@ -111,6 +111,16 @@ export const CONTRACTS = [
         notes: 'Protocol package validates approval decision shape. Platform stores approval decisions, daemon receives approved digests on resume, and stale digest approvals fail closed.',
     },
     {
+        key: 'executionGrant',
+        schemaId: SchemaIds.executionGrant,
+        sampleFile: 'execution-grant.github-pr.yaml',
+        status: 'implemented',
+        daemonCompatibility: 'validated',
+        platformCompatibility: 'validated',
+        webCompatibility: 'pending',
+        notes: 'Protocol package validates approval-bound execution grant shape. Platform mints grants for approved proposal-backed side effects and daemon carries them into execution receipts.',
+    },
+    {
         key: 'executionReceipt',
         schemaId: SchemaIds.executionReceipt,
         sampleFile: 'execution-receipt.github-pr.yaml',

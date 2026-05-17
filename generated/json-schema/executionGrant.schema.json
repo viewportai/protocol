@@ -1,0 +1,39 @@
+{
+  "$ref": "#/definitions/viewport.execution_grant/v1",
+  "definitions": {
+    "viewport.execution_grant/v1": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "const": "viewport.execution_grant/v1"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[A-Za-z0-9._-]+$"
+        },
+        "proposalKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approvalDecisionKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issuedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "schema",
+        "digest",
+        "proposalKey",
+        "approvalDecisionKey",
+        "issuedAt"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

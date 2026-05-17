@@ -851,6 +851,25 @@ export declare const ApprovalDecisionContractSchema: z.ZodObject<{
     reason: z.ZodOptional<z.ZodString>;
     createdAt: z.ZodString;
 }, z.ZodTypeAny, "passthrough">>;
+export declare const ExecutionGrantContractSchema: z.ZodObject<{
+    schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+    digest: z.ZodString;
+    proposalKey: z.ZodString;
+    approvalDecisionKey: z.ZodString;
+    issuedAt: z.ZodString;
+}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+    schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+    digest: z.ZodString;
+    proposalKey: z.ZodString;
+    approvalDecisionKey: z.ZodString;
+    issuedAt: z.ZodString;
+}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+    schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+    digest: z.ZodString;
+    proposalKey: z.ZodString;
+    approvalDecisionKey: z.ZodString;
+    issuedAt: z.ZodString;
+}, z.ZodTypeAny, "passthrough">>;
 export declare const ExecutionReceiptContractSchema: z.ZodObject<{
     schema: z.ZodLiteral<"viewport.execution_receipt/v1">;
     id: z.ZodString;
@@ -866,6 +885,25 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
     payloadDigest: z.ZodOptional<z.ZodString>;
     proposalDigest: z.ZodOptional<z.ZodString>;
     approvalDecisionDigest: z.ZodOptional<z.ZodString>;
+    executionGrant: z.ZodOptional<z.ZodObject<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">>>;
     payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     executedAt: z.ZodString;
@@ -884,6 +922,25 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
     payloadDigest: z.ZodOptional<z.ZodString>;
     proposalDigest: z.ZodOptional<z.ZodString>;
     approvalDecisionDigest: z.ZodOptional<z.ZodString>;
+    executionGrant: z.ZodOptional<z.ZodObject<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">>>;
     payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     executedAt: z.ZodString;
@@ -902,6 +959,25 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
     payloadDigest: z.ZodOptional<z.ZodString>;
     proposalDigest: z.ZodOptional<z.ZodString>;
     approvalDecisionDigest: z.ZodOptional<z.ZodString>;
+    executionGrant: z.ZodOptional<z.ZodObject<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">>>;
     payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     executedAt: z.ZodString;
@@ -2067,6 +2143,25 @@ export declare const ProtocolDocumentSchemas: {
         reason: z.ZodOptional<z.ZodString>;
         createdAt: z.ZodString;
     }, z.ZodTypeAny, "passthrough">>;
+    readonly "viewport.execution_grant/v1": z.ZodObject<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">>;
     readonly "viewport.execution_receipt/v1": z.ZodObject<{
         schema: z.ZodLiteral<"viewport.execution_receipt/v1">;
         id: z.ZodString;
@@ -2082,6 +2177,25 @@ export declare const ProtocolDocumentSchemas: {
         payloadDigest: z.ZodOptional<z.ZodString>;
         proposalDigest: z.ZodOptional<z.ZodString>;
         approvalDecisionDigest: z.ZodOptional<z.ZodString>;
+        executionGrant: z.ZodOptional<z.ZodObject<{
+            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+            digest: z.ZodString;
+            proposalKey: z.ZodString;
+            approvalDecisionKey: z.ZodString;
+            issuedAt: z.ZodString;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+            digest: z.ZodString;
+            proposalKey: z.ZodString;
+            approvalDecisionKey: z.ZodString;
+            issuedAt: z.ZodString;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+            digest: z.ZodString;
+            proposalKey: z.ZodString;
+            approvalDecisionKey: z.ZodString;
+            issuedAt: z.ZodString;
+        }, z.ZodTypeAny, "passthrough">>>;
         payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         executedAt: z.ZodString;
@@ -2100,6 +2214,25 @@ export declare const ProtocolDocumentSchemas: {
         payloadDigest: z.ZodOptional<z.ZodString>;
         proposalDigest: z.ZodOptional<z.ZodString>;
         approvalDecisionDigest: z.ZodOptional<z.ZodString>;
+        executionGrant: z.ZodOptional<z.ZodObject<{
+            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+            digest: z.ZodString;
+            proposalKey: z.ZodString;
+            approvalDecisionKey: z.ZodString;
+            issuedAt: z.ZodString;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+            digest: z.ZodString;
+            proposalKey: z.ZodString;
+            approvalDecisionKey: z.ZodString;
+            issuedAt: z.ZodString;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+            digest: z.ZodString;
+            proposalKey: z.ZodString;
+            approvalDecisionKey: z.ZodString;
+            issuedAt: z.ZodString;
+        }, z.ZodTypeAny, "passthrough">>>;
         payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         executedAt: z.ZodString;
@@ -2118,6 +2251,25 @@ export declare const ProtocolDocumentSchemas: {
         payloadDigest: z.ZodOptional<z.ZodString>;
         proposalDigest: z.ZodOptional<z.ZodString>;
         approvalDecisionDigest: z.ZodOptional<z.ZodString>;
+        executionGrant: z.ZodOptional<z.ZodObject<{
+            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+            digest: z.ZodString;
+            proposalKey: z.ZodString;
+            approvalDecisionKey: z.ZodString;
+            issuedAt: z.ZodString;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+            digest: z.ZodString;
+            proposalKey: z.ZodString;
+            approvalDecisionKey: z.ZodString;
+            issuedAt: z.ZodString;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+            digest: z.ZodString;
+            proposalKey: z.ZodString;
+            approvalDecisionKey: z.ZodString;
+            issuedAt: z.ZodString;
+        }, z.ZodTypeAny, "passthrough">>>;
         payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         executedAt: z.ZodString;

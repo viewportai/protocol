@@ -193,6 +193,15 @@ export const ApprovalDecisionContractSchema = z
     createdAt: IsoDateTime,
 })
     .passthrough();
+export const ExecutionGrantContractSchema = z
+    .object({
+    schema: z.literal(SchemaIds.executionGrant),
+    digest: Digest,
+    proposalKey: NonEmptyString,
+    approvalDecisionKey: NonEmptyString,
+    issuedAt: IsoDateTime,
+})
+    .passthrough();
 export const ExecutionReceiptContractSchema = z
     .object({
     schema: z.literal(SchemaIds.executionReceipt),
@@ -209,6 +218,7 @@ export const ExecutionReceiptContractSchema = z
     payloadDigest: Digest.optional(),
     proposalDigest: Digest.optional(),
     approvalDecisionDigest: Digest.optional(),
+    executionGrant: ExecutionGrantContractSchema.optional(),
     payload: z.record(z.unknown()).optional(),
     recovery: z.record(z.unknown()).optional(),
     executedAt: IsoDateTime,
@@ -290,6 +300,7 @@ export const ProtocolDocumentSchemas = {
     [SchemaIds.actionProposal]: ActionProposalContractSchema,
     [SchemaIds.authorizationDecision]: AuthorizationDecisionContractSchema,
     [SchemaIds.approvalDecision]: ApprovalDecisionContractSchema,
+    [SchemaIds.executionGrant]: ExecutionGrantContractSchema,
     [SchemaIds.executionReceipt]: ExecutionReceiptContractSchema,
     [SchemaIds.contextReceipt]: ContextReceiptContractSchema,
     [SchemaIds.auditReceipt]: AuditReceiptContractSchema,

@@ -73,6 +73,12 @@
       "jsonSchema": "generated/json-schema/approvalDecision.schema.json"
     },
     {
+      "key": "executionGrant",
+      "schemaId": "viewport.execution_grant/v1",
+      "status": "implemented",
+      "jsonSchema": "generated/json-schema/executionGrant.schema.json"
+    },
+    {
       "key": "executionReceipt",
       "schemaId": "viewport.execution_receipt/v1",
       "status": "implemented",
