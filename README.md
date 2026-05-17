@@ -57,6 +57,9 @@ hardened. It is package-release-ready only after:
   receipt records
 - execution receipt provider response digests and optional provider
   reconciliation metadata shape validation
+- workflow run wire projection schemas for run lists, run detail, run nodes,
+  artifacts, evidence packets, approval decisions, side-effect receipts, audit
+  receipts, contract health, and resource manifests
 
 Compatibility claims are not release claims by themselves. A contract is only
 production-ready when the relevant consumer repos prove it in CI.
@@ -99,8 +102,8 @@ VIEWPORT_PLATFORM_ROOT=/path/to/platform
 ## Consumer Migration Order
 
 1. Add stable daemon/app wire contracts here.
-2. Migrate platform web WebSocket ingress validation to import this package.
-3. Migrate workflow run records and session transcript types.
+2. Migrate workflow run records and run list/detail messages.
+3. Migrate platform web WebSocket ingress validation to import this package.
 4. Migrate daemon UI tests and daemon compatibility checks.
 5. Remove local duplicate protocol files only after consumers are green.
 
