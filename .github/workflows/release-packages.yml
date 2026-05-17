@@ -1,0 +1,88 @@
+name: Release Packages
+
+on:
+  workflow_run:
+    workflows: ['CI']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  id-token: write
+
+concurrency:
+  group: release-packages-${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  protocol:
+    name: Protocol npm package
+    if: >
+      ((github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_run' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      - run: npm ci
+
+      - name: Validate protocol publish metadata
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          const expectedRepoUrl = `https://github.com/${process.env.GITHUB_REPOSITORY}.git`;
+          if (pkg.name !== '@viewportai/protocol') {
+            console.error(`package name must be @viewportai/protocol, got: ${pkg.name}`);
+            process.exit(1);
+          }
+          if (pkg.private) {
+            console.error('package.json must not be private for npm publishing.');
+            process.exit(1);
+          }
+          if (pkg.repository?.url !== expectedRepoUrl) {
+            console.error(`package.json repository.url must equal ${expectedRepoUrl}, got: ${pkg.repository?.url}`);
+            process.exit(1);
+          }
+          if (pkg.publishConfig?.access !== 'public') {
+            console.error('package.json publishConfig.access must be public.');
+            process.exit(1);
+          }
+          NODE
+
+      - name: Verify release secret is configured
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$NPM_TOKEN" ]; then
+            echo "NPM_TOKEN is not configured."
+            exit 1
+          fi
+
+      - name: Verify npm authentication
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm whoami --registry https://registry.npmjs.org/
+
+      - name: Semantic release protocol
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
+        run: npx semantic-release
