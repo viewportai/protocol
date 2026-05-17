@@ -15,6 +15,9 @@ concurrency:
   group: release-packages-${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   protocol:
     name: Protocol npm package
@@ -35,6 +38,7 @@ jobs:
         with:
           node-version: 24
           cache: npm
+          cache-dependency-path: package-lock.json
           registry-url: https://registry.npmjs.org
 
       - run: npm ci
@@ -46,7 +50,7 @@ jobs:
           node <<'NODE'
           const fs = require('node:fs');
           const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-          const expectedRepoUrl = `https://github.com/${process.env.GITHUB_REPOSITORY}.git`;
+          const expectedRepoUrl = `git+https://github.com/${process.env.GITHUB_REPOSITORY}.git`;
           if (pkg.name !== '@viewportai/protocol') {
             console.error(`package name must be @viewportai/protocol, got: ${pkg.name}`);
             process.exit(1);
@@ -79,10 +83,34 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm whoami --registry https://registry.npmjs.org/
 
+      - name: Detect protocol release changes
+        id: protocol_changes
+        shell: bash
+        run: |
+          latest_tag="$(git tag --list '@viewportai/protocol@*' --sort=-version:refname | head -1)"
+          if [[ -z "$latest_tag" ]]; then
+            echo "No protocol release tag found; first release will run."
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          changed_files="$(git diff --name-only "$latest_tag"..HEAD)"
+          echo "$changed_files"
+          if echo "$changed_files" | grep -E '^(src/|generated/|samples/|scripts/|README\.md$|CHANGELOG\.md$|package\.json$|package-lock\.json$|tsconfig\.json$|vitest\.config\.ts$|\.releaserc\.json$)' >/dev/null; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Semantic release protocol
+        if: steps.protocol_changes.outputs.changed == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
-        run: npx semantic-release
+        run: npx semantic-release --extends ./.releaserc.json
+
+      - name: Skip protocol release
+        if: steps.protocol_changes.outputs.changed != 'true'
+        run: echo "No protocol package changes since the latest protocol release tag."

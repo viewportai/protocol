@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/viewportai/protocol.git"
+    "url": "git+https://github.com/viewportai/protocol.git"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

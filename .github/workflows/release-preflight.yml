@@ -11,6 +11,9 @@ on:
       - '.github/workflows/release-preflight.yml'
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   protocol-npm-auth:
     runs-on: ubuntu-latest
@@ -32,7 +35,7 @@ jobs:
           node <<'NODE'
           const fs = require('node:fs');
           const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-          const expectedRepoUrl = `https://github.com/${process.env.GITHUB_REPOSITORY}.git`;
+          const expectedRepoUrl = `git+https://github.com/${process.env.GITHUB_REPOSITORY}.git`;
           if (pkg.name !== '@viewportai/protocol') {
             console.error(`package name must be @viewportai/protocol, got: ${pkg.name}`);
             process.exit(1);
