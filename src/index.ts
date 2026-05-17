@@ -4,3 +4,4 @@ export * from './samples.js';
 export * from './schemas.js';
 export * from './validate.js';
 export * from './workflow-run.js';
+export * from './wire-schemas.js';

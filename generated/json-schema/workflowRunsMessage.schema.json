@@ -1,0 +1,1886 @@
+{
+  "$ref": "#/definitions/viewport.workflow_runs_message/v1",
+  "definitions": {
+    "viewport.workflow_runs_message/v1": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "workflow-runs"
+        },
+        "runs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "workflowName": {
+                "type": "string"
+              },
+              "workflowTitle": {
+                "type": "string"
+              },
+              "workflowDefinitionId": {
+                "type": "string"
+              },
+              "workflowVersionId": {
+                "type": "string"
+              },
+              "rerunOfWorkflowRunId": {
+                "type": "string"
+              },
+              "sourceType": {
+                "type": "string",
+                "enum": [
+                  "local_file",
+                  "viewport_snapshot",
+                  "local_modified"
+                ]
+              },
+              "sourcePath": {
+                "type": "string"
+              },
+              "digest": {
+                "type": "string"
+              },
+              "schema": {
+                "type": "string"
+              },
+              "yamlSnapshot": {
+                "type": "string"
+              },
+              "directoryId": {
+                "type": "string"
+              },
+              "directoryPath": {
+                "type": "string"
+              },
+              "resourceId": {
+                "type": "string"
+              },
+              "runtimeTargetId": {
+                "type": "string"
+              },
+              "managedExecutorId": {
+                "type": "string"
+              },
+              "executorTarget": {
+                "type": "string",
+                "enum": [
+                  "local_machine",
+                  "managed_executor"
+                ]
+              },
+              "assignmentStatus": {
+                "type": "string"
+              },
+              "platformRunId": {
+                "type": "string"
+              },
+              "machineId": {
+                "type": "string"
+              },
+              "executorAgent": {
+                "type": "string"
+              },
+              "executorModel": {
+                "type": "string"
+              },
+              "executionPolicy": {
+                "type": "object",
+                "properties": {
+                  "mode": {
+                    "type": "string",
+                    "enum": [
+                      "current_tree",
+                      "isolated_worktree",
+                      "named_branch"
+                    ]
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "mode"
+                ],
+                "additionalProperties": false
+              },
+              "dataCapturePolicy": {
+                "type": "object",
+                "properties": {
+                  "transcripts": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "excerpt"
+                    ]
+                  },
+                  "logs": {
+                    "type": "string",
+                    "enum": [
+                      "metadata",
+                      "content"
+                    ]
+                  },
+                  "artifacts": {
+                    "type": "string",
+                    "enum": [
+                      "metadata",
+                      "local_reference"
+                    ]
+                  }
+                },
+                "required": [
+                  "transcripts",
+                  "logs",
+                  "artifacts"
+                ],
+                "additionalProperties": false
+              },
+              "initiation": {
+                "type": "string",
+                "enum": [
+                  "cli",
+                  "browser",
+                  "agent_skill"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "queued",
+                  "running",
+                  "blocked",
+                  "completed",
+                  "failed",
+                  "canceled"
+                ]
+              },
+              "inputs": {
+                "type": "object",
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "array",
+                      "items": {}
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": {}
+                    }
+                  ]
+                }
+              },
+              "preflight": {
+                "type": "object",
+                "properties": {
+                  "ok": {
+                    "type": "boolean"
+                  },
+                  "issues": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "agent",
+                            "tool",
+                            "node"
+                          ]
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "name",
+                        "message"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "ok",
+                  "issues"
+                ],
+                "additionalProperties": false
+              },
+              "nodes": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "prompt",
+                        "shell",
+                        "approval",
+                        "plan",
+                        "gate",
+                        "loop",
+                        "subflow",
+                        "agent",
+                        "context",
+                        "condition",
+                        "artifact",
+                        "action"
+                      ]
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "queued",
+                        "running",
+                        "blocked",
+                        "completed",
+                        "failed",
+                        "skipped",
+                        "canceled"
+                      ]
+                    },
+                    "startedAt": {
+                      "type": "number"
+                    },
+                    "completedAt": {
+                      "type": "number"
+                    },
+                    "sessionId": {
+                      "type": "string"
+                    },
+                    "nativeSessionId": {
+                      "type": "string"
+                    },
+                    "worktreePath": {
+                      "type": "string"
+                    },
+                    "output": {
+                      "type": "string"
+                    },
+                    "outputs": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "transcriptExcerpt": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "role": {
+                            "type": "string",
+                            "enum": [
+                              "user",
+                              "assistant"
+                            ]
+                          },
+                          "text": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "role",
+                          "text"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "exitCode": {
+                      "type": "number"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "approval": {
+                      "type": "object",
+                      "properties": {
+                        "prompt": {
+                          "type": "string"
+                        },
+                        "requestedAt": {
+                          "type": "number"
+                        },
+                        "resolvedAt": {
+                          "type": "number"
+                        },
+                        "approved": {
+                          "type": "boolean"
+                        },
+                        "decision": {
+                          "type": "string",
+                          "enum": [
+                            "approve",
+                            "request_changes",
+                            "reject"
+                          ]
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "actor": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "source": {
+                              "type": "string"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "feedback": {
+                          "type": "object",
+                          "additionalProperties": {}
+                        },
+                        "executionGrant": {
+                          "type": "object",
+                          "additionalProperties": {}
+                        }
+                      },
+                      "required": [
+                        "prompt",
+                        "requestedAt"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "iterations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "index": {
+                            "type": "number"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "running",
+                              "completed",
+                              "failed",
+                              "skipped",
+                              "canceled"
+                            ]
+                          },
+                          "startedAt": {
+                            "type": "number"
+                          },
+                          "completedAt": {
+                            "type": "number"
+                          },
+                          "sessionId": {
+                            "type": "string"
+                          },
+                          "nativeSessionId": {
+                            "type": "string"
+                          },
+                          "worktreePath": {
+                            "type": "string"
+                          },
+                          "output": {
+                            "type": "string"
+                          },
+                          "exitCode": {
+                            "type": "number"
+                          },
+                          "error": {
+                            "type": "string"
+                          },
+                          "item": {}
+                        },
+                        "required": [
+                          "index",
+                          "status",
+                          "startedAt"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "inlineAgents": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "agent": {
+                            "type": "string"
+                          },
+                          "model": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "queued",
+                              "running",
+                              "completed",
+                              "failed",
+                              "canceled"
+                            ]
+                          },
+                          "startedAt": {
+                            "type": "number"
+                          },
+                          "completedAt": {
+                            "type": "number"
+                          },
+                          "sessionId": {
+                            "type": "string"
+                          },
+                          "nativeSessionId": {
+                            "type": "string"
+                          },
+                          "worktreePath": {
+                            "type": "string"
+                          },
+                          "output": {
+                            "type": "string"
+                          },
+                          "error": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "status"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "status"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "artifacts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "runId": {
+                      "type": "string"
+                    },
+                    "nodeId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "digest": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "sizeBytes": {
+                      "type": "number"
+                    },
+                    "createdAt": {
+                      "type": "number"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "runId",
+                    "nodeId",
+                    "name",
+                    "path",
+                    "createdAt"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "reviewPackets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "readinessTargetId": {
+                      "type": "string"
+                    },
+                    "workflowRunId": {
+                      "type": "string"
+                    },
+                    "planId": {
+                      "type": "string"
+                    },
+                    "sourceKey": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "draft",
+                        "published",
+                        "failed",
+                        "canceled"
+                      ]
+                    },
+                    "decision": {
+                      "type": "string",
+                      "enum": [
+                        "approved",
+                        "changes_requested",
+                        "blocked",
+                        "needs_review"
+                      ]
+                    },
+                    "riskLevel": {
+                      "type": "string",
+                      "enum": [
+                        "unknown",
+                        "low",
+                        "medium",
+                        "high",
+                        "critical"
+                      ]
+                    },
+                    "summary": {
+                      "type": "string"
+                    },
+                    "checks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      }
+                    },
+                    "findings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      }
+                    },
+                    "proofItems": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      }
+                    },
+                    "artifacts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      }
+                    },
+                    "sourceSnapshot": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "publishedAt": {
+                      "type": "number"
+                    },
+                    "createdAt": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "status",
+                    "decision",
+                    "riskLevel"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "readinessTargets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "resourceId": {
+                      "type": "string"
+                    },
+                    "ownerUserId": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "workflowDefinitionId": {
+                      "type": "string"
+                    },
+                    "workflowRunId": {
+                      "type": "string"
+                    },
+                    "planId": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "draft",
+                        "running",
+                        "ready",
+                        "blocked",
+                        "failed",
+                        "canceled"
+                      ]
+                    },
+                    "riskLevel": {
+                      "type": "string",
+                      "enum": [
+                        "unknown",
+                        "low",
+                        "medium",
+                        "high",
+                        "critical"
+                      ]
+                    },
+                    "repository": {
+                      "type": "string"
+                    },
+                    "baseBranch": {
+                      "type": "string"
+                    },
+                    "headBranch": {
+                      "type": "string"
+                    },
+                    "headSha": {
+                      "type": "string"
+                    },
+                    "externalUrl": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "string"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "completedAt": {
+                      "type": "number"
+                    },
+                    "createdAt": {
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "type": "number"
+                    },
+                    "reviewPackets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "readinessTargetId": {
+                            "type": "string"
+                          },
+                          "workflowRunId": {
+                            "type": "string"
+                          },
+                          "planId": {
+                            "type": "string"
+                          },
+                          "sourceKey": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "draft",
+                              "published",
+                              "failed",
+                              "canceled"
+                            ]
+                          },
+                          "decision": {
+                            "type": "string",
+                            "enum": [
+                              "approved",
+                              "changes_requested",
+                              "blocked",
+                              "needs_review"
+                            ]
+                          },
+                          "riskLevel": {
+                            "type": "string",
+                            "enum": [
+                              "unknown",
+                              "low",
+                              "medium",
+                              "high",
+                              "critical"
+                            ]
+                          },
+                          "summary": {
+                            "type": "string"
+                          },
+                          "checks": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": {}
+                            }
+                          },
+                          "findings": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": {}
+                            }
+                          },
+                          "proofItems": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": {}
+                            }
+                          },
+                          "artifacts": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": {}
+                            }
+                          },
+                          "sourceSnapshot": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          },
+                          "metadata": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          },
+                          "publishedAt": {
+                            "type": "number"
+                          },
+                          "createdAt": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "title",
+                          "status",
+                          "decision",
+                          "riskLevel"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "resourceId",
+                    "kind",
+                    "title",
+                    "status",
+                    "riskLevel"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "authorizationDecisions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "decisionKey": {
+                      "type": "string"
+                    },
+                    "subjectType": {
+                      "type": "string"
+                    },
+                    "subjectId": {
+                      "type": "string"
+                    },
+                    "action": {
+                      "type": "string"
+                    },
+                    "resourceType": {
+                      "type": "string"
+                    },
+                    "resourceId": {
+                      "type": "string"
+                    },
+                    "decision": {
+                      "type": "string",
+                      "enum": [
+                        "allow",
+                        "deny",
+                        "require_approval",
+                        "quarantine",
+                        "weak_legacy_allow"
+                      ]
+                    },
+                    "reason": {
+                      "type": "string"
+                    },
+                    "subjectSnapshot": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "resourceSnapshot": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "context": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "matchedRules": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "policySnapshot": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "decidedAt": {
+                      "type": "number"
+                    },
+                    "expiresAt": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "action",
+                    "decision"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "evidencePackets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "evidenceKey": {
+                      "type": "string"
+                    },
+                    "nodeId": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "string"
+                    },
+                    "confidence": {
+                      "type": "string"
+                    },
+                    "visibility": {
+                      "type": "string"
+                    },
+                    "digest": {
+                      "type": "string"
+                    },
+                    "payload": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "occurredAt": {
+                      "type": "number"
+                    },
+                    "createdAt": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "kind"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "actionProposals": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "proposalKey": {
+                      "type": "string"
+                    },
+                    "nodeId": {
+                      "type": "string"
+                    },
+                    "adapter": {
+                      "type": "string"
+                    },
+                    "action": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "idempotencyKey": {
+                      "type": "string"
+                    },
+                    "proposalDigest": {
+                      "type": "string"
+                    },
+                    "evidenceRefs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "policyEvaluation": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "proposedAt": {
+                      "type": "number"
+                    },
+                    "expiresAt": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "adapter",
+                    "action"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "approvalDecisions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "proposalKey": {
+                      "type": "string"
+                    },
+                    "decisionKey": {
+                      "type": "string"
+                    },
+                    "nodeId": {
+                      "type": "string"
+                    },
+                    "actorUserId": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "subjectType": {
+                      "type": "string"
+                    },
+                    "subjectId": {
+                      "type": "string"
+                    },
+                    "subjectDigest": {
+                      "type": "string"
+                    },
+                    "decision": {
+                      "type": "string",
+                      "enum": [
+                        "approve",
+                        "deny",
+                        "request_changes",
+                        "unknown"
+                      ]
+                    },
+                    "reason": {
+                      "type": "string"
+                    },
+                    "actorSnapshot": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "decidedAt": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "decision"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "executionReceipts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "proposalKey": {
+                      "type": "string"
+                    },
+                    "decisionKey": {
+                      "type": "string"
+                    },
+                    "receiptKey": {
+                      "type": "string"
+                    },
+                    "adapter": {
+                      "type": "string"
+                    },
+                    "action": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "providerReference": {
+                      "type": "string"
+                    },
+                    "providerUrl": {
+                      "type": "string"
+                    },
+                    "idempotencyKey": {
+                      "type": "string"
+                    },
+                    "payloadDigest": {
+                      "type": "string"
+                    },
+                    "providerResponseDigest": {
+                      "type": "string"
+                    },
+                    "receiptDigest": {
+                      "type": "string"
+                    },
+                    "providerReconciliation": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "executedAt": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "adapter",
+                    "action",
+                    "status"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "auditReceipts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "receiptKey": {
+                      "type": "string"
+                    },
+                    "eventType": {
+                      "type": "string"
+                    },
+                    "actorType": {
+                      "type": "string"
+                    },
+                    "actorId": {
+                      "type": "string"
+                    },
+                    "payloadDigest": {
+                      "type": "string"
+                    },
+                    "payload": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "occurredAt": {
+                      "type": "number"
+                    },
+                    "sequence": {
+                      "type": "number"
+                    },
+                    "previousReceiptDigest": {
+                      "type": "string"
+                    },
+                    "receiptDigest": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "eventType"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "contextReceipts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "schema": {
+                      "type": "string",
+                      "const": "viewport.context_receipt/v1"
+                    },
+                    "package": {
+                      "type": "string"
+                    },
+                    "packageName": {
+                      "type": "string"
+                    },
+                    "requested": {
+                      "type": "string"
+                    },
+                    "resolvedVersion": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "digest": {
+                      "type": "string"
+                    },
+                    "freshness": {
+                      "type": "string"
+                    },
+                    "usedBy": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "resolvedAt": {
+                      "type": [
+                        "number",
+                        "string"
+                      ]
+                    },
+                    "payload": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "contractHealth": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "valid",
+                      "warning",
+                      "invalid",
+                      "unknown",
+                      "not_applicable"
+                    ]
+                  },
+                  "summary": {
+                    "type": "object",
+                    "properties": {
+                      "evidencePackets": {
+                        "type": "number"
+                      },
+                      "actionProposals": {
+                        "type": "number"
+                      },
+                      "approvalDecisions": {
+                        "type": "number"
+                      },
+                      "executionReceipts": {
+                        "type": "number"
+                      },
+                      "auditReceipts": {
+                        "type": "number"
+                      },
+                      "issues": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "evidencePackets",
+                      "actionProposals",
+                      "approvalDecisions",
+                      "executionReceipts",
+                      "auditReceipts",
+                      "issues"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "issues": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "severity": {
+                          "type": "string",
+                          "enum": [
+                            "warning",
+                            "error"
+                          ]
+                        },
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "metadata": {
+                          "type": "object",
+                          "additionalProperties": {}
+                        }
+                      },
+                      "required": [
+                        "severity",
+                        "code",
+                        "message"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "proposals": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    }
+                  },
+                  "auditChain": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string"
+                      },
+                      "checked": {
+                        "type": "boolean"
+                      },
+                      "receiptCount": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "status",
+                      "checked",
+                      "receiptCount"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "checkedAt": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "status",
+                  "summary",
+                  "issues",
+                  "proposals",
+                  "auditChain"
+                ],
+                "additionalProperties": false
+              },
+              "resourceManifest": {
+                "type": "object",
+                "properties": {
+                  "schema": {
+                    "type": "string",
+                    "const": "viewport.session_resource_manifest/v1"
+                  },
+                  "manifestDigest": {
+                    "type": "string"
+                  },
+                  "workingDirectory": {
+                    "type": "string"
+                  },
+                  "configSources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "path": {
+                          "type": "string"
+                        },
+                        "digest": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "number",
+                          "const": 1
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "digest",
+                        "version"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "resources": {
+                    "type": "object",
+                    "properties": {
+                      "contexts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "sourceConfigPath": {
+                              "type": "string"
+                            },
+                            "resolution": {
+                              "type": "string",
+                              "enum": [
+                                "requested_unverified"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "required",
+                            "sourceConfigPath",
+                            "resolution"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "workflows": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "sourceConfigPath": {
+                              "type": "string"
+                            },
+                            "resolution": {
+                              "type": "string",
+                              "enum": [
+                                "requested_unverified"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "required",
+                            "sourceConfigPath",
+                            "resolution"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "plans": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "sourceConfigPath": {
+                              "type": "string"
+                            },
+                            "resolution": {
+                              "type": "string",
+                              "enum": [
+                                "requested_unverified"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "required",
+                            "sourceConfigPath",
+                            "resolution"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "agentProfiles": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "sourceConfigPath": {
+                              "type": "string"
+                            },
+                            "resolution": {
+                              "type": "string",
+                              "enum": [
+                                "requested_unverified"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "required",
+                            "sourceConfigPath",
+                            "resolution"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "contexts",
+                      "workflows",
+                      "plans",
+                      "agentProfiles"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "contract": {
+                    "type": "object",
+                    "properties": {
+                      "contextProviders": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "provider": {
+                              "type": "string",
+                              "enum": [
+                                "repo-docs",
+                                "viewport-vault",
+                                "notebooklm",
+                                "glean",
+                                "custom-cli",
+                                "custom-mcp"
+                              ]
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "privacy": {
+                              "type": "string",
+                              "enum": [
+                                "local_only",
+                                "control_plane_blind",
+                                "third_party_terms",
+                                "customer_hosted",
+                                "unknown"
+                              ]
+                            },
+                            "capabilities": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "search",
+                                  "get",
+                                  "propose",
+                                  "write_approved"
+                                ]
+                              }
+                            },
+                            "sourceConfigPath": {
+                              "type": "string"
+                            },
+                            "vault": {
+                              "type": "string"
+                            },
+                            "paths": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "notebook": {
+                              "type": "string"
+                            },
+                            "command": {
+                              "type": "string"
+                            },
+                            "resolution": {
+                              "type": "string",
+                              "enum": [
+                                "requested_unverified"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "provider",
+                            "required",
+                            "privacy",
+                            "capabilities",
+                            "sourceConfigPath",
+                            "resolution"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "contextResolution": {
+                        "type": "object",
+                        "properties": {
+                          "order": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "sizeBudgetBytes": {
+                            "type": "number"
+                          },
+                          "strategy": {
+                            "type": "string",
+                            "enum": [
+                              "rank_by_recency_then_query",
+                              "pinned_then_recent",
+                              "provider_order"
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "workflows": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "sourceConfigPath": {
+                              "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            },
+                            "resource": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "string"
+                            },
+                            "digest": {
+                              "type": "string"
+                            },
+                            "resolution": {
+                              "type": "string",
+                              "enum": [
+                                "requested_unverified"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "required",
+                            "sourceConfigPath",
+                            "resolution"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "contextProviders",
+                      "contextResolution",
+                      "workflows"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "conflicts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "field": {
+                          "type": "string"
+                        },
+                        "values": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string"
+                              },
+                              "sourceConfigPath": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "value",
+                              "sourceConfigPath"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "resolution": {
+                          "type": "string",
+                          "const": "requires_user_selection"
+                        }
+                      },
+                      "required": [
+                        "field",
+                        "values",
+                        "resolution"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "path": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "schema",
+                  "manifestDigest",
+                  "workingDirectory",
+                  "configSources",
+                  "resources",
+                  "conflicts",
+                  "warnings"
+                ],
+                "additionalProperties": false
+              },
+              "events": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "runId": {
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "severity": {
+                      "type": "string",
+                      "enum": [
+                        "debug",
+                        "info",
+                        "warning",
+                        "error"
+                      ]
+                    },
+                    "nodeId": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "runId",
+                    "timestamp",
+                    "type",
+                    "message"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "createdAt": {
+                "type": "number"
+              },
+              "startedAt": {
+                "type": "number"
+              },
+              "updatedAt": {
+                "type": "number"
+              },
+              "completedAt": {
+                "type": "number"
+              },
+              "error": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "workflowName",
+              "sourceType",
+              "digest",
+              "schema",
+              "yamlSnapshot",
+              "directoryId",
+              "directoryPath",
+              "machineId",
+              "initiation",
+              "status",
+              "inputs",
+              "preflight",
+              "nodes",
+              "events",
+              "createdAt",
+              "updatedAt"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "type",
+        "runs"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
