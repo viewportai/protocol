@@ -26,4 +26,5 @@ jobs:
       - run: git diff --exit-code -- generated/json-schema
       - run: npm run validate:samples
       - run: npm run build
+      - run: git diff --exit-code -- dist
       - run: npm run pack:smoke
