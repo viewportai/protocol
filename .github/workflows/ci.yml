@@ -22,6 +22,8 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
+      - run: npm run generate:json-schemas
+      - run: git diff --exit-code -- generated/json-schema
       - run: npm run validate:samples
       - run: npm run build
       - run: npm run pack:smoke
