@@ -353,11 +353,11 @@ export declare const ReadinessTargetSchema: z.ZodObject<{
     workflowRunId?: string | undefined;
     summary?: string | undefined;
     createdAt?: number | undefined;
+    repository?: string | undefined;
     metadata?: Record<string, unknown> | undefined;
     planId?: string | undefined;
     ownerUserId?: number | null | undefined;
     workflowDefinitionId?: string | undefined;
-    repository?: string | undefined;
     baseBranch?: string | undefined;
     headBranch?: string | undefined;
     headSha?: string | undefined;
@@ -402,11 +402,11 @@ export declare const ReadinessTargetSchema: z.ZodObject<{
     workflowRunId?: string | undefined;
     summary?: string | undefined;
     createdAt?: number | undefined;
+    repository?: string | undefined;
     metadata?: Record<string, unknown> | undefined;
     planId?: string | undefined;
     ownerUserId?: number | null | undefined;
     workflowDefinitionId?: string | undefined;
-    repository?: string | undefined;
     baseBranch?: string | undefined;
     headBranch?: string | undefined;
     headSha?: string | undefined;
@@ -1208,7 +1208,7 @@ export declare const WorkflowNodeRunStateSchema: z.ZodObject<{
         output?: string | undefined;
     }>>>;
 }, "strip", z.ZodTypeAny, {
-    type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+    type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
     status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
     id: string;
     title?: string | undefined;
@@ -1270,7 +1270,7 @@ export declare const WorkflowNodeRunStateSchema: z.ZodObject<{
         output?: string | undefined;
     }> | undefined;
 }, {
-    type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+    type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
     status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
     id: string;
     title?: string | undefined;
@@ -1499,13 +1499,13 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             resolution: "requested_unverified";
         }>, "many">;
     }, "strip", z.ZodTypeAny, {
-        contexts: {
+        workflows: {
             id: string;
             required: boolean;
             sourceConfigPath: string;
             resolution: "requested_unverified";
         }[];
-        workflows: {
+        contexts: {
             id: string;
             required: boolean;
             sourceConfigPath: string;
@@ -1524,13 +1524,13 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             resolution: "requested_unverified";
         }[];
     }, {
-        contexts: {
+        workflows: {
             id: string;
             required: boolean;
             sourceConfigPath: string;
             resolution: "requested_unverified";
         }[];
-        workflows: {
+        contexts: {
             id: string;
             required: boolean;
             sourceConfigPath: string;
@@ -1739,13 +1739,13 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
         name?: string | undefined;
     }[];
     resources: {
-        contexts: {
+        workflows: {
             id: string;
             required: boolean;
             sourceConfigPath: string;
             resolution: "requested_unverified";
         }[];
-        workflows: {
+        contexts: {
             id: string;
             required: boolean;
             sourceConfigPath: string;
@@ -1818,13 +1818,13 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
         name?: string | undefined;
     }[];
     resources: {
-        contexts: {
+        workflows: {
             id: string;
             required: boolean;
             sourceConfigPath: string;
             resolution: "requested_unverified";
         }[];
-        workflows: {
+        contexts: {
             id: string;
             required: boolean;
             sourceConfigPath: string;
@@ -2125,7 +2125,7 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             output?: string | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
-        type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+        type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
         status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
         id: string;
         title?: string | undefined;
@@ -2187,7 +2187,7 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             output?: string | undefined;
         }> | undefined;
     }, {
-        type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+        type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
         status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
         id: string;
         title?: string | undefined;
@@ -2505,11 +2505,11 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         workflowRunId?: string | undefined;
         summary?: string | undefined;
         createdAt?: number | undefined;
+        repository?: string | undefined;
         metadata?: Record<string, unknown> | undefined;
         planId?: string | undefined;
         ownerUserId?: number | null | undefined;
         workflowDefinitionId?: string | undefined;
-        repository?: string | undefined;
         baseBranch?: string | undefined;
         headBranch?: string | undefined;
         headSha?: string | undefined;
@@ -2554,11 +2554,11 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         workflowRunId?: string | undefined;
         summary?: string | undefined;
         createdAt?: number | undefined;
+        repository?: string | undefined;
         metadata?: Record<string, unknown> | undefined;
         planId?: string | undefined;
         ownerUserId?: number | null | undefined;
         workflowDefinitionId?: string | undefined;
-        repository?: string | undefined;
         baseBranch?: string | undefined;
         headBranch?: string | undefined;
         headSha?: string | undefined;
@@ -3089,13 +3089,13 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 resolution: "requested_unverified";
             }>, "many">;
         }, "strip", z.ZodTypeAny, {
-            contexts: {
+            workflows: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
-            workflows: {
+            contexts: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
@@ -3114,13 +3114,13 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 resolution: "requested_unverified";
             }[];
         }, {
-            contexts: {
+            workflows: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
-            workflows: {
+            contexts: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
@@ -3329,13 +3329,13 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             name?: string | undefined;
         }[];
         resources: {
-            contexts: {
+            workflows: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
-            workflows: {
+            contexts: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
@@ -3408,13 +3408,13 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             name?: string | undefined;
         }[];
         resources: {
-            contexts: {
+            workflows: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
-            workflows: {
+            contexts: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
@@ -3534,7 +3534,7 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         ok: boolean;
     };
     nodes: Record<string, {
-        type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+        type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
         status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
         id: string;
         title?: string | undefined;
@@ -3770,11 +3770,11 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         workflowRunId?: string | undefined;
         summary?: string | undefined;
         createdAt?: number | undefined;
+        repository?: string | undefined;
         metadata?: Record<string, unknown> | undefined;
         planId?: string | undefined;
         ownerUserId?: number | null | undefined;
         workflowDefinitionId?: string | undefined;
-        repository?: string | undefined;
         baseBranch?: string | undefined;
         headBranch?: string | undefined;
         headSha?: string | undefined;
@@ -3864,13 +3864,13 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             name?: string | undefined;
         }[];
         resources: {
-            contexts: {
+            workflows: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
-            workflows: {
+            contexts: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
@@ -3957,7 +3957,7 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         ok: boolean;
     };
     nodes: Record<string, {
-        type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+        type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
         status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
         id: string;
         title?: string | undefined;
@@ -4193,11 +4193,11 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         workflowRunId?: string | undefined;
         summary?: string | undefined;
         createdAt?: number | undefined;
+        repository?: string | undefined;
         metadata?: Record<string, unknown> | undefined;
         planId?: string | undefined;
         ownerUserId?: number | null | undefined;
         workflowDefinitionId?: string | undefined;
-        repository?: string | undefined;
         baseBranch?: string | undefined;
         headBranch?: string | undefined;
         headSha?: string | undefined;
@@ -4287,13 +4287,13 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             name?: string | undefined;
         }[];
         resources: {
-            contexts: {
+            workflows: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
-            workflows: {
+            contexts: {
                 id: string;
                 required: boolean;
                 sourceConfigPath: string;
@@ -4597,7 +4597,7 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 output?: string | undefined;
             }>>>;
         }, "strip", z.ZodTypeAny, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -4659,7 +4659,7 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 output?: string | undefined;
             }> | undefined;
         }, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -4977,11 +4977,11 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -5026,11 +5026,11 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -5561,13 +5561,13 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     resolution: "requested_unverified";
                 }>, "many">;
             }, "strip", z.ZodTypeAny, {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -5586,13 +5586,13 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     resolution: "requested_unverified";
                 }[];
             }, {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -5801,13 +5801,13 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -5880,13 +5880,13 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -6006,7 +6006,7 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -6242,11 +6242,11 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -6336,13 +6336,13 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -6429,7 +6429,7 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -6665,11 +6665,11 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -6759,13 +6759,13 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -6855,7 +6855,7 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -7091,11 +7091,11 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -7185,13 +7185,13 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -7281,7 +7281,7 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -7517,11 +7517,11 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -7611,13 +7611,13 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -7922,7 +7922,7 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 output?: string | undefined;
             }>>>;
         }, "strip", z.ZodTypeAny, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -7984,7 +7984,7 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 output?: string | undefined;
             }> | undefined;
         }, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -8302,11 +8302,11 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -8351,11 +8351,11 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -8886,13 +8886,13 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     resolution: "requested_unverified";
                 }>, "many">;
             }, "strip", z.ZodTypeAny, {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -8911,13 +8911,13 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     resolution: "requested_unverified";
                 }[];
             }, {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -9126,13 +9126,13 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -9205,13 +9205,13 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -9331,7 +9331,7 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -9567,11 +9567,11 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -9661,13 +9661,13 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -9754,7 +9754,7 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -9990,11 +9990,11 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -10084,13 +10084,13 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -10180,7 +10180,7 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -10416,11 +10416,11 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -10510,13 +10510,13 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -10606,7 +10606,7 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -10842,11 +10842,11 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -10936,13 +10936,13 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -11247,7 +11247,7 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 output?: string | undefined;
             }>>>;
         }, "strip", z.ZodTypeAny, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -11309,7 +11309,7 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 output?: string | undefined;
             }> | undefined;
         }, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -11627,11 +11627,11 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -11676,11 +11676,11 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -12211,13 +12211,13 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     resolution: "requested_unverified";
                 }>, "many">;
             }, "strip", z.ZodTypeAny, {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -12236,13 +12236,13 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     resolution: "requested_unverified";
                 }[];
             }, {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -12451,13 +12451,13 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -12530,13 +12530,13 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -12656,7 +12656,7 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -12892,11 +12892,11 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -12986,13 +12986,13 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -13079,7 +13079,7 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -13315,11 +13315,11 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -13409,13 +13409,13 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -13505,7 +13505,7 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -13741,11 +13741,11 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -13835,13 +13835,13 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -13931,7 +13931,7 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -14167,11 +14167,11 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -14261,13 +14261,13 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -14572,7 +14572,7 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 output?: string | undefined;
             }>>>;
         }, "strip", z.ZodTypeAny, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -14634,7 +14634,7 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 output?: string | undefined;
             }> | undefined;
         }, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -14952,11 +14952,11 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -15001,11 +15001,11 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -15536,13 +15536,13 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     resolution: "requested_unverified";
                 }>, "many">;
             }, "strip", z.ZodTypeAny, {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -15561,13 +15561,13 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     resolution: "requested_unverified";
                 }[];
             }, {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -15776,13 +15776,13 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -15855,13 +15855,13 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -15981,7 +15981,7 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -16217,11 +16217,11 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -16311,13 +16311,13 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -16404,7 +16404,7 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -16640,11 +16640,11 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -16734,13 +16734,13 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -16830,7 +16830,7 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -17066,11 +17066,11 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -17160,13 +17160,13 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
@@ -17256,7 +17256,7 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             ok: boolean;
         };
         nodes: Record<string, {
-            type: "agent" | "context" | "action" | "prompt" | "shell" | "approval" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
+            type: "agent" | "context" | "action" | "approval" | "prompt" | "shell" | "plan" | "gate" | "loop" | "subflow" | "condition" | "artifact";
             status: "blocked" | "failed" | "queued" | "running" | "completed" | "canceled" | "skipped";
             id: string;
             title?: string | undefined;
@@ -17492,11 +17492,11 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             workflowRunId?: string | undefined;
             summary?: string | undefined;
             createdAt?: number | undefined;
+            repository?: string | undefined;
             metadata?: Record<string, unknown> | undefined;
             planId?: string | undefined;
             ownerUserId?: number | null | undefined;
             workflowDefinitionId?: string | undefined;
-            repository?: string | undefined;
             baseBranch?: string | undefined;
             headBranch?: string | undefined;
             headSha?: string | undefined;
@@ -17586,13 +17586,13 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 name?: string | undefined;
             }[];
             resources: {
-                contexts: {
+                workflows: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
-                workflows: {
+                contexts: {
                     id: string;
                     required: boolean;
                     sourceConfigPath: string;

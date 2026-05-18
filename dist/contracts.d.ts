@@ -64,7 +64,7 @@ export declare const CONTRACTS: readonly [{
     readonly daemonCompatibility: "pending";
     readonly platformCompatibility: "pending";
     readonly webCompatibility: "pending";
-    readonly notes: "Context engine exists, but package registry semantics are not implemented.";
+    readonly notes: "Protocol validates the target package shape, including source-of-truth mode, typed memory objects, relations, and update governance. Platform/daemon package registry semantics are not implemented.";
 }, {
     readonly key: "agentEvent";
     readonly schemaId: "viewport.agent_event/v1";

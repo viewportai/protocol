@@ -34,8 +34,8 @@ out explicitly.
 ## Current Status
 
 This repository is public because protocol contracts are the shared OSS boundary.
-The npm package remains unpublished/private while the contracts are being
-hardened. It is package-release-ready only after:
+The npm package is released as `@viewportai/protocol` through semantic-release.
+A contract is package-release-ready only after:
 
 - exports point at built artifacts;
 - packed package import smoke passes;
@@ -55,6 +55,9 @@ hardened. It is package-release-ready only after:
 - platform storage/replay compatibility for authorization decision records
 - daemon emission plus platform storage/replay/health compatibility for context
   receipt records
+- schema validation and JSON Schema projection for the target context package
+  contract, including source-of-truth modes, typed memory objects, relations,
+  and update governance
 - execution receipt provider response digests and optional provider
   reconciliation metadata shape validation
 - workflow run wire projection schemas for run lists, run detail, run nodes,
@@ -69,9 +72,9 @@ production-ready when the relevant consumer repos prove it in CI.
 The runner workspace, context package registry semantics, normalized agent
 event, and authorization decision runtime emission are not fully implemented end
 to end yet. Their samples exist to lock vocabulary and review shape before
-product code relies on them. Context receipts are implemented as provider usage
-receipts, but the broader context package registry/update-governance contract is
-still target-only.
+product code relies on them. Context package documents are now schema-validated,
+and context receipts are implemented as provider usage receipts, but the broader
+context package registry/update-governance product path is still target-only.
 
 ## Commands
 

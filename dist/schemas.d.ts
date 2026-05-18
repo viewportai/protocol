@@ -1280,6 +1280,1318 @@ export declare const ContextReceiptContractSchema: z.ZodObject<{
     }, z.ZodTypeAny, "passthrough">>;
     resolvedAt: z.ZodString;
 }, z.ZodTypeAny, "passthrough">>;
+export declare const ContextPackageContractSchema: z.ZodObject<{
+    schema: z.ZodLiteral<"viewport.context_package/v1">;
+    name: z.ZodString;
+    version: z.ZodString;
+    channel: z.ZodOptional<z.ZodString>;
+    title: z.ZodString;
+    description: z.ZodOptional<z.ZodString>;
+    owners: z.ZodArray<z.ZodString, "many">;
+    sourceOfTruth: z.ZodObject<{
+        mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+        provider: z.ZodOptional<z.ZodString>;
+        repository: z.ZodOptional<z.ZodString>;
+        path: z.ZodOptional<z.ZodString>;
+        digest: z.ZodOptional<z.ZodString>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+        provider: z.ZodOptional<z.ZodString>;
+        repository: z.ZodOptional<z.ZodString>;
+        path: z.ZodOptional<z.ZodString>;
+        digest: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+        provider: z.ZodOptional<z.ZodString>;
+        repository: z.ZodOptional<z.ZodString>;
+        path: z.ZodOptional<z.ZodString>;
+        digest: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">>;
+    appliesWhen: z.ZodArray<z.ZodString, "many">;
+    useFor: z.ZodArray<z.ZodString, "many">;
+    updateWhen: z.ZodArray<z.ZodString, "many">;
+    approval: z.ZodObject<{
+        required: z.ZodBoolean;
+        approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        required: z.ZodBoolean;
+        approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        required: z.ZodBoolean;
+        approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, z.ZodTypeAny, "passthrough">>;
+    sections: z.ZodObject<{
+        summary: z.ZodOptional<z.ZodObject<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        summary: z.ZodOptional<z.ZodObject<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        summary: z.ZodOptional<z.ZodObject<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+    }, z.ZodTypeAny, "passthrough">>;
+    memoryObjects: z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+        status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+        title: z.ZodString;
+        body: z.ZodOptional<z.ZodString>;
+        appliesTo: z.ZodOptional<z.ZodObject<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        source: z.ZodOptional<z.ZodObject<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        version: z.ZodOptional<z.ZodNumber>;
+        contentHash: z.ZodOptional<z.ZodString>;
+        visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        id: z.ZodString;
+        type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+        status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+        title: z.ZodString;
+        body: z.ZodOptional<z.ZodString>;
+        appliesTo: z.ZodOptional<z.ZodObject<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        source: z.ZodOptional<z.ZodObject<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        version: z.ZodOptional<z.ZodNumber>;
+        contentHash: z.ZodOptional<z.ZodString>;
+        visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        id: z.ZodString;
+        type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+        status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+        title: z.ZodString;
+        body: z.ZodOptional<z.ZodString>;
+        appliesTo: z.ZodOptional<z.ZodObject<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        source: z.ZodOptional<z.ZodObject<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        version: z.ZodOptional<z.ZodNumber>;
+        contentHash: z.ZodOptional<z.ZodString>;
+        visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+    }, z.ZodTypeAny, "passthrough">>, "many">;
+    relations: z.ZodArray<z.ZodObject<{
+        from: z.ZodString;
+        to: z.ZodString;
+        type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        from: z.ZodString;
+        to: z.ZodString;
+        type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        from: z.ZodString;
+        to: z.ZodString;
+        type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+    }, z.ZodTypeAny, "passthrough">>, "many">;
+    receipts: z.ZodOptional<z.ZodObject<{
+        required: z.ZodBoolean;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        required: z.ZodBoolean;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        required: z.ZodBoolean;
+    }, z.ZodTypeAny, "passthrough">>>;
+}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+    schema: z.ZodLiteral<"viewport.context_package/v1">;
+    name: z.ZodString;
+    version: z.ZodString;
+    channel: z.ZodOptional<z.ZodString>;
+    title: z.ZodString;
+    description: z.ZodOptional<z.ZodString>;
+    owners: z.ZodArray<z.ZodString, "many">;
+    sourceOfTruth: z.ZodObject<{
+        mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+        provider: z.ZodOptional<z.ZodString>;
+        repository: z.ZodOptional<z.ZodString>;
+        path: z.ZodOptional<z.ZodString>;
+        digest: z.ZodOptional<z.ZodString>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+        provider: z.ZodOptional<z.ZodString>;
+        repository: z.ZodOptional<z.ZodString>;
+        path: z.ZodOptional<z.ZodString>;
+        digest: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+        provider: z.ZodOptional<z.ZodString>;
+        repository: z.ZodOptional<z.ZodString>;
+        path: z.ZodOptional<z.ZodString>;
+        digest: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">>;
+    appliesWhen: z.ZodArray<z.ZodString, "many">;
+    useFor: z.ZodArray<z.ZodString, "many">;
+    updateWhen: z.ZodArray<z.ZodString, "many">;
+    approval: z.ZodObject<{
+        required: z.ZodBoolean;
+        approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        required: z.ZodBoolean;
+        approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        required: z.ZodBoolean;
+        approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, z.ZodTypeAny, "passthrough">>;
+    sections: z.ZodObject<{
+        summary: z.ZodOptional<z.ZodObject<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        summary: z.ZodOptional<z.ZodObject<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        summary: z.ZodOptional<z.ZodObject<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+    }, z.ZodTypeAny, "passthrough">>;
+    memoryObjects: z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+        status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+        title: z.ZodString;
+        body: z.ZodOptional<z.ZodString>;
+        appliesTo: z.ZodOptional<z.ZodObject<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        source: z.ZodOptional<z.ZodObject<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        version: z.ZodOptional<z.ZodNumber>;
+        contentHash: z.ZodOptional<z.ZodString>;
+        visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        id: z.ZodString;
+        type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+        status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+        title: z.ZodString;
+        body: z.ZodOptional<z.ZodString>;
+        appliesTo: z.ZodOptional<z.ZodObject<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        source: z.ZodOptional<z.ZodObject<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        version: z.ZodOptional<z.ZodNumber>;
+        contentHash: z.ZodOptional<z.ZodString>;
+        visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        id: z.ZodString;
+        type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+        status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+        title: z.ZodString;
+        body: z.ZodOptional<z.ZodString>;
+        appliesTo: z.ZodOptional<z.ZodObject<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        source: z.ZodOptional<z.ZodObject<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        version: z.ZodOptional<z.ZodNumber>;
+        contentHash: z.ZodOptional<z.ZodString>;
+        visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+    }, z.ZodTypeAny, "passthrough">>, "many">;
+    relations: z.ZodArray<z.ZodObject<{
+        from: z.ZodString;
+        to: z.ZodString;
+        type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        from: z.ZodString;
+        to: z.ZodString;
+        type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        from: z.ZodString;
+        to: z.ZodString;
+        type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+    }, z.ZodTypeAny, "passthrough">>, "many">;
+    receipts: z.ZodOptional<z.ZodObject<{
+        required: z.ZodBoolean;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        required: z.ZodBoolean;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        required: z.ZodBoolean;
+    }, z.ZodTypeAny, "passthrough">>>;
+}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+    schema: z.ZodLiteral<"viewport.context_package/v1">;
+    name: z.ZodString;
+    version: z.ZodString;
+    channel: z.ZodOptional<z.ZodString>;
+    title: z.ZodString;
+    description: z.ZodOptional<z.ZodString>;
+    owners: z.ZodArray<z.ZodString, "many">;
+    sourceOfTruth: z.ZodObject<{
+        mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+        provider: z.ZodOptional<z.ZodString>;
+        repository: z.ZodOptional<z.ZodString>;
+        path: z.ZodOptional<z.ZodString>;
+        digest: z.ZodOptional<z.ZodString>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+        provider: z.ZodOptional<z.ZodString>;
+        repository: z.ZodOptional<z.ZodString>;
+        path: z.ZodOptional<z.ZodString>;
+        digest: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+        provider: z.ZodOptional<z.ZodString>;
+        repository: z.ZodOptional<z.ZodString>;
+        path: z.ZodOptional<z.ZodString>;
+        digest: z.ZodOptional<z.ZodString>;
+    }, z.ZodTypeAny, "passthrough">>;
+    appliesWhen: z.ZodArray<z.ZodString, "many">;
+    useFor: z.ZodArray<z.ZodString, "many">;
+    updateWhen: z.ZodArray<z.ZodString, "many">;
+    approval: z.ZodObject<{
+        required: z.ZodBoolean;
+        approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        required: z.ZodBoolean;
+        approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        required: z.ZodBoolean;
+        approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, z.ZodTypeAny, "passthrough">>;
+    sections: z.ZodObject<{
+        summary: z.ZodOptional<z.ZodObject<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        summary: z.ZodOptional<z.ZodObject<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        summary: z.ZodOptional<z.ZodObject<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+        facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            body: z.ZodString;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>, "many">>;
+    }, z.ZodTypeAny, "passthrough">>;
+    memoryObjects: z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+        status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+        title: z.ZodString;
+        body: z.ZodOptional<z.ZodString>;
+        appliesTo: z.ZodOptional<z.ZodObject<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        source: z.ZodOptional<z.ZodObject<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        version: z.ZodOptional<z.ZodNumber>;
+        contentHash: z.ZodOptional<z.ZodString>;
+        visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        id: z.ZodString;
+        type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+        status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+        title: z.ZodString;
+        body: z.ZodOptional<z.ZodString>;
+        appliesTo: z.ZodOptional<z.ZodObject<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        source: z.ZodOptional<z.ZodObject<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        version: z.ZodOptional<z.ZodNumber>;
+        contentHash: z.ZodOptional<z.ZodString>;
+        visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        id: z.ZodString;
+        type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+        status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+        title: z.ZodString;
+        body: z.ZodOptional<z.ZodString>;
+        appliesTo: z.ZodOptional<z.ZodObject<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        source: z.ZodOptional<z.ZodObject<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            runId: z.ZodOptional<z.ZodString>;
+            agent: z.ZodOptional<z.ZodString>;
+            human: z.ZodOptional<z.ZodString>;
+            workflowId: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>>;
+        version: z.ZodOptional<z.ZodNumber>;
+        contentHash: z.ZodOptional<z.ZodString>;
+        visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+    }, z.ZodTypeAny, "passthrough">>, "many">;
+    relations: z.ZodArray<z.ZodObject<{
+        from: z.ZodString;
+        to: z.ZodString;
+        type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        from: z.ZodString;
+        to: z.ZodString;
+        type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        from: z.ZodString;
+        to: z.ZodString;
+        type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+        evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+    }, z.ZodTypeAny, "passthrough">>, "many">;
+    receipts: z.ZodOptional<z.ZodObject<{
+        required: z.ZodBoolean;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        required: z.ZodBoolean;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        required: z.ZodBoolean;
+    }, z.ZodTypeAny, "passthrough">>>;
+}, z.ZodTypeAny, "passthrough">>;
 export declare const AuditReceiptContractSchema: z.ZodObject<{
     schema: z.ZodLiteral<"viewport.audit_receipt/v1">;
     id: z.ZodString;
@@ -2753,6 +4065,1318 @@ export declare const ProtocolDocumentSchemas: {
         payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         executedAt: z.ZodString;
+    }, z.ZodTypeAny, "passthrough">>;
+    readonly "viewport.context_package/v1": z.ZodObject<{
+        schema: z.ZodLiteral<"viewport.context_package/v1">;
+        name: z.ZodString;
+        version: z.ZodString;
+        channel: z.ZodOptional<z.ZodString>;
+        title: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        owners: z.ZodArray<z.ZodString, "many">;
+        sourceOfTruth: z.ZodObject<{
+            mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+            provider: z.ZodOptional<z.ZodString>;
+            repository: z.ZodOptional<z.ZodString>;
+            path: z.ZodOptional<z.ZodString>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+            provider: z.ZodOptional<z.ZodString>;
+            repository: z.ZodOptional<z.ZodString>;
+            path: z.ZodOptional<z.ZodString>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+            provider: z.ZodOptional<z.ZodString>;
+            repository: z.ZodOptional<z.ZodString>;
+            path: z.ZodOptional<z.ZodString>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>;
+        appliesWhen: z.ZodArray<z.ZodString, "many">;
+        useFor: z.ZodArray<z.ZodString, "many">;
+        updateWhen: z.ZodArray<z.ZodString, "many">;
+        approval: z.ZodObject<{
+            required: z.ZodBoolean;
+            approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            required: z.ZodBoolean;
+            approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            required: z.ZodBoolean;
+            approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>;
+        sections: z.ZodObject<{
+            summary: z.ZodOptional<z.ZodObject<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            summary: z.ZodOptional<z.ZodObject<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            summary: z.ZodOptional<z.ZodObject<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+        }, z.ZodTypeAny, "passthrough">>;
+        memoryObjects: z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+            status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+            title: z.ZodString;
+            body: z.ZodOptional<z.ZodString>;
+            appliesTo: z.ZodOptional<z.ZodObject<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+            source: z.ZodOptional<z.ZodObject<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            version: z.ZodOptional<z.ZodNumber>;
+            contentHash: z.ZodOptional<z.ZodString>;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+            status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+            title: z.ZodString;
+            body: z.ZodOptional<z.ZodString>;
+            appliesTo: z.ZodOptional<z.ZodObject<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+            source: z.ZodOptional<z.ZodObject<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            version: z.ZodOptional<z.ZodNumber>;
+            contentHash: z.ZodOptional<z.ZodString>;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+            status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+            title: z.ZodString;
+            body: z.ZodOptional<z.ZodString>;
+            appliesTo: z.ZodOptional<z.ZodObject<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+            source: z.ZodOptional<z.ZodObject<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            version: z.ZodOptional<z.ZodNumber>;
+            contentHash: z.ZodOptional<z.ZodString>;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+        }, z.ZodTypeAny, "passthrough">>, "many">;
+        relations: z.ZodArray<z.ZodObject<{
+            from: z.ZodString;
+            to: z.ZodString;
+            type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            from: z.ZodString;
+            to: z.ZodString;
+            type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            from: z.ZodString;
+            to: z.ZodString;
+            type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        }, z.ZodTypeAny, "passthrough">>, "many">;
+        receipts: z.ZodOptional<z.ZodObject<{
+            required: z.ZodBoolean;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            required: z.ZodBoolean;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            required: z.ZodBoolean;
+        }, z.ZodTypeAny, "passthrough">>>;
+    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        schema: z.ZodLiteral<"viewport.context_package/v1">;
+        name: z.ZodString;
+        version: z.ZodString;
+        channel: z.ZodOptional<z.ZodString>;
+        title: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        owners: z.ZodArray<z.ZodString, "many">;
+        sourceOfTruth: z.ZodObject<{
+            mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+            provider: z.ZodOptional<z.ZodString>;
+            repository: z.ZodOptional<z.ZodString>;
+            path: z.ZodOptional<z.ZodString>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+            provider: z.ZodOptional<z.ZodString>;
+            repository: z.ZodOptional<z.ZodString>;
+            path: z.ZodOptional<z.ZodString>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+            provider: z.ZodOptional<z.ZodString>;
+            repository: z.ZodOptional<z.ZodString>;
+            path: z.ZodOptional<z.ZodString>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>;
+        appliesWhen: z.ZodArray<z.ZodString, "many">;
+        useFor: z.ZodArray<z.ZodString, "many">;
+        updateWhen: z.ZodArray<z.ZodString, "many">;
+        approval: z.ZodObject<{
+            required: z.ZodBoolean;
+            approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            required: z.ZodBoolean;
+            approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            required: z.ZodBoolean;
+            approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>;
+        sections: z.ZodObject<{
+            summary: z.ZodOptional<z.ZodObject<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            summary: z.ZodOptional<z.ZodObject<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            summary: z.ZodOptional<z.ZodObject<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+        }, z.ZodTypeAny, "passthrough">>;
+        memoryObjects: z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+            status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+            title: z.ZodString;
+            body: z.ZodOptional<z.ZodString>;
+            appliesTo: z.ZodOptional<z.ZodObject<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+            source: z.ZodOptional<z.ZodObject<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            version: z.ZodOptional<z.ZodNumber>;
+            contentHash: z.ZodOptional<z.ZodString>;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+            status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+            title: z.ZodString;
+            body: z.ZodOptional<z.ZodString>;
+            appliesTo: z.ZodOptional<z.ZodObject<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+            source: z.ZodOptional<z.ZodObject<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            version: z.ZodOptional<z.ZodNumber>;
+            contentHash: z.ZodOptional<z.ZodString>;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+            status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+            title: z.ZodString;
+            body: z.ZodOptional<z.ZodString>;
+            appliesTo: z.ZodOptional<z.ZodObject<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+            source: z.ZodOptional<z.ZodObject<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            version: z.ZodOptional<z.ZodNumber>;
+            contentHash: z.ZodOptional<z.ZodString>;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+        }, z.ZodTypeAny, "passthrough">>, "many">;
+        relations: z.ZodArray<z.ZodObject<{
+            from: z.ZodString;
+            to: z.ZodString;
+            type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            from: z.ZodString;
+            to: z.ZodString;
+            type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            from: z.ZodString;
+            to: z.ZodString;
+            type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        }, z.ZodTypeAny, "passthrough">>, "many">;
+        receipts: z.ZodOptional<z.ZodObject<{
+            required: z.ZodBoolean;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            required: z.ZodBoolean;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            required: z.ZodBoolean;
+        }, z.ZodTypeAny, "passthrough">>>;
+    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+        schema: z.ZodLiteral<"viewport.context_package/v1">;
+        name: z.ZodString;
+        version: z.ZodString;
+        channel: z.ZodOptional<z.ZodString>;
+        title: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        owners: z.ZodArray<z.ZodString, "many">;
+        sourceOfTruth: z.ZodObject<{
+            mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+            provider: z.ZodOptional<z.ZodString>;
+            repository: z.ZodOptional<z.ZodString>;
+            path: z.ZodOptional<z.ZodString>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+            provider: z.ZodOptional<z.ZodString>;
+            repository: z.ZodOptional<z.ZodString>;
+            path: z.ZodOptional<z.ZodString>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            mode: z.ZodEnum<["viewport_managed", "git_backed", "self_hosted_provider", "local_only"]>;
+            provider: z.ZodOptional<z.ZodString>;
+            repository: z.ZodOptional<z.ZodString>;
+            path: z.ZodOptional<z.ZodString>;
+            digest: z.ZodOptional<z.ZodString>;
+        }, z.ZodTypeAny, "passthrough">>;
+        appliesWhen: z.ZodArray<z.ZodString, "many">;
+        useFor: z.ZodArray<z.ZodString, "many">;
+        updateWhen: z.ZodArray<z.ZodString, "many">;
+        approval: z.ZodObject<{
+            required: z.ZodBoolean;
+            approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            required: z.ZodBoolean;
+            approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            required: z.ZodBoolean;
+            approvers: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, z.ZodTypeAny, "passthrough">>;
+        sections: z.ZodObject<{
+            summary: z.ZodOptional<z.ZodObject<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            summary: z.ZodOptional<z.ZodObject<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            summary: z.ZodOptional<z.ZodObject<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            rules: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            gotchas: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            workflows: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+            facts: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                id: z.ZodString;
+                body: z.ZodString;
+                visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+                digest: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>, "many">>;
+        }, z.ZodTypeAny, "passthrough">>;
+        memoryObjects: z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+            status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+            title: z.ZodString;
+            body: z.ZodOptional<z.ZodString>;
+            appliesTo: z.ZodOptional<z.ZodObject<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+            source: z.ZodOptional<z.ZodObject<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            version: z.ZodOptional<z.ZodNumber>;
+            contentHash: z.ZodOptional<z.ZodString>;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            id: z.ZodString;
+            type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+            status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+            title: z.ZodString;
+            body: z.ZodOptional<z.ZodString>;
+            appliesTo: z.ZodOptional<z.ZodObject<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+            source: z.ZodOptional<z.ZodObject<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            version: z.ZodOptional<z.ZodNumber>;
+            contentHash: z.ZodOptional<z.ZodString>;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            id: z.ZodString;
+            type: z.ZodEnum<["decision", "constraint", "gotcha", "workflow", "fact", "question", "architecture", "synthesis", "source"]>;
+            status: z.ZodEnum<["active", "stale", "superseded", "open", "rejected"]>;
+            title: z.ZodString;
+            body: z.ZodOptional<z.ZodString>;
+            appliesTo: z.ZodOptional<z.ZodObject<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                repos: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                services: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                jiraProjects: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                linearTeams: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                workflows: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            loadModes: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+            source: z.ZodOptional<z.ZodObject<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+                runId: z.ZodOptional<z.ZodString>;
+                agent: z.ZodOptional<z.ZodString>;
+                human: z.ZodOptional<z.ZodString>;
+                workflowId: z.ZodOptional<z.ZodString>;
+            }, z.ZodTypeAny, "passthrough">>>;
+            version: z.ZodOptional<z.ZodNumber>;
+            contentHash: z.ZodOptional<z.ZodString>;
+            visibility: z.ZodOptional<z.ZodEnum<["platform_visible", "provider_visible", "trusted_edge_only", "encrypted_body"]>>;
+        }, z.ZodTypeAny, "passthrough">>, "many">;
+        relations: z.ZodArray<z.ZodObject<{
+            from: z.ZodString;
+            to: z.ZodString;
+            type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            from: z.ZodString;
+            to: z.ZodString;
+            type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            from: z.ZodString;
+            to: z.ZodString;
+            type: z.ZodEnum<["supersedes", "conflicts_with", "depends_on", "derived_from", "documents", "implements"]>;
+            evidence: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
+        }, z.ZodTypeAny, "passthrough">>, "many">;
+        receipts: z.ZodOptional<z.ZodObject<{
+            required: z.ZodBoolean;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            required: z.ZodBoolean;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            required: z.ZodBoolean;
+        }, z.ZodTypeAny, "passthrough">>>;
     }, z.ZodTypeAny, "passthrough">>;
     readonly "viewport.context_receipt/v1": z.ZodObject<{
         schema: z.ZodLiteral<"viewport.context_receipt/v1">;

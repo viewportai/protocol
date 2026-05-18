@@ -38,8 +38,7 @@
       "key": "contextPackage",
       "schemaId": "viewport.context_package/v1",
       "status": "target-only",
-      "jsonSchema": null,
-      "reason": "No Zod contract exists yet for this schema id."
+      "jsonSchema": "generated/json-schema/contextPackage.schema.json"
     },
     {
       "key": "agentEvent",

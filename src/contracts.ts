@@ -77,7 +77,8 @@ export const CONTRACTS = [
     daemonCompatibility: 'pending',
     platformCompatibility: 'pending',
     webCompatibility: 'pending',
-    notes: 'Context engine exists, but package registry semantics are not implemented.',
+    notes:
+      'Protocol validates the target package shape, including source-of-truth mode, typed memory objects, relations, and update governance. Platform/daemon package registry semantics are not implemented.',
   },
   {
     key: 'agentEvent',

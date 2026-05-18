@@ -8,6 +8,11 @@ owners:
   - payments-pm
   - payments-staff-eng
 
+sourceOfTruth:
+  mode: viewport_managed
+  provider: viewport-vault
+  digest: sha256:payments-domain-rules-v2-3-0
+
 appliesWhen:
   - Jira project PAY
   - Stripe, refund, chargeback, webhook, invoice, or billing terms appear
@@ -42,6 +47,57 @@ sections:
   gotchas:
     - id: refund-race-condition
       body: Refund jobs can race checkout finalization; tests must cover pending payment state.
+
+memoryObjects:
+  - id: mem_webhook_idempotency
+    type: constraint
+    status: active
+    title: Webhook handlers are idempotent by provider event id
+    body: Stripe webhook handlers must use the provider event id as the idempotency key before writing payment state.
+    appliesTo:
+      repos:
+        - payments-api
+      jiraProjects:
+        - PAY
+    loadModes:
+      - implementation
+      - incident
+      - review
+    evidence:
+      - kind: incident
+        title: Duplicate refund postmortem
+    source:
+      human: payments-staff-eng
+    version: 1
+    contentHash: sha256:mem-webhook-idempotency-v1
+  - id: mem_refund_race_condition
+    type: gotcha
+    status: active
+    title: Refund jobs can race checkout finalization
+    body: Tests for refund paths must include pending payment state because finalization can still be in flight.
+    appliesTo:
+      repos:
+        - payments-api
+        - billing-worker
+    loadModes:
+      - implementation
+      - test-design
+    evidence:
+      - kind: run
+        title: PAY-456 investigation
+    source:
+      runId: run_pay_456
+      agent: codex-payments
+    version: 1
+    contentHash: sha256:mem-refund-race-condition-v1
+
+relations:
+  - from: mem_refund_race_condition
+    to: mem_webhook_idempotency
+    type: depends_on
+    evidence:
+      - kind: postmortem
+        title: Duplicate refund state transition
 
 receipts:
   required: true

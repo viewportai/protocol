@@ -258,6 +258,142 @@ export const ContextReceiptContractSchema = z
     resolvedAt: IsoDateTime,
 })
     .passthrough();
+const ContextSourceOfTruthSchema = z.enum([
+    'viewport_managed',
+    'git_backed',
+    'self_hosted_provider',
+    'local_only',
+]);
+const ContextPackageChannelSchema = z
+    .string()
+    .trim()
+    .regex(/^(\d+\.\d+\.\d+|\d+\.x|latest-approved|draft)$/);
+const ContextVisibilitySchema = z.enum([
+    'platform_visible',
+    'provider_visible',
+    'trusted_edge_only',
+    'encrypted_body',
+]);
+const ContextPackageItemSchema = z
+    .object({
+    id: NonEmptyString,
+    body: NonEmptyString,
+    visibility: ContextVisibilitySchema.optional(),
+    digest: Digest.optional(),
+})
+    .passthrough();
+const ContextPackageSectionsSchema = z
+    .object({
+    summary: z
+        .object({
+        body: NonEmptyString,
+        visibility: ContextVisibilitySchema.optional(),
+        digest: Digest.optional(),
+    })
+        .passthrough()
+        .optional(),
+    rules: z.array(ContextPackageItemSchema).optional(),
+    gotchas: z.array(ContextPackageItemSchema).optional(),
+    workflows: z.array(ContextPackageItemSchema).optional(),
+    facts: z.array(ContextPackageItemSchema).optional(),
+})
+    .passthrough();
+const ContextMemoryObjectSchema = z
+    .object({
+    id: NonEmptyString,
+    type: z.enum([
+        'decision',
+        'constraint',
+        'gotcha',
+        'workflow',
+        'fact',
+        'question',
+        'architecture',
+        'synthesis',
+        'source',
+    ]),
+    status: z.enum(['active', 'stale', 'superseded', 'open', 'rejected']),
+    title: NonEmptyString,
+    body: NonEmptyString.optional(),
+    appliesTo: z
+        .object({
+        repos: z.array(NonEmptyString).optional(),
+        services: z.array(NonEmptyString).optional(),
+        jiraProjects: z.array(NonEmptyString).optional(),
+        linearTeams: z.array(NonEmptyString).optional(),
+        workflows: z.array(NonEmptyString).optional(),
+    })
+        .passthrough()
+        .optional(),
+    loadModes: z.array(NonEmptyString).optional(),
+    evidence: z.array(z.record(z.unknown())).optional(),
+    source: z
+        .object({
+        runId: NonEmptyString.optional(),
+        agent: NonEmptyString.optional(),
+        human: NonEmptyString.optional(),
+        workflowId: NonEmptyString.optional(),
+    })
+        .passthrough()
+        .optional(),
+    version: z.number().int().nonnegative().optional(),
+    contentHash: Digest.optional(),
+    visibility: ContextVisibilitySchema.optional(),
+})
+    .passthrough();
+const ContextMemoryRelationSchema = z
+    .object({
+    from: NonEmptyString,
+    to: NonEmptyString,
+    type: z.enum([
+        'supersedes',
+        'conflicts_with',
+        'depends_on',
+        'derived_from',
+        'documents',
+        'implements',
+    ]),
+    evidence: z.array(z.record(z.unknown())).optional(),
+})
+    .passthrough();
+export const ContextPackageContractSchema = z
+    .object({
+    schema: z.literal(SchemaIds.contextPackage),
+    name: NonEmptyString,
+    version: z.string().trim().regex(/^\d+\.\d+\.\d+$/),
+    channel: ContextPackageChannelSchema.optional(),
+    title: NonEmptyString,
+    description: NonEmptyString.optional(),
+    owners: z.array(NonEmptyString).min(1),
+    sourceOfTruth: z
+        .object({
+        mode: ContextSourceOfTruthSchema,
+        provider: NonEmptyString.optional(),
+        repository: NonEmptyString.optional(),
+        path: NonEmptyString.optional(),
+        digest: Digest.optional(),
+    })
+        .passthrough(),
+    appliesWhen: z.array(NonEmptyString).min(1),
+    useFor: z.array(NonEmptyString).min(1),
+    updateWhen: z.array(NonEmptyString).min(1),
+    approval: z
+        .object({
+        required: z.boolean(),
+        approvers: z.array(NonEmptyString).min(1).optional(),
+    })
+        .passthrough(),
+    sections: ContextPackageSectionsSchema,
+    memoryObjects: z.array(ContextMemoryObjectSchema),
+    relations: z.array(ContextMemoryRelationSchema),
+    receipts: z
+        .object({
+        required: z.boolean(),
+    })
+        .passthrough()
+        .optional(),
+})
+    .passthrough();
 export const AuditReceiptContractSchema = z
     .object({
     schema: z.literal(SchemaIds.auditReceipt),
@@ -318,6 +454,7 @@ export const ProtocolDocumentSchemas = {
     [SchemaIds.approvalDecision]: ApprovalDecisionContractSchema,
     [SchemaIds.executionGrant]: ExecutionGrantContractSchema,
     [SchemaIds.executionReceipt]: ExecutionReceiptContractSchema,
+    [SchemaIds.contextPackage]: ContextPackageContractSchema,
     [SchemaIds.contextReceipt]: ContextReceiptContractSchema,
     [SchemaIds.auditReceipt]: AuditReceiptContractSchema,
 };
