@@ -281,9 +281,32 @@ const baseRun = {
           resolution: 'requested_unverified',
         },
       ],
+      contextPackages: [
+        {
+          id: 'payments.domain-rules@latest-approved',
+          required: true,
+          sourceConfigPath: '/srv/payments-api/.viewport/config.yaml',
+          resolution: 'requested_unverified',
+        },
+      ],
       workflows: [],
       plans: [],
       agentProfiles: [],
+    },
+    contract: {
+      contextProviders: [],
+      contextResolution: {},
+      workflows: [],
+      contextPackages: [
+        {
+          id: 'payments.domain-rules',
+          required: true,
+          sourceConfigPath: '/srv/payments-api/.viewport/config.yaml',
+          resource: 'payments.domain-rules',
+          channel: 'latest-approved',
+          resolution: 'requested_unverified',
+        },
+      ],
     },
     warnings: [],
     conflicts: [],

@@ -1413,6 +1413,34 @@ export declare const SessionWorkflowManifestSchema: z.ZodObject<{
     version?: string | undefined;
     digest?: string | undefined;
 }>;
+export declare const SessionContextPackageManifestSchema: z.ZodObject<{
+    id: z.ZodString;
+    required: z.ZodBoolean;
+    sourceConfigPath: z.ZodString;
+    resource: z.ZodOptional<z.ZodString>;
+    version: z.ZodOptional<z.ZodString>;
+    channel: z.ZodOptional<z.ZodString>;
+    digest: z.ZodOptional<z.ZodString>;
+    resolution: z.ZodEnum<["requested_unverified"]>;
+}, "strip", z.ZodTypeAny, {
+    id: string;
+    required: boolean;
+    sourceConfigPath: string;
+    resolution: "requested_unverified";
+    resource?: string | undefined;
+    version?: string | undefined;
+    digest?: string | undefined;
+    channel?: string | undefined;
+}, {
+    id: string;
+    required: boolean;
+    sourceConfigPath: string;
+    resolution: "requested_unverified";
+    resource?: string | undefined;
+    version?: string | undefined;
+    digest?: string | undefined;
+    channel?: string | undefined;
+}>;
 export declare const SessionResourceManifestSchema: z.ZodObject<{
     schema: z.ZodLiteral<"viewport.session_resource_manifest/v1">;
     manifestDigest: z.ZodString;
@@ -1450,6 +1478,22 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             sourceConfigPath: string;
             resolution: "requested_unverified";
         }>, "many">;
+        contextPackages: z.ZodDefault<z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            required: z.ZodBoolean;
+            sourceConfigPath: z.ZodString;
+            resolution: z.ZodEnum<["requested_unverified"]>;
+        }, "strip", z.ZodTypeAny, {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+        }, {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+        }>, "many">>>;
         workflows: z.ZodArray<z.ZodObject<{
             id: z.ZodString;
             required: z.ZodBoolean;
@@ -1511,6 +1555,12 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             sourceConfigPath: string;
             resolution: "requested_unverified";
         }[];
+        contextPackages: {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+        }[];
         plans: {
             id: string;
             required: boolean;
@@ -1548,6 +1598,12 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             sourceConfigPath: string;
             resolution: "requested_unverified";
         }[];
+        contextPackages?: {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+        }[] | undefined;
     }>;
     contract: z.ZodOptional<z.ZodObject<{
         contextProviders: z.ZodArray<z.ZodObject<{
@@ -1628,6 +1684,34 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             version?: string | undefined;
             digest?: string | undefined;
         }>, "many">;
+        contextPackages: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            id: z.ZodString;
+            required: z.ZodBoolean;
+            sourceConfigPath: z.ZodString;
+            resource: z.ZodOptional<z.ZodString>;
+            version: z.ZodOptional<z.ZodString>;
+            channel: z.ZodOptional<z.ZodString>;
+            digest: z.ZodOptional<z.ZodString>;
+            resolution: z.ZodEnum<["requested_unverified"]>;
+        }, "strip", z.ZodTypeAny, {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+            resource?: string | undefined;
+            version?: string | undefined;
+            digest?: string | undefined;
+            channel?: string | undefined;
+        }, {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+            resource?: string | undefined;
+            version?: string | undefined;
+            digest?: string | undefined;
+            channel?: string | undefined;
+        }>, "many">>;
     }, "strip", z.ZodTypeAny, {
         workflows: {
             id: string;
@@ -1657,6 +1741,16 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             sizeBudgetBytes?: number | undefined;
             strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
         };
+        contextPackages?: {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+            resource?: string | undefined;
+            version?: string | undefined;
+            digest?: string | undefined;
+            channel?: string | undefined;
+        }[] | undefined;
     }, {
         workflows: {
             id: string;
@@ -1686,6 +1780,16 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             sizeBudgetBytes?: number | undefined;
             strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
         };
+        contextPackages?: {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+            resource?: string | undefined;
+            version?: string | undefined;
+            digest?: string | undefined;
+            channel?: string | undefined;
+        }[] | undefined;
     }>>;
     conflicts: z.ZodArray<z.ZodObject<{
         field: z.ZodString;
@@ -1751,6 +1855,12 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             sourceConfigPath: string;
             resolution: "requested_unverified";
         }[];
+        contextPackages: {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+        }[];
         plans: {
             id: string;
             required: boolean;
@@ -1806,6 +1916,16 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             sizeBudgetBytes?: number | undefined;
             strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
         };
+        contextPackages?: {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+            resource?: string | undefined;
+            version?: string | undefined;
+            digest?: string | undefined;
+            channel?: string | undefined;
+        }[] | undefined;
     } | undefined;
 }, {
     schema: "viewport.session_resource_manifest/v1";
@@ -1842,6 +1962,12 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             sourceConfigPath: string;
             resolution: "requested_unverified";
         }[];
+        contextPackages?: {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+        }[] | undefined;
     };
     conflicts: {
         values: {
@@ -1885,6 +2011,16 @@ export declare const SessionResourceManifestSchema: z.ZodObject<{
             sizeBudgetBytes?: number | undefined;
             strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
         };
+        contextPackages?: {
+            id: string;
+            required: boolean;
+            sourceConfigPath: string;
+            resolution: "requested_unverified";
+            resource?: string | undefined;
+            version?: string | undefined;
+            digest?: string | undefined;
+            channel?: string | undefined;
+        }[] | undefined;
     } | undefined;
 }>;
 export declare const WorkflowRunRecordSchema: z.ZodObject<{
@@ -3040,6 +3176,22 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }>, "many">;
+            contextPackages: z.ZodDefault<z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                required: z.ZodBoolean;
+                sourceConfigPath: z.ZodString;
+                resolution: z.ZodEnum<["requested_unverified"]>;
+            }, "strip", z.ZodTypeAny, {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+            }, {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+            }>, "many">>>;
             workflows: z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
                 required: z.ZodBoolean;
@@ -3101,6 +3253,12 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
+            contextPackages: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+            }[];
             plans: {
                 id: string;
                 required: boolean;
@@ -3138,6 +3296,12 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
+            contextPackages?: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+            }[] | undefined;
         }>;
         contract: z.ZodOptional<z.ZodObject<{
             contextProviders: z.ZodArray<z.ZodObject<{
@@ -3218,6 +3382,34 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 version?: string | undefined;
                 digest?: string | undefined;
             }>, "many">;
+            contextPackages: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodString;
+                required: z.ZodBoolean;
+                sourceConfigPath: z.ZodString;
+                resource: z.ZodOptional<z.ZodString>;
+                version: z.ZodOptional<z.ZodString>;
+                channel: z.ZodOptional<z.ZodString>;
+                digest: z.ZodOptional<z.ZodString>;
+                resolution: z.ZodEnum<["requested_unverified"]>;
+            }, "strip", z.ZodTypeAny, {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+                resource?: string | undefined;
+                version?: string | undefined;
+                digest?: string | undefined;
+                channel?: string | undefined;
+            }, {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+                resource?: string | undefined;
+                version?: string | undefined;
+                digest?: string | undefined;
+                channel?: string | undefined;
+            }>, "many">>;
         }, "strip", z.ZodTypeAny, {
             workflows: {
                 id: string;
@@ -3247,6 +3439,16 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sizeBudgetBytes?: number | undefined;
                 strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
             };
+            contextPackages?: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+                resource?: string | undefined;
+                version?: string | undefined;
+                digest?: string | undefined;
+                channel?: string | undefined;
+            }[] | undefined;
         }, {
             workflows: {
                 id: string;
@@ -3276,6 +3478,16 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sizeBudgetBytes?: number | undefined;
                 strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
             };
+            contextPackages?: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+                resource?: string | undefined;
+                version?: string | undefined;
+                digest?: string | undefined;
+                channel?: string | undefined;
+            }[] | undefined;
         }>>;
         conflicts: z.ZodArray<z.ZodObject<{
             field: z.ZodString;
@@ -3341,6 +3553,12 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
+            contextPackages: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+            }[];
             plans: {
                 id: string;
                 required: boolean;
@@ -3396,6 +3614,16 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sizeBudgetBytes?: number | undefined;
                 strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
             };
+            contextPackages?: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+                resource?: string | undefined;
+                version?: string | undefined;
+                digest?: string | undefined;
+                channel?: string | undefined;
+            }[] | undefined;
         } | undefined;
     }, {
         schema: "viewport.session_resource_manifest/v1";
@@ -3432,6 +3660,12 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
+            contextPackages?: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+            }[] | undefined;
         };
         conflicts: {
             values: {
@@ -3475,6 +3709,16 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sizeBudgetBytes?: number | undefined;
                 strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
             };
+            contextPackages?: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+                resource?: string | undefined;
+                version?: string | undefined;
+                digest?: string | undefined;
+                channel?: string | undefined;
+            }[] | undefined;
         } | undefined;
     }>>;
     events: z.ZodArray<z.ZodObject<{
@@ -3876,6 +4120,12 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
+            contextPackages: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+            }[];
             plans: {
                 id: string;
                 required: boolean;
@@ -3931,6 +4181,16 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sizeBudgetBytes?: number | undefined;
                 strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
             };
+            contextPackages?: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+                resource?: string | undefined;
+                version?: string | undefined;
+                digest?: string | undefined;
+                channel?: string | undefined;
+            }[] | undefined;
         } | undefined;
     } | undefined;
 }, {
@@ -4311,6 +4571,12 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sourceConfigPath: string;
                 resolution: "requested_unverified";
             }[];
+            contextPackages?: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+            }[] | undefined;
         };
         conflicts: {
             values: {
@@ -4354,6 +4620,16 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
                 sizeBudgetBytes?: number | undefined;
                 strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
             };
+            contextPackages?: {
+                id: string;
+                required: boolean;
+                sourceConfigPath: string;
+                resolution: "requested_unverified";
+                resource?: string | undefined;
+                version?: string | undefined;
+                digest?: string | undefined;
+                channel?: string | undefined;
+            }[] | undefined;
         } | undefined;
     } | undefined;
 }>;
@@ -5512,6 +5788,22 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }>, "many">;
+                contextPackages: z.ZodDefault<z.ZodOptional<z.ZodArray<z.ZodObject<{
+                    id: z.ZodString;
+                    required: z.ZodBoolean;
+                    sourceConfigPath: z.ZodString;
+                    resolution: z.ZodEnum<["requested_unverified"]>;
+                }, "strip", z.ZodTypeAny, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }>, "many">>>;
                 workflows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
                     required: z.ZodBoolean;
@@ -5573,6 +5865,12 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -5610,6 +5908,12 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             }>;
             contract: z.ZodOptional<z.ZodObject<{
                 contextProviders: z.ZodArray<z.ZodObject<{
@@ -5690,6 +5994,34 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     version?: string | undefined;
                     digest?: string | undefined;
                 }>, "many">;
+                contextPackages: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                    id: z.ZodString;
+                    required: z.ZodBoolean;
+                    sourceConfigPath: z.ZodString;
+                    resource: z.ZodOptional<z.ZodString>;
+                    version: z.ZodOptional<z.ZodString>;
+                    channel: z.ZodOptional<z.ZodString>;
+                    digest: z.ZodOptional<z.ZodString>;
+                    resolution: z.ZodEnum<["requested_unverified"]>;
+                }, "strip", z.ZodTypeAny, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }>, "many">>;
             }, "strip", z.ZodTypeAny, {
                 workflows: {
                     id: string;
@@ -5719,6 +6051,16 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             }, {
                 workflows: {
                     id: string;
@@ -5748,6 +6090,16 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             }>>;
             conflicts: z.ZodArray<z.ZodObject<{
                 field: z.ZodString;
@@ -5813,6 +6165,12 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -5868,6 +6226,16 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         }, {
             schema: "viewport.session_resource_manifest/v1";
@@ -5904,6 +6272,12 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -5947,6 +6321,16 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         }>>;
         events: z.ZodArray<z.ZodObject<{
@@ -6348,6 +6732,12 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -6403,6 +6793,16 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     }, {
@@ -6783,6 +7183,12 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -6826,6 +7232,16 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     }>, "many">;
@@ -7197,6 +7613,12 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -7252,6 +7674,16 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     }[];
@@ -7635,6 +8067,12 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -7678,6 +8116,16 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     }[];
@@ -8837,6 +9285,22 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }>, "many">;
+                contextPackages: z.ZodDefault<z.ZodOptional<z.ZodArray<z.ZodObject<{
+                    id: z.ZodString;
+                    required: z.ZodBoolean;
+                    sourceConfigPath: z.ZodString;
+                    resolution: z.ZodEnum<["requested_unverified"]>;
+                }, "strip", z.ZodTypeAny, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }>, "many">>>;
                 workflows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
                     required: z.ZodBoolean;
@@ -8898,6 +9362,12 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -8935,6 +9405,12 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             }>;
             contract: z.ZodOptional<z.ZodObject<{
                 contextProviders: z.ZodArray<z.ZodObject<{
@@ -9015,6 +9491,34 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     version?: string | undefined;
                     digest?: string | undefined;
                 }>, "many">;
+                contextPackages: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                    id: z.ZodString;
+                    required: z.ZodBoolean;
+                    sourceConfigPath: z.ZodString;
+                    resource: z.ZodOptional<z.ZodString>;
+                    version: z.ZodOptional<z.ZodString>;
+                    channel: z.ZodOptional<z.ZodString>;
+                    digest: z.ZodOptional<z.ZodString>;
+                    resolution: z.ZodEnum<["requested_unverified"]>;
+                }, "strip", z.ZodTypeAny, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }>, "many">>;
             }, "strip", z.ZodTypeAny, {
                 workflows: {
                     id: string;
@@ -9044,6 +9548,16 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             }, {
                 workflows: {
                     id: string;
@@ -9073,6 +9587,16 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             }>>;
             conflicts: z.ZodArray<z.ZodObject<{
                 field: z.ZodString;
@@ -9138,6 +9662,12 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -9193,6 +9723,16 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         }, {
             schema: "viewport.session_resource_manifest/v1";
@@ -9229,6 +9769,12 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -9272,6 +9818,16 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         }>>;
         events: z.ZodArray<z.ZodObject<{
@@ -9673,6 +10229,12 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -9728,6 +10290,16 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     }, {
@@ -10108,6 +10680,12 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -10151,6 +10729,16 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     }>;
@@ -10522,6 +11110,12 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -10577,6 +11171,16 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     };
@@ -10960,6 +11564,12 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -11003,6 +11613,16 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     };
@@ -12162,6 +12782,22 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }>, "many">;
+                contextPackages: z.ZodDefault<z.ZodOptional<z.ZodArray<z.ZodObject<{
+                    id: z.ZodString;
+                    required: z.ZodBoolean;
+                    sourceConfigPath: z.ZodString;
+                    resolution: z.ZodEnum<["requested_unverified"]>;
+                }, "strip", z.ZodTypeAny, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }>, "many">>>;
                 workflows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
                     required: z.ZodBoolean;
@@ -12223,6 +12859,12 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -12260,6 +12902,12 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             }>;
             contract: z.ZodOptional<z.ZodObject<{
                 contextProviders: z.ZodArray<z.ZodObject<{
@@ -12340,6 +12988,34 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     version?: string | undefined;
                     digest?: string | undefined;
                 }>, "many">;
+                contextPackages: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                    id: z.ZodString;
+                    required: z.ZodBoolean;
+                    sourceConfigPath: z.ZodString;
+                    resource: z.ZodOptional<z.ZodString>;
+                    version: z.ZodOptional<z.ZodString>;
+                    channel: z.ZodOptional<z.ZodString>;
+                    digest: z.ZodOptional<z.ZodString>;
+                    resolution: z.ZodEnum<["requested_unverified"]>;
+                }, "strip", z.ZodTypeAny, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }>, "many">>;
             }, "strip", z.ZodTypeAny, {
                 workflows: {
                     id: string;
@@ -12369,6 +13045,16 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             }, {
                 workflows: {
                     id: string;
@@ -12398,6 +13084,16 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             }>>;
             conflicts: z.ZodArray<z.ZodObject<{
                 field: z.ZodString;
@@ -12463,6 +13159,12 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -12518,6 +13220,16 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         }, {
             schema: "viewport.session_resource_manifest/v1";
@@ -12554,6 +13266,12 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -12597,6 +13315,16 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         }>>;
         events: z.ZodArray<z.ZodObject<{
@@ -12998,6 +13726,12 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -13053,6 +13787,16 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     }, {
@@ -13433,6 +14177,12 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -13476,6 +14226,16 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     }>;
@@ -13847,6 +14607,12 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -13902,6 +14668,16 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     };
@@ -14285,6 +15061,12 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -14328,6 +15110,16 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     };
@@ -15487,6 +16279,22 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }>, "many">;
+                contextPackages: z.ZodDefault<z.ZodOptional<z.ZodArray<z.ZodObject<{
+                    id: z.ZodString;
+                    required: z.ZodBoolean;
+                    sourceConfigPath: z.ZodString;
+                    resolution: z.ZodEnum<["requested_unverified"]>;
+                }, "strip", z.ZodTypeAny, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }>, "many">>>;
                 workflows: z.ZodArray<z.ZodObject<{
                     id: z.ZodString;
                     required: z.ZodBoolean;
@@ -15548,6 +16356,12 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -15585,6 +16399,12 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             }>;
             contract: z.ZodOptional<z.ZodObject<{
                 contextProviders: z.ZodArray<z.ZodObject<{
@@ -15665,6 +16485,34 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     version?: string | undefined;
                     digest?: string | undefined;
                 }>, "many">;
+                contextPackages: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                    id: z.ZodString;
+                    required: z.ZodBoolean;
+                    sourceConfigPath: z.ZodString;
+                    resource: z.ZodOptional<z.ZodString>;
+                    version: z.ZodOptional<z.ZodString>;
+                    channel: z.ZodOptional<z.ZodString>;
+                    digest: z.ZodOptional<z.ZodString>;
+                    resolution: z.ZodEnum<["requested_unverified"]>;
+                }, "strip", z.ZodTypeAny, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }, {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }>, "many">>;
             }, "strip", z.ZodTypeAny, {
                 workflows: {
                     id: string;
@@ -15694,6 +16542,16 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             }, {
                 workflows: {
                     id: string;
@@ -15723,6 +16581,16 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             }>>;
             conflicts: z.ZodArray<z.ZodObject<{
                 field: z.ZodString;
@@ -15788,6 +16656,12 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -15843,6 +16717,16 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         }, {
             schema: "viewport.session_resource_manifest/v1";
@@ -15879,6 +16763,12 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -15922,6 +16812,16 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         }>>;
         events: z.ZodArray<z.ZodObject<{
@@ -16323,6 +17223,12 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -16378,6 +17284,16 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     }, {
@@ -16758,6 +17674,12 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -16801,6 +17723,16 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     }>;
@@ -17172,6 +18104,12 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[];
                 plans: {
                     id: string;
                     required: boolean;
@@ -17227,6 +18165,16 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     };
@@ -17610,6 +18558,12 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sourceConfigPath: string;
                     resolution: "requested_unverified";
                 }[];
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                }[] | undefined;
             };
             conflicts: {
                 values: {
@@ -17653,6 +18607,16 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                     sizeBudgetBytes?: number | undefined;
                     strategy?: "rank_by_recency_then_query" | "pinned_then_recent" | "provider_order" | undefined;
                 };
+                contextPackages?: {
+                    id: string;
+                    required: boolean;
+                    sourceConfigPath: string;
+                    resolution: "requested_unverified";
+                    resource?: string | undefined;
+                    version?: string | undefined;
+                    digest?: string | undefined;
+                    channel?: string | undefined;
+                }[] | undefined;
             } | undefined;
         } | undefined;
     };
@@ -17684,6 +18648,7 @@ export type WorkflowNodeApprovalState = z.infer<typeof WorkflowNodeApprovalState
 export type WorkflowLoopIterationRecord = z.infer<typeof WorkflowLoopIterationRecordSchema>;
 export type WorkflowNodeRunState = z.infer<typeof WorkflowNodeRunStateSchema>;
 export type SessionResourceManifest = z.infer<typeof SessionResourceManifestSchema>;
+export type SessionContextPackageManifest = z.infer<typeof SessionContextPackageManifestSchema>;
 export type WorkflowRunRecord = z.infer<typeof WorkflowRunRecordSchema>;
 export type WorkflowRunsMessage = z.infer<typeof WorkflowRunsMessageSchema>;
 export type WorkflowRunStartedMessage = z.infer<typeof WorkflowRunStartedMessageSchema>;

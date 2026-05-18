@@ -1535,6 +1535,37 @@
                           "additionalProperties": false
                         }
                       },
+                      "contextPackages": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "sourceConfigPath": {
+                              "type": "string"
+                            },
+                            "resolution": {
+                              "type": "string",
+                              "enum": [
+                                "requested_unverified"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "required",
+                            "sourceConfigPath",
+                            "resolution"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "default": []
+                      },
                       "workflows": {
                         "type": "array",
                         "items": {
@@ -1762,6 +1793,48 @@
                               "type": "string"
                             },
                             "version": {
+                              "type": "string"
+                            },
+                            "digest": {
+                              "type": "string"
+                            },
+                            "resolution": {
+                              "type": "string",
+                              "enum": [
+                                "requested_unverified"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "required",
+                            "sourceConfigPath",
+                            "resolution"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "contextPackages": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "required": {
+                              "type": "boolean"
+                            },
+                            "sourceConfigPath": {
+                              "type": "string"
+                            },
+                            "resource": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "string"
+                            },
+                            "channel": {
                               "type": "string"
                             },
                             "digest": {

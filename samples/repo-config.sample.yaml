@@ -4,11 +4,12 @@ version: 1
 name: payments-api
 
 resources:
-  contexts:
+  contextPackages:
     - id: payments.domain-rules@latest-approved
       required: true
     - id: security.pii-handling@2.x
       required: true
+  contexts: []
   workflows:
     - bug-to-pr
 

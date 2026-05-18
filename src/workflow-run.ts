@@ -417,6 +417,17 @@ export const SessionWorkflowManifestSchema = z.object({
   resolution: ResourceResolutionSchema,
 });
 
+export const SessionContextPackageManifestSchema = z.object({
+  id: z.string(),
+  required: z.boolean(),
+  sourceConfigPath: z.string(),
+  resource: z.string().optional(),
+  version: z.string().optional(),
+  channel: z.string().optional(),
+  digest: z.string().optional(),
+  resolution: ResourceResolutionSchema,
+});
+
 export const SessionResourceManifestSchema = z.object({
   schema: z.literal('viewport.session_resource_manifest/v1'),
   manifestDigest: z.string(),
@@ -431,6 +442,7 @@ export const SessionResourceManifestSchema = z.object({
   ),
   resources: z.object({
     contexts: z.array(SessionResourceManifestResourceSchema),
+    contextPackages: z.array(SessionResourceManifestResourceSchema).optional().default([]),
     workflows: z.array(SessionResourceManifestResourceSchema),
     plans: z.array(SessionResourceManifestResourceSchema),
     agentProfiles: z.array(SessionResourceManifestResourceSchema),
@@ -444,6 +456,7 @@ export const SessionResourceManifestSchema = z.object({
         strategy: z.enum(['rank_by_recency_then_query', 'pinned_then_recent', 'provider_order']).optional(),
       }),
       workflows: z.array(SessionWorkflowManifestSchema),
+      contextPackages: z.array(SessionContextPackageManifestSchema).optional(),
     })
     .optional(),
   conflicts: z.array(
@@ -564,6 +577,7 @@ export type WorkflowNodeApprovalState = z.infer<typeof WorkflowNodeApprovalState
 export type WorkflowLoopIterationRecord = z.infer<typeof WorkflowLoopIterationRecordSchema>;
 export type WorkflowNodeRunState = z.infer<typeof WorkflowNodeRunStateSchema>;
 export type SessionResourceManifest = z.infer<typeof SessionResourceManifestSchema>;
+export type SessionContextPackageManifest = z.infer<typeof SessionContextPackageManifestSchema>;
 export type WorkflowRunRecord = z.infer<typeof WorkflowRunRecordSchema>;
 export type WorkflowRunsMessage = z.infer<typeof WorkflowRunsMessageSchema>;
 export type WorkflowRunStartedMessage = z.infer<typeof WorkflowRunStartedMessageSchema>;
