@@ -3,7 +3,7 @@ package: payments.domain-rules
 requested: latest-approved
 resolvedVersion: 2.3.0
 provider: viewport-vault
-digest: sha256:eb7b317fa2b10f75f084e2865d99bc63588b6b3d71f8d890478471b1553143ac
+digest: sha256:196fbb3936907f34a7ac73a18b5d39019a3440f08278fd3f35611b43ed750d2f
 freshness: fresh
 usedBy:
   runId: run_pay1842

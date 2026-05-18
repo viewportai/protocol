@@ -37,8 +37,7 @@ approval:
 
 sections:
   summary:
-    body: |
-      Payments behavior must preserve auditability, idempotency, and customer-visible consistency.
+    body: Payments behavior must preserve auditability, idempotency, and customer-visible consistency.
   rules:
     - id: lower-case-discount-codes
       body: Discount codes must be normalized before lookup and displayed using the original customer-entered value.
