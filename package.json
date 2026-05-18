@@ -1,6 +1,6 @@
 {
   "name": "@viewportai/protocol",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "type": "module",
   "description": "Canonical Viewport protocol contract ids, samples, and compatibility fixtures.",
   "publishConfig": {

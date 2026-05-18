@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.3.0...@viewportai/protocol@1.3.1) (2026-05-18)
+
+
+### Bug Fixes
+
+* align context receipt fixture digest ([bb37993](https://github.com/viewportai/protocol/commit/bb37993ccdc591dbf5b63f6ed91af7ccadf88a41))
+
 # [1.3.0](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.2.0...@viewportai/protocol@1.3.0) (2026-05-18)
 
 
