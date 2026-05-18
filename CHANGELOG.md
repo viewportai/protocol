@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.1.0...@viewportai/protocol@1.2.0) (2026-05-18)
+
+
+### Features
+
+* validate context package contract ([29e76fb](https://github.com/viewportai/protocol/commit/29e76fb254fdad0ad549d3a0c8c85c3689760236))
+
 # [1.1.0](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.0.0...@viewportai/protocol@1.1.0) (2026-05-18)
 
 
