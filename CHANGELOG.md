@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.2.0...@viewportai/protocol@1.3.0) (2026-05-18)
+
+
+### Features
+
+* declare context packages in session manifests ([8540596](https://github.com/viewportai/protocol/commit/85405960c1365f7e2c6dfcb315688dd60104cd2b))
+
 # [1.2.0](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.1.0...@viewportai/protocol@1.2.0) (2026-05-18)
 
 
