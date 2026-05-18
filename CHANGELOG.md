@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.0.0...@viewportai/protocol@1.1.0) (2026-05-18)
+
+
+### Features
+
+* add review packet artifact subject contract ([b63ed55](https://github.com/viewportai/protocol/commit/b63ed5532d1450461f9a4c9a1e20c4b02ff14e4b))
+
 # 1.0.0 (2026-05-17)
 
 
