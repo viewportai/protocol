@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.3.1...@viewportai/protocol@1.3.2) (2026-05-18)
+
+
+### Bug Fixes
+
+* normalize context package fixture digest ([9996d06](https://github.com/viewportai/protocol/commit/9996d06afe50d45e97485b54a44c317775cbedf9))
+
 ## [1.3.1](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.3.0...@viewportai/protocol@1.3.1) (2026-05-18)
 
 
