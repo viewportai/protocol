@@ -114,8 +114,48 @@ export declare const WorkflowRunArtifactSchema: z.ZodObject<{
     sizeBytes?: number | undefined;
     metadata?: Record<string, unknown> | undefined;
 }>;
+export declare const ReviewPacketArtifactKindSchema: z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>;
+export declare const ReviewPacketSubjectSchema: z.ZodObject<{
+    type: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
+    label: z.ZodOptional<z.ZodString>;
+    uri: z.ZodOptional<z.ZodString>;
+    metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+}, "strip", z.ZodTypeAny, {
+    type: string;
+    id?: string | undefined;
+    metadata?: Record<string, unknown> | undefined;
+    label?: string | undefined;
+    uri?: string | undefined;
+}, {
+    type: string;
+    id?: string | undefined;
+    metadata?: Record<string, unknown> | undefined;
+    label?: string | undefined;
+    uri?: string | undefined;
+}>;
 export declare const ReviewPacketSchema: z.ZodObject<{
     id: z.ZodString;
+    artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+    subject: z.ZodOptional<z.ZodObject<{
+        type: z.ZodString;
+        id: z.ZodOptional<z.ZodString>;
+        label: z.ZodOptional<z.ZodString>;
+        uri: z.ZodOptional<z.ZodString>;
+        metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    }, "strip", z.ZodTypeAny, {
+        type: string;
+        id?: string | undefined;
+        metadata?: Record<string, unknown> | undefined;
+        label?: string | undefined;
+        uri?: string | undefined;
+    }, {
+        type: string;
+        id?: string | undefined;
+        metadata?: Record<string, unknown> | undefined;
+        label?: string | undefined;
+        uri?: string | undefined;
+    }>>;
     readinessTargetId: z.ZodOptional<z.ZodString>;
     workflowRunId: z.ZodOptional<z.ZodString>;
     planId: z.ZodOptional<z.ZodString>;
@@ -144,7 +184,15 @@ export declare const ReviewPacketSchema: z.ZodObject<{
     summary?: string | undefined;
     createdAt?: number | undefined;
     findings?: Record<string, unknown>[] | undefined;
+    subject?: {
+        type: string;
+        id?: string | undefined;
+        metadata?: Record<string, unknown> | undefined;
+        label?: string | undefined;
+        uri?: string | undefined;
+    } | undefined;
     metadata?: Record<string, unknown> | undefined;
+    artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
     readinessTargetId?: string | undefined;
     planId?: string | undefined;
     sourceKey?: string | undefined;
@@ -163,7 +211,15 @@ export declare const ReviewPacketSchema: z.ZodObject<{
     summary?: string | undefined;
     createdAt?: number | undefined;
     findings?: Record<string, unknown>[] | undefined;
+    subject?: {
+        type: string;
+        id?: string | undefined;
+        metadata?: Record<string, unknown> | undefined;
+        label?: string | undefined;
+        uri?: string | undefined;
+    } | undefined;
     metadata?: Record<string, unknown> | undefined;
+    artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
     readinessTargetId?: string | undefined;
     planId?: string | undefined;
     sourceKey?: string | undefined;
@@ -195,6 +251,26 @@ export declare const ReadinessTargetSchema: z.ZodObject<{
     updatedAt: z.ZodOptional<z.ZodNumber>;
     reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
         id: z.ZodString;
+        artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+        subject: z.ZodOptional<z.ZodObject<{
+            type: z.ZodString;
+            id: z.ZodOptional<z.ZodString>;
+            label: z.ZodOptional<z.ZodString>;
+            uri: z.ZodOptional<z.ZodString>;
+            metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, "strip", z.ZodTypeAny, {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        }, {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        }>>;
         readinessTargetId: z.ZodOptional<z.ZodString>;
         workflowRunId: z.ZodOptional<z.ZodString>;
         planId: z.ZodOptional<z.ZodString>;
@@ -223,7 +299,15 @@ export declare const ReadinessTargetSchema: z.ZodObject<{
         summary?: string | undefined;
         createdAt?: number | undefined;
         findings?: Record<string, unknown>[] | undefined;
+        subject?: {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        } | undefined;
         metadata?: Record<string, unknown> | undefined;
+        artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
         readinessTargetId?: string | undefined;
         planId?: string | undefined;
         sourceKey?: string | undefined;
@@ -242,7 +326,15 @@ export declare const ReadinessTargetSchema: z.ZodObject<{
         summary?: string | undefined;
         createdAt?: number | undefined;
         findings?: Record<string, unknown>[] | undefined;
+        subject?: {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        } | undefined;
         metadata?: Record<string, unknown> | undefined;
+        artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
         readinessTargetId?: string | undefined;
         planId?: string | undefined;
         sourceKey?: string | undefined;
@@ -283,7 +375,15 @@ export declare const ReadinessTargetSchema: z.ZodObject<{
         summary?: string | undefined;
         createdAt?: number | undefined;
         findings?: Record<string, unknown>[] | undefined;
+        subject?: {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        } | undefined;
         metadata?: Record<string, unknown> | undefined;
+        artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
         readinessTargetId?: string | undefined;
         planId?: string | undefined;
         sourceKey?: string | undefined;
@@ -324,7 +424,15 @@ export declare const ReadinessTargetSchema: z.ZodObject<{
         summary?: string | undefined;
         createdAt?: number | undefined;
         findings?: Record<string, unknown>[] | undefined;
+        subject?: {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        } | undefined;
         metadata?: Record<string, unknown> | undefined;
+        artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
         readinessTargetId?: string | undefined;
         planId?: string | undefined;
         sourceKey?: string | undefined;
@@ -2180,6 +2288,26 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
     }>, "many">>;
     reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
         id: z.ZodString;
+        artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+        subject: z.ZodOptional<z.ZodObject<{
+            type: z.ZodString;
+            id: z.ZodOptional<z.ZodString>;
+            label: z.ZodOptional<z.ZodString>;
+            uri: z.ZodOptional<z.ZodString>;
+            metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, "strip", z.ZodTypeAny, {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        }, {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        }>>;
         readinessTargetId: z.ZodOptional<z.ZodString>;
         workflowRunId: z.ZodOptional<z.ZodString>;
         planId: z.ZodOptional<z.ZodString>;
@@ -2208,7 +2336,15 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         summary?: string | undefined;
         createdAt?: number | undefined;
         findings?: Record<string, unknown>[] | undefined;
+        subject?: {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        } | undefined;
         metadata?: Record<string, unknown> | undefined;
+        artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
         readinessTargetId?: string | undefined;
         planId?: string | undefined;
         sourceKey?: string | undefined;
@@ -2227,7 +2363,15 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         summary?: string | undefined;
         createdAt?: number | undefined;
         findings?: Record<string, unknown>[] | undefined;
+        subject?: {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        } | undefined;
         metadata?: Record<string, unknown> | undefined;
+        artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
         readinessTargetId?: string | undefined;
         planId?: string | undefined;
         sourceKey?: string | undefined;
@@ -2259,6 +2403,26 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodNumber>;
         reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
             id: z.ZodString;
+            artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+            subject: z.ZodOptional<z.ZodObject<{
+                type: z.ZodString;
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodString>;
+                uri: z.ZodOptional<z.ZodString>;
+                metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+            }, "strip", z.ZodTypeAny, {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            }, {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            }>>;
             readinessTargetId: z.ZodOptional<z.ZodString>;
             workflowRunId: z.ZodOptional<z.ZodString>;
             planId: z.ZodOptional<z.ZodString>;
@@ -2287,7 +2451,15 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -2306,7 +2478,15 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -2347,7 +2527,15 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -2388,7 +2576,15 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -3451,7 +3647,15 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         summary?: string | undefined;
         createdAt?: number | undefined;
         findings?: Record<string, unknown>[] | undefined;
+        subject?: {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        } | undefined;
         metadata?: Record<string, unknown> | undefined;
+        artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
         readinessTargetId?: string | undefined;
         planId?: string | undefined;
         sourceKey?: string | undefined;
@@ -3588,7 +3792,15 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -3858,7 +4070,15 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         summary?: string | undefined;
         createdAt?: number | undefined;
         findings?: Record<string, unknown>[] | undefined;
+        subject?: {
+            type: string;
+            id?: string | undefined;
+            metadata?: Record<string, unknown> | undefined;
+            label?: string | undefined;
+            uri?: string | undefined;
+        } | undefined;
         metadata?: Record<string, unknown> | undefined;
+        artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
         readinessTargetId?: string | undefined;
         planId?: string | undefined;
         sourceKey?: string | undefined;
@@ -3995,7 +4215,15 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -4532,6 +4760,26 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
         }>, "many">>;
         reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
             id: z.ZodString;
+            artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+            subject: z.ZodOptional<z.ZodObject<{
+                type: z.ZodString;
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodString>;
+                uri: z.ZodOptional<z.ZodString>;
+                metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+            }, "strip", z.ZodTypeAny, {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            }, {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            }>>;
             readinessTargetId: z.ZodOptional<z.ZodString>;
             workflowRunId: z.ZodOptional<z.ZodString>;
             planId: z.ZodOptional<z.ZodString>;
@@ -4560,7 +4808,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -4579,7 +4835,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -4611,6 +4875,26 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             updatedAt: z.ZodOptional<z.ZodNumber>;
             reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
+                artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+                subject: z.ZodOptional<z.ZodObject<{
+                    type: z.ZodString;
+                    id: z.ZodOptional<z.ZodString>;
+                    label: z.ZodOptional<z.ZodString>;
+                    uri: z.ZodOptional<z.ZodString>;
+                    metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+                }, "strip", z.ZodTypeAny, {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                }, {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                }>>;
                 readinessTargetId: z.ZodOptional<z.ZodString>;
                 workflowRunId: z.ZodOptional<z.ZodString>;
                 planId: z.ZodOptional<z.ZodString>;
@@ -4639,7 +4923,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -4658,7 +4950,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -4699,7 +4999,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -4740,7 +5048,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -5803,7 +6119,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -5940,7 +6264,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -6210,7 +6542,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -6347,7 +6687,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -6620,7 +6968,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -6757,7 +7113,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -7030,7 +7394,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -7167,7 +7539,15 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -7705,6 +8085,26 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
         }>, "many">>;
         reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
             id: z.ZodString;
+            artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+            subject: z.ZodOptional<z.ZodObject<{
+                type: z.ZodString;
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodString>;
+                uri: z.ZodOptional<z.ZodString>;
+                metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+            }, "strip", z.ZodTypeAny, {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            }, {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            }>>;
             readinessTargetId: z.ZodOptional<z.ZodString>;
             workflowRunId: z.ZodOptional<z.ZodString>;
             planId: z.ZodOptional<z.ZodString>;
@@ -7733,7 +8133,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -7752,7 +8160,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -7784,6 +8200,26 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             updatedAt: z.ZodOptional<z.ZodNumber>;
             reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
+                artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+                subject: z.ZodOptional<z.ZodObject<{
+                    type: z.ZodString;
+                    id: z.ZodOptional<z.ZodString>;
+                    label: z.ZodOptional<z.ZodString>;
+                    uri: z.ZodOptional<z.ZodString>;
+                    metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+                }, "strip", z.ZodTypeAny, {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                }, {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                }>>;
                 readinessTargetId: z.ZodOptional<z.ZodString>;
                 workflowRunId: z.ZodOptional<z.ZodString>;
                 planId: z.ZodOptional<z.ZodString>;
@@ -7812,7 +8248,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -7831,7 +8275,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -7872,7 +8324,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -7913,7 +8373,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -8976,7 +9444,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -9113,7 +9589,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -9383,7 +9867,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -9520,7 +10012,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -9793,7 +10293,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -9930,7 +10438,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -10203,7 +10719,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -10340,7 +10864,15 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -10878,6 +11410,26 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
         }>, "many">>;
         reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
             id: z.ZodString;
+            artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+            subject: z.ZodOptional<z.ZodObject<{
+                type: z.ZodString;
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodString>;
+                uri: z.ZodOptional<z.ZodString>;
+                metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+            }, "strip", z.ZodTypeAny, {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            }, {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            }>>;
             readinessTargetId: z.ZodOptional<z.ZodString>;
             workflowRunId: z.ZodOptional<z.ZodString>;
             planId: z.ZodOptional<z.ZodString>;
@@ -10906,7 +11458,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -10925,7 +11485,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -10957,6 +11525,26 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             updatedAt: z.ZodOptional<z.ZodNumber>;
             reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
+                artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+                subject: z.ZodOptional<z.ZodObject<{
+                    type: z.ZodString;
+                    id: z.ZodOptional<z.ZodString>;
+                    label: z.ZodOptional<z.ZodString>;
+                    uri: z.ZodOptional<z.ZodString>;
+                    metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+                }, "strip", z.ZodTypeAny, {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                }, {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                }>>;
                 readinessTargetId: z.ZodOptional<z.ZodString>;
                 workflowRunId: z.ZodOptional<z.ZodString>;
                 planId: z.ZodOptional<z.ZodString>;
@@ -10985,7 +11573,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -11004,7 +11600,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -11045,7 +11649,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -11086,7 +11698,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -12149,7 +12769,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -12286,7 +12914,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -12556,7 +13192,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -12693,7 +13337,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -12966,7 +13618,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -13103,7 +13763,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -13376,7 +14044,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -13513,7 +14189,15 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -14051,6 +14735,26 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
         }>, "many">>;
         reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
             id: z.ZodString;
+            artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+            subject: z.ZodOptional<z.ZodObject<{
+                type: z.ZodString;
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodString>;
+                uri: z.ZodOptional<z.ZodString>;
+                metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+            }, "strip", z.ZodTypeAny, {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            }, {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            }>>;
             readinessTargetId: z.ZodOptional<z.ZodString>;
             workflowRunId: z.ZodOptional<z.ZodString>;
             planId: z.ZodOptional<z.ZodString>;
@@ -14079,7 +14783,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -14098,7 +14810,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -14130,6 +14850,26 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             updatedAt: z.ZodOptional<z.ZodNumber>;
             reviewPackets: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 id: z.ZodString;
+                artifactKind: z.ZodOptional<z.ZodEnum<["plan", "evidence_packet", "action_proposal", "approval_request", "context_candidate", "remediation", "run_summary", "other"]>>;
+                subject: z.ZodOptional<z.ZodObject<{
+                    type: z.ZodString;
+                    id: z.ZodOptional<z.ZodString>;
+                    label: z.ZodOptional<z.ZodString>;
+                    uri: z.ZodOptional<z.ZodString>;
+                    metadata: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+                }, "strip", z.ZodTypeAny, {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                }, {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                }>>;
                 readinessTargetId: z.ZodOptional<z.ZodString>;
                 workflowRunId: z.ZodOptional<z.ZodString>;
                 planId: z.ZodOptional<z.ZodString>;
@@ -14158,7 +14898,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -14177,7 +14925,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -14218,7 +14974,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -14259,7 +15023,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -15322,7 +16094,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -15459,7 +16239,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -15729,7 +16517,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -15866,7 +16662,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -16139,7 +16943,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -16276,7 +17088,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;
@@ -16549,7 +17369,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             summary?: string | undefined;
             createdAt?: number | undefined;
             findings?: Record<string, unknown>[] | undefined;
+            subject?: {
+                type: string;
+                id?: string | undefined;
+                metadata?: Record<string, unknown> | undefined;
+                label?: string | undefined;
+                uri?: string | undefined;
+            } | undefined;
             metadata?: Record<string, unknown> | undefined;
+            artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
             readinessTargetId?: string | undefined;
             planId?: string | undefined;
             sourceKey?: string | undefined;
@@ -16686,7 +17514,15 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
                 summary?: string | undefined;
                 createdAt?: number | undefined;
                 findings?: Record<string, unknown>[] | undefined;
+                subject?: {
+                    type: string;
+                    id?: string | undefined;
+                    metadata?: Record<string, unknown> | undefined;
+                    label?: string | undefined;
+                    uri?: string | undefined;
+                } | undefined;
                 metadata?: Record<string, unknown> | undefined;
+                artifactKind?: "plan" | "evidence_packet" | "action_proposal" | "approval_request" | "context_candidate" | "remediation" | "run_summary" | "other" | undefined;
                 readinessTargetId?: string | undefined;
                 planId?: string | undefined;
                 sourceKey?: string | undefined;

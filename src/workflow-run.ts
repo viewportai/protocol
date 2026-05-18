@@ -91,8 +91,29 @@ export const WorkflowRunArtifactSchema = z.object({
   metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
+export const ReviewPacketArtifactKindSchema = z.enum([
+  'plan',
+  'evidence_packet',
+  'action_proposal',
+  'approval_request',
+  'context_candidate',
+  'remediation',
+  'run_summary',
+  'other',
+]);
+
+export const ReviewPacketSubjectSchema = z.object({
+  type: z.string(),
+  id: z.string().optional(),
+  label: z.string().optional(),
+  uri: z.string().optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
+});
+
 export const ReviewPacketSchema = z.object({
   id: z.string(),
+  artifactKind: ReviewPacketArtifactKindSchema.optional(),
+  subject: ReviewPacketSubjectSchema.optional(),
   readinessTargetId: z.string().optional(),
   workflowRunId: z.string().optional(),
   planId: z.string().optional(),

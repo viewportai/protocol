@@ -111,6 +111,12 @@ const baseRun = {
   reviewPackets: [
     {
       id: 'rp_001',
+      artifactKind: 'action_proposal',
+      subject: {
+        type: 'github.open_pr',
+        id: 'pr_4821',
+        label: 'Open PR for PAY-1842',
+      },
       workflowRunId: 'run_pay1842',
       title: 'PAY-1842 fix review',
       status: 'published',
@@ -133,6 +139,11 @@ const baseRun = {
       reviewPackets: [
         {
           id: 'rp_001',
+          artifactKind: 'action_proposal',
+          subject: {
+            type: 'github.open_pr',
+            label: 'Open PR for PAY-1842',
+          },
           readinessTargetId: 'rt_001',
           title: 'PAY-1842 fix review',
           status: 'published',

@@ -555,6 +555,44 @@
                   "id": {
                     "type": "string"
                   },
+                  "artifactKind": {
+                    "type": "string",
+                    "enum": [
+                      "plan",
+                      "evidence_packet",
+                      "action_proposal",
+                      "approval_request",
+                      "context_candidate",
+                      "remediation",
+                      "run_summary",
+                      "other"
+                    ]
+                  },
+                  "subject": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "uri": {
+                        "type": "string"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ],
+                    "additionalProperties": false
+                  },
                   "readinessTargetId": {
                     "type": "string"
                   },
@@ -745,6 +783,44 @@
                       "properties": {
                         "id": {
                           "type": "string"
+                        },
+                        "artifactKind": {
+                          "type": "string",
+                          "enum": [
+                            "plan",
+                            "evidence_packet",
+                            "action_proposal",
+                            "approval_request",
+                            "context_candidate",
+                            "remediation",
+                            "run_summary",
+                            "other"
+                          ]
+                        },
+                        "subject": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "label": {
+                              "type": "string"
+                            },
+                            "uri": {
+                              "type": "string"
+                            },
+                            "metadata": {
+                              "type": "object",
+                              "additionalProperties": {}
+                            }
+                          },
+                          "required": [
+                            "type"
+                          ],
+                          "additionalProperties": false
                         },
                         "readinessTargetId": {
                           "type": "string"
