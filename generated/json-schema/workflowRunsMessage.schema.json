@@ -1346,6 +1346,92 @@
                   "additionalProperties": false
                 }
               },
+              "contextCandidateApplications": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "inboxItemId": {
+                      "type": "string"
+                    },
+                    "candidate": {
+                      "type": "object",
+                      "properties": {
+                        "eventId": {
+                          "type": "string"
+                        },
+                        "repoId": {
+                          "type": "string"
+                        },
+                        "contextResourceId": {
+                          "type": "string"
+                        },
+                        "payloadDigest": {
+                          "type": "string"
+                        },
+                        "actorName": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "decisionId": {
+                      "type": "string"
+                    },
+                    "decision": {
+                      "type": "string"
+                    },
+                    "schemaVersion": {
+                      "type": "string",
+                      "const": "viewport.context_candidate_application/v1"
+                    },
+                    "repoId": {
+                      "type": "string"
+                    },
+                    "contextResourceId": {
+                      "type": "string"
+                    },
+                    "candidateEventId": {
+                      "type": "string"
+                    },
+                    "payloadDigest": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "actorName": {
+                      "type": "string"
+                    },
+                    "candidateId": {
+                      "type": "string"
+                    },
+                    "emitted": {
+                      "type": "number"
+                    },
+                    "appliedAt": {
+                      "type": [
+                        "number",
+                        "string"
+                      ]
+                    },
+                    "platformSignatureDigest": {
+                      "type": "string"
+                    },
+                    "resolvedAt": {
+                      "type": [
+                        "number",
+                        "string"
+                      ]
+                    },
+                    "payload": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
               "contractHealth": {
                 "type": "object",
                 "properties": {

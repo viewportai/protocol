@@ -271,6 +271,32 @@ export const ContextReceiptRecordSchema = z.object({
   payload: z.record(z.string(), z.unknown()).optional(),
 });
 
+export const ContextCandidateApplicationRecordSchema = z.object({
+  inboxItemId: z.string().optional(),
+  candidate: z.object({
+    eventId: z.string().optional(),
+    repoId: z.string().optional(),
+    contextResourceId: z.string().optional(),
+    payloadDigest: z.string().optional(),
+    actorName: z.string().optional(),
+  }).optional(),
+  decisionId: z.string().optional(),
+  decision: z.string().optional(),
+  schemaVersion: z.literal('viewport.context_candidate_application/v1').optional(),
+  repoId: z.string().optional(),
+  contextResourceId: z.string().optional(),
+  candidateEventId: z.string().optional(),
+  payloadDigest: z.string().optional(),
+  status: z.string().optional(),
+  actorName: z.string().optional(),
+  candidateId: z.string().optional(),
+  emitted: z.number().optional(),
+  appliedAt: z.union([TimestampSchema, z.string()]).optional(),
+  platformSignatureDigest: z.string().optional(),
+  resolvedAt: z.union([TimestampSchema, z.string()]).optional(),
+  payload: z.record(z.string(), z.unknown()).optional(),
+});
+
 export const ContractHealthIssueSchema = z.object({
   severity: z.enum(['warning', 'error']),
   code: z.string(),
@@ -520,6 +546,7 @@ export const WorkflowRunRecordSchema = z.object({
   executionReceipts: z.array(ExecutionReceiptRecordSchema).optional(),
   auditReceipts: z.array(AuditReceiptRecordSchema).optional(),
   contextReceipts: z.array(ContextReceiptRecordSchema).optional(),
+  contextCandidateApplications: z.array(ContextCandidateApplicationRecordSchema).optional(),
   contractHealth: ContractHealthSchema.optional(),
   resourceManifest: SessionResourceManifestSchema.optional(),
   events: z.array(WorkflowRunEventSchema),
@@ -566,6 +593,7 @@ export type ApprovalDecisionRecord = z.infer<typeof ApprovalDecisionRecordSchema
 export type ExecutionReceiptRecord = z.infer<typeof ExecutionReceiptRecordSchema>;
 export type AuditReceiptRecord = z.infer<typeof AuditReceiptRecordSchema>;
 export type ContextReceiptRecord = z.infer<typeof ContextReceiptRecordSchema>;
+export type ContextCandidateApplicationRecord = z.infer<typeof ContextCandidateApplicationRecordSchema>;
 export type ContractHealthIssue = z.infer<typeof ContractHealthIssueSchema>;
 export type ContractHealth = z.infer<typeof ContractHealthSchema>;
 export type WorkflowExecutionPolicy = z.infer<typeof WorkflowExecutionPolicySchema>;
