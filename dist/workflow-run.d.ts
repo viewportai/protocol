@@ -749,6 +749,91 @@ export declare const ContextReceiptRecordSchema: z.ZodObject<{
     resolvedAt?: string | number | undefined;
     packageName?: string | undefined;
 }>;
+export declare const ContextCandidateApplicationRecordSchema: z.ZodObject<{
+    inboxItemId: z.ZodOptional<z.ZodString>;
+    candidate: z.ZodOptional<z.ZodObject<{
+        eventId: z.ZodOptional<z.ZodString>;
+        repoId: z.ZodOptional<z.ZodString>;
+        contextResourceId: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        actorName: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        payloadDigest?: string | undefined;
+        eventId?: string | undefined;
+        repoId?: string | undefined;
+        contextResourceId?: string | undefined;
+        actorName?: string | undefined;
+    }, {
+        payloadDigest?: string | undefined;
+        eventId?: string | undefined;
+        repoId?: string | undefined;
+        contextResourceId?: string | undefined;
+        actorName?: string | undefined;
+    }>>;
+    decisionId: z.ZodOptional<z.ZodString>;
+    decision: z.ZodOptional<z.ZodString>;
+    schemaVersion: z.ZodOptional<z.ZodLiteral<"viewport.context_candidate_application/v1">>;
+    repoId: z.ZodOptional<z.ZodString>;
+    contextResourceId: z.ZodOptional<z.ZodString>;
+    candidateEventId: z.ZodOptional<z.ZodString>;
+    payloadDigest: z.ZodOptional<z.ZodString>;
+    status: z.ZodOptional<z.ZodString>;
+    actorName: z.ZodOptional<z.ZodString>;
+    candidateId: z.ZodOptional<z.ZodString>;
+    emitted: z.ZodOptional<z.ZodNumber>;
+    appliedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+    platformSignatureDigest: z.ZodOptional<z.ZodString>;
+    resolvedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+    payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+}, "strip", z.ZodTypeAny, {
+    status?: string | undefined;
+    payload?: Record<string, unknown> | undefined;
+    decision?: string | undefined;
+    payloadDigest?: string | undefined;
+    resolvedAt?: string | number | undefined;
+    inboxItemId?: string | undefined;
+    repoId?: string | undefined;
+    contextResourceId?: string | undefined;
+    actorName?: string | undefined;
+    candidate?: {
+        payloadDigest?: string | undefined;
+        eventId?: string | undefined;
+        repoId?: string | undefined;
+        contextResourceId?: string | undefined;
+        actorName?: string | undefined;
+    } | undefined;
+    decisionId?: string | undefined;
+    schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+    candidateEventId?: string | undefined;
+    candidateId?: string | undefined;
+    emitted?: number | undefined;
+    appliedAt?: string | number | undefined;
+    platformSignatureDigest?: string | undefined;
+}, {
+    status?: string | undefined;
+    payload?: Record<string, unknown> | undefined;
+    decision?: string | undefined;
+    payloadDigest?: string | undefined;
+    resolvedAt?: string | number | undefined;
+    inboxItemId?: string | undefined;
+    repoId?: string | undefined;
+    contextResourceId?: string | undefined;
+    actorName?: string | undefined;
+    candidate?: {
+        payloadDigest?: string | undefined;
+        eventId?: string | undefined;
+        repoId?: string | undefined;
+        contextResourceId?: string | undefined;
+        actorName?: string | undefined;
+    } | undefined;
+    decisionId?: string | undefined;
+    schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+    candidateEventId?: string | undefined;
+    candidateId?: string | undefined;
+    emitted?: number | undefined;
+    appliedAt?: string | number | undefined;
+    platformSignatureDigest?: string | undefined;
+}>;
 export declare const ContractHealthIssueSchema: z.ZodObject<{
     severity: z.ZodEnum<["warning", "error"]>;
     code: z.ZodString;
@@ -3037,6 +3122,91 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         resolvedAt?: string | number | undefined;
         packageName?: string | undefined;
     }>, "many">>;
+    contextCandidateApplications: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        inboxItemId: z.ZodOptional<z.ZodString>;
+        candidate: z.ZodOptional<z.ZodObject<{
+            eventId: z.ZodOptional<z.ZodString>;
+            repoId: z.ZodOptional<z.ZodString>;
+            contextResourceId: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            actorName: z.ZodOptional<z.ZodString>;
+        }, "strip", z.ZodTypeAny, {
+            payloadDigest?: string | undefined;
+            eventId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+        }, {
+            payloadDigest?: string | undefined;
+            eventId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+        }>>;
+        decisionId: z.ZodOptional<z.ZodString>;
+        decision: z.ZodOptional<z.ZodString>;
+        schemaVersion: z.ZodOptional<z.ZodLiteral<"viewport.context_candidate_application/v1">>;
+        repoId: z.ZodOptional<z.ZodString>;
+        contextResourceId: z.ZodOptional<z.ZodString>;
+        candidateEventId: z.ZodOptional<z.ZodString>;
+        payloadDigest: z.ZodOptional<z.ZodString>;
+        status: z.ZodOptional<z.ZodString>;
+        actorName: z.ZodOptional<z.ZodString>;
+        candidateId: z.ZodOptional<z.ZodString>;
+        emitted: z.ZodOptional<z.ZodNumber>;
+        appliedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+        platformSignatureDigest: z.ZodOptional<z.ZodString>;
+        resolvedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    }, "strip", z.ZodTypeAny, {
+        status?: string | undefined;
+        payload?: Record<string, unknown> | undefined;
+        decision?: string | undefined;
+        payloadDigest?: string | undefined;
+        resolvedAt?: string | number | undefined;
+        inboxItemId?: string | undefined;
+        repoId?: string | undefined;
+        contextResourceId?: string | undefined;
+        actorName?: string | undefined;
+        candidate?: {
+            payloadDigest?: string | undefined;
+            eventId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+        } | undefined;
+        decisionId?: string | undefined;
+        schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+        candidateEventId?: string | undefined;
+        candidateId?: string | undefined;
+        emitted?: number | undefined;
+        appliedAt?: string | number | undefined;
+        platformSignatureDigest?: string | undefined;
+    }, {
+        status?: string | undefined;
+        payload?: Record<string, unknown> | undefined;
+        decision?: string | undefined;
+        payloadDigest?: string | undefined;
+        resolvedAt?: string | number | undefined;
+        inboxItemId?: string | undefined;
+        repoId?: string | undefined;
+        contextResourceId?: string | undefined;
+        actorName?: string | undefined;
+        candidate?: {
+            payloadDigest?: string | undefined;
+            eventId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+        } | undefined;
+        decisionId?: string | undefined;
+        schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+        candidateEventId?: string | undefined;
+        candidateId?: string | undefined;
+        emitted?: number | undefined;
+        appliedAt?: string | number | undefined;
+        platformSignatureDigest?: string | undefined;
+    }>, "many">>;
     contractHealth: z.ZodOptional<z.ZodObject<{
         status: z.ZodEnum<["valid", "warning", "invalid", "unknown", "not_applicable"]>;
         summary: z.ZodObject<{
@@ -4073,6 +4243,31 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         policySnapshot?: Record<string, unknown> | undefined;
         decidedAt?: number | undefined;
     }[] | undefined;
+    contextCandidateApplications?: {
+        status?: string | undefined;
+        payload?: Record<string, unknown> | undefined;
+        decision?: string | undefined;
+        payloadDigest?: string | undefined;
+        resolvedAt?: string | number | undefined;
+        inboxItemId?: string | undefined;
+        repoId?: string | undefined;
+        contextResourceId?: string | undefined;
+        actorName?: string | undefined;
+        candidate?: {
+            payloadDigest?: string | undefined;
+            eventId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+        } | undefined;
+        decisionId?: string | undefined;
+        schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+        candidateEventId?: string | undefined;
+        candidateId?: string | undefined;
+        emitted?: number | undefined;
+        appliedAt?: string | number | undefined;
+        platformSignatureDigest?: string | undefined;
+    }[] | undefined;
     contractHealth?: {
         issues: {
             code: string;
@@ -4511,6 +4706,31 @@ export declare const WorkflowRunRecordSchema: z.ZodObject<{
         resourceSnapshot?: Record<string, unknown> | undefined;
         policySnapshot?: Record<string, unknown> | undefined;
         decidedAt?: number | undefined;
+    }[] | undefined;
+    contextCandidateApplications?: {
+        status?: string | undefined;
+        payload?: Record<string, unknown> | undefined;
+        decision?: string | undefined;
+        payloadDigest?: string | undefined;
+        resolvedAt?: string | number | undefined;
+        inboxItemId?: string | undefined;
+        repoId?: string | undefined;
+        contextResourceId?: string | undefined;
+        actorName?: string | undefined;
+        candidate?: {
+            payloadDigest?: string | undefined;
+            eventId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+        } | undefined;
+        decisionId?: string | undefined;
+        schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+        candidateEventId?: string | undefined;
+        candidateId?: string | undefined;
+        emitted?: number | undefined;
+        appliedAt?: string | number | undefined;
+        platformSignatureDigest?: string | undefined;
     }[] | undefined;
     contractHealth?: {
         issues: {
@@ -5649,6 +5869,91 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             resolvedAt?: string | number | undefined;
             packageName?: string | undefined;
         }>, "many">>;
+        contextCandidateApplications: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            inboxItemId: z.ZodOptional<z.ZodString>;
+            candidate: z.ZodOptional<z.ZodObject<{
+                eventId: z.ZodOptional<z.ZodString>;
+                repoId: z.ZodOptional<z.ZodString>;
+                contextResourceId: z.ZodOptional<z.ZodString>;
+                payloadDigest: z.ZodOptional<z.ZodString>;
+                actorName: z.ZodOptional<z.ZodString>;
+            }, "strip", z.ZodTypeAny, {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            }, {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            }>>;
+            decisionId: z.ZodOptional<z.ZodString>;
+            decision: z.ZodOptional<z.ZodString>;
+            schemaVersion: z.ZodOptional<z.ZodLiteral<"viewport.context_candidate_application/v1">>;
+            repoId: z.ZodOptional<z.ZodString>;
+            contextResourceId: z.ZodOptional<z.ZodString>;
+            candidateEventId: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            status: z.ZodOptional<z.ZodString>;
+            actorName: z.ZodOptional<z.ZodString>;
+            candidateId: z.ZodOptional<z.ZodString>;
+            emitted: z.ZodOptional<z.ZodNumber>;
+            appliedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+            platformSignatureDigest: z.ZodOptional<z.ZodString>;
+            resolvedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, "strip", z.ZodTypeAny, {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }, {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }>, "many">>;
         contractHealth: z.ZodOptional<z.ZodObject<{
             status: z.ZodEnum<["valid", "warning", "invalid", "unknown", "not_applicable"]>;
             summary: z.ZodObject<{
@@ -6685,6 +6990,31 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
         }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }[] | undefined;
         contractHealth?: {
             issues: {
                 code: string;
@@ -7123,6 +7453,31 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             resourceSnapshot?: Record<string, unknown> | undefined;
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
+        }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
         }[] | undefined;
         contractHealth?: {
             issues: {
@@ -7566,6 +7921,31 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
         }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }[] | undefined;
         contractHealth?: {
             issues: {
                 code: string;
@@ -8007,6 +8387,31 @@ export declare const WorkflowRunsMessageSchema: z.ZodObject<{
             resourceSnapshot?: Record<string, unknown> | undefined;
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
+        }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
         }[] | undefined;
         contractHealth?: {
             issues: {
@@ -9146,6 +9551,91 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             resolvedAt?: string | number | undefined;
             packageName?: string | undefined;
         }>, "many">>;
+        contextCandidateApplications: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            inboxItemId: z.ZodOptional<z.ZodString>;
+            candidate: z.ZodOptional<z.ZodObject<{
+                eventId: z.ZodOptional<z.ZodString>;
+                repoId: z.ZodOptional<z.ZodString>;
+                contextResourceId: z.ZodOptional<z.ZodString>;
+                payloadDigest: z.ZodOptional<z.ZodString>;
+                actorName: z.ZodOptional<z.ZodString>;
+            }, "strip", z.ZodTypeAny, {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            }, {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            }>>;
+            decisionId: z.ZodOptional<z.ZodString>;
+            decision: z.ZodOptional<z.ZodString>;
+            schemaVersion: z.ZodOptional<z.ZodLiteral<"viewport.context_candidate_application/v1">>;
+            repoId: z.ZodOptional<z.ZodString>;
+            contextResourceId: z.ZodOptional<z.ZodString>;
+            candidateEventId: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            status: z.ZodOptional<z.ZodString>;
+            actorName: z.ZodOptional<z.ZodString>;
+            candidateId: z.ZodOptional<z.ZodString>;
+            emitted: z.ZodOptional<z.ZodNumber>;
+            appliedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+            platformSignatureDigest: z.ZodOptional<z.ZodString>;
+            resolvedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, "strip", z.ZodTypeAny, {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }, {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }>, "many">>;
         contractHealth: z.ZodOptional<z.ZodObject<{
             status: z.ZodEnum<["valid", "warning", "invalid", "unknown", "not_applicable"]>;
             summary: z.ZodObject<{
@@ -10182,6 +10672,31 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
         }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }[] | undefined;
         contractHealth?: {
             issues: {
                 code: string;
@@ -10620,6 +11135,31 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             resourceSnapshot?: Record<string, unknown> | undefined;
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
+        }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
         }[] | undefined;
         contractHealth?: {
             issues: {
@@ -11063,6 +11603,31 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
         }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }[] | undefined;
         contractHealth?: {
             issues: {
                 code: string;
@@ -11504,6 +12069,31 @@ export declare const WorkflowRunStartedMessageSchema: z.ZodObject<{
             resourceSnapshot?: Record<string, unknown> | undefined;
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
+        }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
         }[] | undefined;
         contractHealth?: {
             issues: {
@@ -12643,6 +13233,91 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             resolvedAt?: string | number | undefined;
             packageName?: string | undefined;
         }>, "many">>;
+        contextCandidateApplications: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            inboxItemId: z.ZodOptional<z.ZodString>;
+            candidate: z.ZodOptional<z.ZodObject<{
+                eventId: z.ZodOptional<z.ZodString>;
+                repoId: z.ZodOptional<z.ZodString>;
+                contextResourceId: z.ZodOptional<z.ZodString>;
+                payloadDigest: z.ZodOptional<z.ZodString>;
+                actorName: z.ZodOptional<z.ZodString>;
+            }, "strip", z.ZodTypeAny, {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            }, {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            }>>;
+            decisionId: z.ZodOptional<z.ZodString>;
+            decision: z.ZodOptional<z.ZodString>;
+            schemaVersion: z.ZodOptional<z.ZodLiteral<"viewport.context_candidate_application/v1">>;
+            repoId: z.ZodOptional<z.ZodString>;
+            contextResourceId: z.ZodOptional<z.ZodString>;
+            candidateEventId: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            status: z.ZodOptional<z.ZodString>;
+            actorName: z.ZodOptional<z.ZodString>;
+            candidateId: z.ZodOptional<z.ZodString>;
+            emitted: z.ZodOptional<z.ZodNumber>;
+            appliedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+            platformSignatureDigest: z.ZodOptional<z.ZodString>;
+            resolvedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, "strip", z.ZodTypeAny, {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }, {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }>, "many">>;
         contractHealth: z.ZodOptional<z.ZodObject<{
             status: z.ZodEnum<["valid", "warning", "invalid", "unknown", "not_applicable"]>;
             summary: z.ZodObject<{
@@ -13679,6 +14354,31 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
         }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }[] | undefined;
         contractHealth?: {
             issues: {
                 code: string;
@@ -14117,6 +14817,31 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             resourceSnapshot?: Record<string, unknown> | undefined;
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
+        }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
         }[] | undefined;
         contractHealth?: {
             issues: {
@@ -14560,6 +15285,31 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
         }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }[] | undefined;
         contractHealth?: {
             issues: {
                 code: string;
@@ -15001,6 +15751,31 @@ export declare const WorkflowRunUpdatedMessageSchema: z.ZodObject<{
             resourceSnapshot?: Record<string, unknown> | undefined;
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
+        }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
         }[] | undefined;
         contractHealth?: {
             issues: {
@@ -16140,6 +16915,91 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             resolvedAt?: string | number | undefined;
             packageName?: string | undefined;
         }>, "many">>;
+        contextCandidateApplications: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            inboxItemId: z.ZodOptional<z.ZodString>;
+            candidate: z.ZodOptional<z.ZodObject<{
+                eventId: z.ZodOptional<z.ZodString>;
+                repoId: z.ZodOptional<z.ZodString>;
+                contextResourceId: z.ZodOptional<z.ZodString>;
+                payloadDigest: z.ZodOptional<z.ZodString>;
+                actorName: z.ZodOptional<z.ZodString>;
+            }, "strip", z.ZodTypeAny, {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            }, {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            }>>;
+            decisionId: z.ZodOptional<z.ZodString>;
+            decision: z.ZodOptional<z.ZodString>;
+            schemaVersion: z.ZodOptional<z.ZodLiteral<"viewport.context_candidate_application/v1">>;
+            repoId: z.ZodOptional<z.ZodString>;
+            contextResourceId: z.ZodOptional<z.ZodString>;
+            candidateEventId: z.ZodOptional<z.ZodString>;
+            payloadDigest: z.ZodOptional<z.ZodString>;
+            status: z.ZodOptional<z.ZodString>;
+            actorName: z.ZodOptional<z.ZodString>;
+            candidateId: z.ZodOptional<z.ZodString>;
+            emitted: z.ZodOptional<z.ZodNumber>;
+            appliedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+            platformSignatureDigest: z.ZodOptional<z.ZodString>;
+            resolvedAt: z.ZodOptional<z.ZodUnion<[z.ZodNumber, z.ZodString]>>;
+            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+        }, "strip", z.ZodTypeAny, {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }, {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }>, "many">>;
         contractHealth: z.ZodOptional<z.ZodObject<{
             status: z.ZodEnum<["valid", "warning", "invalid", "unknown", "not_applicable"]>;
             summary: z.ZodObject<{
@@ -17176,6 +18036,31 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
         }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }[] | undefined;
         contractHealth?: {
             issues: {
                 code: string;
@@ -17614,6 +18499,31 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             resourceSnapshot?: Record<string, unknown> | undefined;
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
+        }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
         }[] | undefined;
         contractHealth?: {
             issues: {
@@ -18057,6 +18967,31 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
         }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }[] | undefined;
         contractHealth?: {
             issues: {
                 code: string;
@@ -18499,6 +19434,31 @@ export declare const WorkflowRunDetailMessageSchema: z.ZodObject<{
             policySnapshot?: Record<string, unknown> | undefined;
             decidedAt?: number | undefined;
         }[] | undefined;
+        contextCandidateApplications?: {
+            status?: string | undefined;
+            payload?: Record<string, unknown> | undefined;
+            decision?: string | undefined;
+            payloadDigest?: string | undefined;
+            resolvedAt?: string | number | undefined;
+            inboxItemId?: string | undefined;
+            repoId?: string | undefined;
+            contextResourceId?: string | undefined;
+            actorName?: string | undefined;
+            candidate?: {
+                payloadDigest?: string | undefined;
+                eventId?: string | undefined;
+                repoId?: string | undefined;
+                contextResourceId?: string | undefined;
+                actorName?: string | undefined;
+            } | undefined;
+            decisionId?: string | undefined;
+            schemaVersion?: "viewport.context_candidate_application/v1" | undefined;
+            candidateEventId?: string | undefined;
+            candidateId?: string | undefined;
+            emitted?: number | undefined;
+            appliedAt?: string | number | undefined;
+            platformSignatureDigest?: string | undefined;
+        }[] | undefined;
         contractHealth?: {
             issues: {
                 code: string;
@@ -18637,6 +19597,7 @@ export type ApprovalDecisionRecord = z.infer<typeof ApprovalDecisionRecordSchema
 export type ExecutionReceiptRecord = z.infer<typeof ExecutionReceiptRecordSchema>;
 export type AuditReceiptRecord = z.infer<typeof AuditReceiptRecordSchema>;
 export type ContextReceiptRecord = z.infer<typeof ContextReceiptRecordSchema>;
+export type ContextCandidateApplicationRecord = z.infer<typeof ContextCandidateApplicationRecordSchema>;
 export type ContractHealthIssue = z.infer<typeof ContractHealthIssueSchema>;
 export type ContractHealth = z.infer<typeof ContractHealthSchema>;
 export type WorkflowExecutionPolicy = z.infer<typeof WorkflowExecutionPolicySchema>;
