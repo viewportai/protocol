@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.3.2...@viewportai/protocol@1.4.0) (2026-05-27)
+
+
+### Features
+
+* extend workflow run protocol records ([#10](https://github.com/viewportai/protocol/issues/10)) ([3006b00](https://github.com/viewportai/protocol/commit/3006b004a98ea85731c001de7751201bce091cd4))
+
 ## [1.3.2](https://github.com/viewportai/protocol/compare/@viewportai/protocol@1.3.1...@viewportai/protocol@1.3.2) (2026-05-18)
 
 
