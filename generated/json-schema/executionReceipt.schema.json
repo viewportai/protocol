@@ -95,7 +95,7 @@
             "approvalDecisionKey",
             "issuedAt"
           ],
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "providerReconciliation": {
           "type": "object",
@@ -142,7 +142,7 @@
                 "kind",
                 "id"
               ],
-              "additionalProperties": true
+              "additionalProperties": false
             },
             "providerReference": {
               "type": "string",
@@ -172,7 +172,7 @@
           "required": [
             "status"
           ],
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "payload": {
           "type": "object",
@@ -197,7 +197,7 @@
         "idempotencyKey",
         "executedAt"
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"

@@ -44,7 +44,7 @@
             "kind",
             "id"
           ],
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "action": {
           "type": "string",
@@ -93,7 +93,7 @@
             "id",
             "version"
           ],
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "expiresAt": {
           "type": "string",
@@ -111,7 +111,7 @@
         "decision",
         "reason"
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"

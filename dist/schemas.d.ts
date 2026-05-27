@@ -670,17 +670,17 @@ export declare const AuthorizationDecisionContractSchema: z.ZodObject<{
         id: z.ZodString;
         source: z.ZodOptional<z.ZodString>;
         displayName: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
+    }, "strict", z.ZodTypeAny, {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    }, {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    }>;
     action: z.ZodString;
     resource: z.ZodRecord<z.ZodString, z.ZodUnknown>;
     context: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
@@ -690,91 +690,78 @@ export declare const AuthorizationDecisionContractSchema: z.ZodObject<{
     policy: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
         version: z.ZodNumber;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">>>;
+    }, "strict", z.ZodTypeAny, {
+        id: string;
+        version: number;
+    }, {
+        id: string;
+        version: number;
+    }>>;
     expiresAt: z.ZodOptional<z.ZodString>;
-}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-    schema: z.ZodLiteral<"viewport.authorization_decision/v1">;
-    id: z.ZodString;
-    workspaceId: z.ZodString;
-    occurredAt: z.ZodString;
-    subject: z.ZodObject<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
-    action: z.ZodString;
-    resource: z.ZodRecord<z.ZodString, z.ZodUnknown>;
-    context: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    decision: z.ZodEnum<["allow", "deny", "require_approval"]>;
-    reason: z.ZodString;
-    matchedRules: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-    policy: z.ZodOptional<z.ZodObject<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">>>;
-    expiresAt: z.ZodOptional<z.ZodString>;
-}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-    schema: z.ZodLiteral<"viewport.authorization_decision/v1">;
-    id: z.ZodString;
-    workspaceId: z.ZodString;
-    occurredAt: z.ZodString;
-    subject: z.ZodObject<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
-    action: z.ZodString;
-    resource: z.ZodRecord<z.ZodString, z.ZodUnknown>;
-    context: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    decision: z.ZodEnum<["allow", "deny", "require_approval"]>;
-    reason: z.ZodString;
-    matchedRules: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-    policy: z.ZodOptional<z.ZodObject<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">>>;
-    expiresAt: z.ZodOptional<z.ZodString>;
-}, z.ZodTypeAny, "passthrough">>;
+}, "strict", z.ZodTypeAny, {
+    schema: "viewport.authorization_decision/v1";
+    id: string;
+    action: string;
+    decision: "allow" | "deny" | "require_approval";
+    reason: string;
+    workspaceId: string;
+    occurredAt: string;
+    subject: {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    };
+    resource: Record<string, unknown>;
+    context?: Record<string, unknown> | undefined;
+    matchedRules?: string[] | undefined;
+    expiresAt?: string | undefined;
+    policy?: {
+        id: string;
+        version: number;
+    } | undefined;
+}, {
+    schema: "viewport.authorization_decision/v1";
+    id: string;
+    action: string;
+    decision: "allow" | "deny" | "require_approval";
+    reason: string;
+    workspaceId: string;
+    occurredAt: string;
+    subject: {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    };
+    resource: Record<string, unknown>;
+    context?: Record<string, unknown> | undefined;
+    matchedRules?: string[] | undefined;
+    expiresAt?: string | undefined;
+    policy?: {
+        id: string;
+        version: number;
+    } | undefined;
+}>;
+export declare const ExecutionGrantContractSchema: z.ZodObject<{
+    schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+    digest: z.ZodString;
+    proposalKey: z.ZodString;
+    approvalDecisionKey: z.ZodString;
+    issuedAt: z.ZodString;
+}, "strict", z.ZodTypeAny, {
+    schema: "viewport.execution_grant/v1";
+    digest: string;
+    proposalKey: string;
+    approvalDecisionKey: string;
+    issuedAt: string;
+}, {
+    schema: "viewport.execution_grant/v1";
+    digest: string;
+    proposalKey: string;
+    approvalDecisionKey: string;
+    issuedAt: string;
+}>;
 export declare const ApprovalDecisionContractSchema: z.ZodObject<{
     schema: z.ZodLiteral<"viewport.approval_decision/v1">;
     id: z.ZodString;
@@ -787,89 +774,83 @@ export declare const ApprovalDecisionContractSchema: z.ZodObject<{
         id: z.ZodString;
         source: z.ZodOptional<z.ZodString>;
         displayName: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
+    }, "strict", z.ZodTypeAny, {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    }, {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    }>;
     reason: z.ZodOptional<z.ZodString>;
     createdAt: z.ZodString;
-}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-    schema: z.ZodLiteral<"viewport.approval_decision/v1">;
-    id: z.ZodString;
-    subjectType: z.ZodString;
-    subjectId: z.ZodString;
-    subjectDigest: z.ZodString;
-    decision: z.ZodEnum<["approve", "deny", "request_changes"]>;
-    actor: z.ZodObject<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
-    reason: z.ZodOptional<z.ZodString>;
-    createdAt: z.ZodString;
-}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-    schema: z.ZodLiteral<"viewport.approval_decision/v1">;
-    id: z.ZodString;
-    subjectType: z.ZodString;
-    subjectId: z.ZodString;
-    subjectDigest: z.ZodString;
-    decision: z.ZodEnum<["approve", "deny", "request_changes"]>;
-    actor: z.ZodObject<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
-    reason: z.ZodOptional<z.ZodString>;
-    createdAt: z.ZodString;
-}, z.ZodTypeAny, "passthrough">>;
-export declare const ExecutionGrantContractSchema: z.ZodObject<{
-    schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-    digest: z.ZodString;
-    proposalKey: z.ZodString;
-    approvalDecisionKey: z.ZodString;
-    issuedAt: z.ZodString;
-}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-    schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-    digest: z.ZodString;
-    proposalKey: z.ZodString;
-    approvalDecisionKey: z.ZodString;
-    issuedAt: z.ZodString;
-}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-    schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-    digest: z.ZodString;
-    proposalKey: z.ZodString;
-    approvalDecisionKey: z.ZodString;
-    issuedAt: z.ZodString;
-}, z.ZodTypeAny, "passthrough">>;
+    executionGrant: z.ZodOptional<z.ZodObject<{
+        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+        digest: z.ZodString;
+        proposalKey: z.ZodString;
+        approvalDecisionKey: z.ZodString;
+        issuedAt: z.ZodString;
+    }, "strict", z.ZodTypeAny, {
+        schema: "viewport.execution_grant/v1";
+        digest: string;
+        proposalKey: string;
+        approvalDecisionKey: string;
+        issuedAt: string;
+    }, {
+        schema: "viewport.execution_grant/v1";
+        digest: string;
+        proposalKey: string;
+        approvalDecisionKey: string;
+        issuedAt: string;
+    }>>;
+}, "strict", z.ZodTypeAny, {
+    schema: "viewport.approval_decision/v1";
+    id: string;
+    createdAt: string;
+    decision: "deny" | "approve" | "request_changes";
+    subjectType: string;
+    subjectId: string;
+    subjectDigest: string;
+    actor: {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    };
+    executionGrant?: {
+        schema: "viewport.execution_grant/v1";
+        digest: string;
+        proposalKey: string;
+        approvalDecisionKey: string;
+        issuedAt: string;
+    } | undefined;
+    reason?: string | undefined;
+}, {
+    schema: "viewport.approval_decision/v1";
+    id: string;
+    createdAt: string;
+    decision: "deny" | "approve" | "request_changes";
+    subjectType: string;
+    subjectId: string;
+    subjectDigest: string;
+    actor: {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    };
+    executionGrant?: {
+        schema: "viewport.execution_grant/v1";
+        digest: string;
+        proposalKey: string;
+        approvalDecisionKey: string;
+        issuedAt: string;
+    } | undefined;
+    reason?: string | undefined;
+}>;
 export declare const ExecutionReceiptContractSchema: z.ZodObject<{
     schema: z.ZodLiteral<"viewport.execution_receipt/v1">;
     id: z.ZodString;
@@ -892,19 +873,19 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
         proposalKey: z.ZodString;
         approvalDecisionKey: z.ZodString;
         issuedAt: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-        digest: z.ZodString;
-        proposalKey: z.ZodString;
-        approvalDecisionKey: z.ZodString;
-        issuedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-        digest: z.ZodString;
-        proposalKey: z.ZodString;
-        approvalDecisionKey: z.ZodString;
-        issuedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>>;
+    }, "strict", z.ZodTypeAny, {
+        schema: "viewport.execution_grant/v1";
+        digest: string;
+        proposalKey: string;
+        approvalDecisionKey: string;
+        issuedAt: string;
+    }, {
+        schema: "viewport.execution_grant/v1";
+        digest: string;
+        proposalKey: string;
+        approvalDecisionKey: string;
+        issuedAt: string;
+    }>>;
     providerReconciliation: z.ZodOptional<z.ZodObject<{
         status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
         method: z.ZodOptional<z.ZodString>;
@@ -914,314 +895,146 @@ export declare const ExecutionReceiptContractSchema: z.ZodObject<{
             id: z.ZodString;
             source: z.ZodOptional<z.ZodString>;
             displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>>;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        }, {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        }>>;
         providerReference: z.ZodOptional<z.ZodString>;
         providerUrl: z.ZodOptional<z.ZodString>;
         targetDigest: z.ZodOptional<z.ZodString>;
         payloadDigest: z.ZodOptional<z.ZodString>;
         error: z.ZodOptional<z.ZodString>;
         payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-        method: z.ZodOptional<z.ZodString>;
-        checkedAt: z.ZodOptional<z.ZodString>;
-        checkedBy: z.ZodOptional<z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>>;
-        providerReference: z.ZodOptional<z.ZodString>;
-        providerUrl: z.ZodOptional<z.ZodString>;
-        targetDigest: z.ZodOptional<z.ZodString>;
-        payloadDigest: z.ZodOptional<z.ZodString>;
-        error: z.ZodOptional<z.ZodString>;
-        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-        method: z.ZodOptional<z.ZodString>;
-        checkedAt: z.ZodOptional<z.ZodString>;
-        checkedBy: z.ZodOptional<z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>>;
-        providerReference: z.ZodOptional<z.ZodString>;
-        providerUrl: z.ZodOptional<z.ZodString>;
-        targetDigest: z.ZodOptional<z.ZodString>;
-        payloadDigest: z.ZodOptional<z.ZodString>;
-        error: z.ZodOptional<z.ZodString>;
-        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    }, z.ZodTypeAny, "passthrough">>>;
+    }, "strict", z.ZodTypeAny, {
+        status: "not_checked" | "verified" | "mismatch" | "unavailable" | "failed";
+        payload?: Record<string, unknown> | undefined;
+        method?: string | undefined;
+        checkedAt?: string | undefined;
+        checkedBy?: {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        } | undefined;
+        providerReference?: string | undefined;
+        providerUrl?: string | undefined;
+        targetDigest?: string | undefined;
+        payloadDigest?: string | undefined;
+        error?: string | undefined;
+    }, {
+        status: "not_checked" | "verified" | "mismatch" | "unavailable" | "failed";
+        payload?: Record<string, unknown> | undefined;
+        method?: string | undefined;
+        checkedAt?: string | undefined;
+        checkedBy?: {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        } | undefined;
+        providerReference?: string | undefined;
+        providerUrl?: string | undefined;
+        targetDigest?: string | undefined;
+        payloadDigest?: string | undefined;
+        error?: string | undefined;
+    }>>;
     payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     executedAt: z.ZodString;
-}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-    schema: z.ZodLiteral<"viewport.execution_receipt/v1">;
-    id: z.ZodString;
-    workflowRunId: z.ZodString;
-    actionProposalId: z.ZodOptional<z.ZodString>;
-    approvalDecisionId: z.ZodOptional<z.ZodString>;
-    adapter: z.ZodString;
-    action: z.ZodString;
-    status: z.ZodString;
-    providerReference: z.ZodOptional<z.ZodString>;
-    providerUrl: z.ZodOptional<z.ZodString>;
-    idempotencyKey: z.ZodString;
-    payloadDigest: z.ZodOptional<z.ZodString>;
-    providerResponseDigest: z.ZodOptional<z.ZodString>;
-    proposalDigest: z.ZodOptional<z.ZodString>;
-    approvalDecisionDigest: z.ZodOptional<z.ZodString>;
-    executionGrant: z.ZodOptional<z.ZodObject<{
-        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-        digest: z.ZodString;
-        proposalKey: z.ZodString;
-        approvalDecisionKey: z.ZodString;
-        issuedAt: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-        digest: z.ZodString;
-        proposalKey: z.ZodString;
-        approvalDecisionKey: z.ZodString;
-        issuedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-        digest: z.ZodString;
-        proposalKey: z.ZodString;
-        approvalDecisionKey: z.ZodString;
-        issuedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>>;
-    providerReconciliation: z.ZodOptional<z.ZodObject<{
-        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-        method: z.ZodOptional<z.ZodString>;
-        checkedAt: z.ZodOptional<z.ZodString>;
-        checkedBy: z.ZodOptional<z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>>;
-        providerReference: z.ZodOptional<z.ZodString>;
-        providerUrl: z.ZodOptional<z.ZodString>;
-        targetDigest: z.ZodOptional<z.ZodString>;
-        payloadDigest: z.ZodOptional<z.ZodString>;
-        error: z.ZodOptional<z.ZodString>;
-        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-        method: z.ZodOptional<z.ZodString>;
-        checkedAt: z.ZodOptional<z.ZodString>;
-        checkedBy: z.ZodOptional<z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>>;
-        providerReference: z.ZodOptional<z.ZodString>;
-        providerUrl: z.ZodOptional<z.ZodString>;
-        targetDigest: z.ZodOptional<z.ZodString>;
-        payloadDigest: z.ZodOptional<z.ZodString>;
-        error: z.ZodOptional<z.ZodString>;
-        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-        method: z.ZodOptional<z.ZodString>;
-        checkedAt: z.ZodOptional<z.ZodString>;
-        checkedBy: z.ZodOptional<z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>>;
-        providerReference: z.ZodOptional<z.ZodString>;
-        providerUrl: z.ZodOptional<z.ZodString>;
-        targetDigest: z.ZodOptional<z.ZodString>;
-        payloadDigest: z.ZodOptional<z.ZodString>;
-        error: z.ZodOptional<z.ZodString>;
-        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    }, z.ZodTypeAny, "passthrough">>>;
-    payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    executedAt: z.ZodString;
-}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-    schema: z.ZodLiteral<"viewport.execution_receipt/v1">;
-    id: z.ZodString;
-    workflowRunId: z.ZodString;
-    actionProposalId: z.ZodOptional<z.ZodString>;
-    approvalDecisionId: z.ZodOptional<z.ZodString>;
-    adapter: z.ZodString;
-    action: z.ZodString;
-    status: z.ZodString;
-    providerReference: z.ZodOptional<z.ZodString>;
-    providerUrl: z.ZodOptional<z.ZodString>;
-    idempotencyKey: z.ZodString;
-    payloadDigest: z.ZodOptional<z.ZodString>;
-    providerResponseDigest: z.ZodOptional<z.ZodString>;
-    proposalDigest: z.ZodOptional<z.ZodString>;
-    approvalDecisionDigest: z.ZodOptional<z.ZodString>;
-    executionGrant: z.ZodOptional<z.ZodObject<{
-        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-        digest: z.ZodString;
-        proposalKey: z.ZodString;
-        approvalDecisionKey: z.ZodString;
-        issuedAt: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-        digest: z.ZodString;
-        proposalKey: z.ZodString;
-        approvalDecisionKey: z.ZodString;
-        issuedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-        digest: z.ZodString;
-        proposalKey: z.ZodString;
-        approvalDecisionKey: z.ZodString;
-        issuedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>>;
-    providerReconciliation: z.ZodOptional<z.ZodObject<{
-        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-        method: z.ZodOptional<z.ZodString>;
-        checkedAt: z.ZodOptional<z.ZodString>;
-        checkedBy: z.ZodOptional<z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>>;
-        providerReference: z.ZodOptional<z.ZodString>;
-        providerUrl: z.ZodOptional<z.ZodString>;
-        targetDigest: z.ZodOptional<z.ZodString>;
-        payloadDigest: z.ZodOptional<z.ZodString>;
-        error: z.ZodOptional<z.ZodString>;
-        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-        method: z.ZodOptional<z.ZodString>;
-        checkedAt: z.ZodOptional<z.ZodString>;
-        checkedBy: z.ZodOptional<z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>>;
-        providerReference: z.ZodOptional<z.ZodString>;
-        providerUrl: z.ZodOptional<z.ZodString>;
-        targetDigest: z.ZodOptional<z.ZodString>;
-        payloadDigest: z.ZodOptional<z.ZodString>;
-        error: z.ZodOptional<z.ZodString>;
-        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-        method: z.ZodOptional<z.ZodString>;
-        checkedAt: z.ZodOptional<z.ZodString>;
-        checkedBy: z.ZodOptional<z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>>;
-        providerReference: z.ZodOptional<z.ZodString>;
-        providerUrl: z.ZodOptional<z.ZodString>;
-        targetDigest: z.ZodOptional<z.ZodString>;
-        payloadDigest: z.ZodOptional<z.ZodString>;
-        error: z.ZodOptional<z.ZodString>;
-        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    }, z.ZodTypeAny, "passthrough">>>;
-    payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    executedAt: z.ZodString;
-}, z.ZodTypeAny, "passthrough">>;
+}, "strict", z.ZodTypeAny, {
+    status: string;
+    schema: "viewport.execution_receipt/v1";
+    id: string;
+    workflowRunId: string;
+    adapter: string;
+    action: string;
+    idempotencyKey: string;
+    executedAt: string;
+    executionGrant?: {
+        schema: "viewport.execution_grant/v1";
+        digest: string;
+        proposalKey: string;
+        approvalDecisionKey: string;
+        issuedAt: string;
+    } | undefined;
+    payload?: Record<string, unknown> | undefined;
+    proposalDigest?: string | undefined;
+    providerReference?: string | undefined;
+    providerUrl?: string | undefined;
+    payloadDigest?: string | undefined;
+    actionProposalId?: string | undefined;
+    approvalDecisionId?: string | undefined;
+    providerResponseDigest?: string | undefined;
+    approvalDecisionDigest?: string | undefined;
+    providerReconciliation?: {
+        status: "not_checked" | "verified" | "mismatch" | "unavailable" | "failed";
+        payload?: Record<string, unknown> | undefined;
+        method?: string | undefined;
+        checkedAt?: string | undefined;
+        checkedBy?: {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        } | undefined;
+        providerReference?: string | undefined;
+        providerUrl?: string | undefined;
+        targetDigest?: string | undefined;
+        payloadDigest?: string | undefined;
+        error?: string | undefined;
+    } | undefined;
+    recovery?: Record<string, unknown> | undefined;
+}, {
+    status: string;
+    schema: "viewport.execution_receipt/v1";
+    id: string;
+    workflowRunId: string;
+    adapter: string;
+    action: string;
+    idempotencyKey: string;
+    executedAt: string;
+    executionGrant?: {
+        schema: "viewport.execution_grant/v1";
+        digest: string;
+        proposalKey: string;
+        approvalDecisionKey: string;
+        issuedAt: string;
+    } | undefined;
+    payload?: Record<string, unknown> | undefined;
+    proposalDigest?: string | undefined;
+    providerReference?: string | undefined;
+    providerUrl?: string | undefined;
+    payloadDigest?: string | undefined;
+    actionProposalId?: string | undefined;
+    approvalDecisionId?: string | undefined;
+    providerResponseDigest?: string | undefined;
+    approvalDecisionDigest?: string | undefined;
+    providerReconciliation?: {
+        status: "not_checked" | "verified" | "mismatch" | "unavailable" | "failed";
+        payload?: Record<string, unknown> | undefined;
+        method?: string | undefined;
+        checkedAt?: string | undefined;
+        checkedBy?: {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        } | undefined;
+        providerReference?: string | undefined;
+        providerUrl?: string | undefined;
+        targetDigest?: string | undefined;
+        payloadDigest?: string | undefined;
+        error?: string | undefined;
+    } | undefined;
+    recovery?: Record<string, unknown> | undefined;
+}>;
 export declare const ContextReceiptContractSchema: z.ZodObject<{
     schema: z.ZodLiteral<"viewport.context_receipt/v1">;
     package: z.ZodString;
@@ -1233,53 +1046,41 @@ export declare const ContextReceiptContractSchema: z.ZodObject<{
     usedBy: z.ZodObject<{
         runId: z.ZodString;
         nodeId: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        runId: z.ZodString;
-        nodeId: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        runId: z.ZodString;
-        nodeId: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
+    }, "strict", z.ZodTypeAny, {
+        runId: string;
+        nodeId?: string | undefined;
+    }, {
+        runId: string;
+        nodeId?: string | undefined;
+    }>;
     resolvedAt: z.ZodString;
-}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-    schema: z.ZodLiteral<"viewport.context_receipt/v1">;
-    package: z.ZodString;
-    requested: z.ZodString;
-    resolvedVersion: z.ZodString;
-    provider: z.ZodString;
-    digest: z.ZodString;
-    freshness: z.ZodString;
-    usedBy: z.ZodObject<{
-        runId: z.ZodString;
-        nodeId: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        runId: z.ZodString;
-        nodeId: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        runId: z.ZodString;
-        nodeId: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
-    resolvedAt: z.ZodString;
-}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-    schema: z.ZodLiteral<"viewport.context_receipt/v1">;
-    package: z.ZodString;
-    requested: z.ZodString;
-    resolvedVersion: z.ZodString;
-    provider: z.ZodString;
-    digest: z.ZodString;
-    freshness: z.ZodString;
-    usedBy: z.ZodObject<{
-        runId: z.ZodString;
-        nodeId: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        runId: z.ZodString;
-        nodeId: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        runId: z.ZodString;
-        nodeId: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
-    resolvedAt: z.ZodString;
-}, z.ZodTypeAny, "passthrough">>;
+}, "strict", z.ZodTypeAny, {
+    schema: "viewport.context_receipt/v1";
+    digest: string;
+    package: string;
+    requested: string;
+    resolvedVersion: string;
+    provider: string;
+    freshness: string;
+    usedBy: {
+        runId: string;
+        nodeId?: string | undefined;
+    };
+    resolvedAt: string;
+}, {
+    schema: "viewport.context_receipt/v1";
+    digest: string;
+    package: string;
+    requested: string;
+    resolvedVersion: string;
+    provider: string;
+    freshness: string;
+    usedBy: {
+        runId: string;
+        nodeId?: string | undefined;
+    };
+    resolvedAt: string;
+}>;
 export declare const ContextPackageContractSchema: z.ZodObject<{
     schema: z.ZodLiteral<"viewport.context_package/v1">;
     name: z.ZodString;
@@ -2604,244 +2405,189 @@ export declare const AuditReceiptContractSchema: z.ZodObject<{
         id: z.ZodString;
         source: z.ZodOptional<z.ZodString>;
         displayName: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
+    }, "strict", z.ZodTypeAny, {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    }, {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    }>;
     route: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
         version: z.ZodNumber;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">>>;
+    }, "strict", z.ZodTypeAny, {
+        id: string;
+        version: number;
+    }, {
+        id: string;
+        version: number;
+    }>>;
     executionProfile: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
         version: z.ZodNumber;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">>>;
+    }, "strict", z.ZodTypeAny, {
+        id: string;
+        version: number;
+    }, {
+        id: string;
+        version: number;
+    }>>;
     workflow: z.ZodObject<{
         id: z.ZodString;
         schema: z.ZodLiteral<"viewport.workflow/v1">;
         digest: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+    }, "strict", z.ZodTypeAny, {
+        schema: "viewport.workflow/v1";
+        id: string;
+        digest: string;
+    }, {
+        schema: "viewport.workflow/v1";
+        id: string;
+        digest: string;
+    }>;
+    runner: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
-        schema: z.ZodLiteral<"viewport.workflow/v1">;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        schema: z.ZodLiteral<"viewport.workflow/v1">;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>;
+        workspaceTemplate: z.ZodOptional<z.ZodString>;
+        workspaceDigest: z.ZodOptional<z.ZodString>;
+    }, "strict", z.ZodTypeAny, {
+        id: string;
+        workspaceTemplate?: string | undefined;
+        workspaceDigest?: string | undefined;
+    }, {
+        id: string;
+        workspaceTemplate?: string | undefined;
+        workspaceDigest?: string | undefined;
+    }>>;
     contextReceipts: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
     evidenceRefs: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     actionProposal: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
         digest: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>>;
+    }, "strict", z.ZodTypeAny, {
+        id: string;
+        digest: string;
+    }, {
+        id: string;
+        digest: string;
+    }>>;
     approvalDecision: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
     sideEffectReceipt: z.ZodOptional<z.ZodObject<{
         adapter: z.ZodString;
         action: z.ZodString;
         status: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        adapter: z.ZodString;
-        action: z.ZodString;
-        status: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        adapter: z.ZodString;
-        action: z.ZodString;
-        status: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>>;
+        providerReference: z.ZodOptional<z.ZodString>;
+        providerUrl: z.ZodOptional<z.ZodString>;
+    }, "strict", z.ZodTypeAny, {
+        status: string;
+        adapter: string;
+        action: string;
+        providerReference?: string | undefined;
+        providerUrl?: string | undefined;
+    }, {
+        status: string;
+        adapter: string;
+        action: string;
+        providerReference?: string | undefined;
+        providerUrl?: string | undefined;
+    }>>;
     payloadDigest: z.ZodString;
-}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-    schema: z.ZodLiteral<"viewport.audit_receipt/v1">;
-    id: z.ZodString;
-    workspaceId: z.ZodString;
-    workflowRunId: z.ZodString;
-    eventType: z.ZodString;
-    occurredAt: z.ZodString;
-    actor: z.ZodObject<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
-    route: z.ZodOptional<z.ZodObject<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">>>;
-    executionProfile: z.ZodOptional<z.ZodObject<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">>>;
-    workflow: z.ZodObject<{
-        id: z.ZodString;
-        schema: z.ZodLiteral<"viewport.workflow/v1">;
-        digest: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        schema: z.ZodLiteral<"viewport.workflow/v1">;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        schema: z.ZodLiteral<"viewport.workflow/v1">;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>;
-    contextReceipts: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
-    evidenceRefs: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-    actionProposal: z.ZodOptional<z.ZodObject<{
-        id: z.ZodString;
-        digest: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>>;
-    approvalDecision: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    sideEffectReceipt: z.ZodOptional<z.ZodObject<{
-        adapter: z.ZodString;
-        action: z.ZodString;
-        status: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        adapter: z.ZodString;
-        action: z.ZodString;
-        status: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        adapter: z.ZodString;
-        action: z.ZodString;
-        status: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>>;
-    payloadDigest: z.ZodString;
-}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-    schema: z.ZodLiteral<"viewport.audit_receipt/v1">;
-    id: z.ZodString;
-    workspaceId: z.ZodString;
-    workflowRunId: z.ZodString;
-    eventType: z.ZodString;
-    occurredAt: z.ZodString;
-    actor: z.ZodObject<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        kind: z.ZodString;
-        id: z.ZodString;
-        source: z.ZodOptional<z.ZodString>;
-        displayName: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
-    route: z.ZodOptional<z.ZodObject<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">>>;
-    executionProfile: z.ZodOptional<z.ZodObject<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        version: z.ZodNumber;
-    }, z.ZodTypeAny, "passthrough">>>;
-    workflow: z.ZodObject<{
-        id: z.ZodString;
-        schema: z.ZodLiteral<"viewport.workflow/v1">;
-        digest: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        schema: z.ZodLiteral<"viewport.workflow/v1">;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        schema: z.ZodLiteral<"viewport.workflow/v1">;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>;
-    contextReceipts: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
-    evidenceRefs: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-    actionProposal: z.ZodOptional<z.ZodObject<{
-        id: z.ZodString;
-        digest: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        id: z.ZodString;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        id: z.ZodString;
-        digest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>>;
-    approvalDecision: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-    sideEffectReceipt: z.ZodOptional<z.ZodObject<{
-        adapter: z.ZodString;
-        action: z.ZodString;
-        status: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        adapter: z.ZodString;
-        action: z.ZodString;
-        status: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        adapter: z.ZodString;
-        action: z.ZodString;
-        status: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>>;
-    payloadDigest: z.ZodString;
-}, z.ZodTypeAny, "passthrough">>;
+}, "strict", z.ZodTypeAny, {
+    workflow: {
+        schema: "viewport.workflow/v1";
+        id: string;
+        digest: string;
+    };
+    schema: "viewport.audit_receipt/v1";
+    id: string;
+    workflowRunId: string;
+    workspaceId: string;
+    occurredAt: string;
+    actor: {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    };
+    payloadDigest: string;
+    eventType: string;
+    route?: {
+        id: string;
+        version: number;
+    } | undefined;
+    executionProfile?: {
+        id: string;
+        version: number;
+    } | undefined;
+    actionProposal?: {
+        id: string;
+        digest: string;
+    } | undefined;
+    approvalDecision?: Record<string, unknown> | undefined;
+    runner?: {
+        id: string;
+        workspaceTemplate?: string | undefined;
+        workspaceDigest?: string | undefined;
+    } | undefined;
+    evidenceRefs?: string[] | undefined;
+    contextReceipts?: Record<string, unknown>[] | undefined;
+    sideEffectReceipt?: {
+        status: string;
+        adapter: string;
+        action: string;
+        providerReference?: string | undefined;
+        providerUrl?: string | undefined;
+    } | undefined;
+}, {
+    workflow: {
+        schema: "viewport.workflow/v1";
+        id: string;
+        digest: string;
+    };
+    schema: "viewport.audit_receipt/v1";
+    id: string;
+    workflowRunId: string;
+    workspaceId: string;
+    occurredAt: string;
+    actor: {
+        id: string;
+        kind: string;
+        source?: string | undefined;
+        displayName?: string | undefined;
+    };
+    payloadDigest: string;
+    eventType: string;
+    route?: {
+        id: string;
+        version: number;
+    } | undefined;
+    executionProfile?: {
+        id: string;
+        version: number;
+    } | undefined;
+    actionProposal?: {
+        id: string;
+        digest: string;
+    } | undefined;
+    approvalDecision?: Record<string, unknown> | undefined;
+    runner?: {
+        id: string;
+        workspaceTemplate?: string | undefined;
+        workspaceDigest?: string | undefined;
+    } | undefined;
+    evidenceRefs?: string[] | undefined;
+    contextReceipts?: Record<string, unknown>[] | undefined;
+    sideEffectReceipt?: {
+        status: string;
+        adapter: string;
+        action: string;
+        providerReference?: string | undefined;
+        providerUrl?: string | undefined;
+    } | undefined;
+}>;
 export declare const ProtocolDocumentSchemas: {
     readonly "viewport.route/v1": z.ZodObject<{
         schema: z.ZodLiteral<"viewport.route/v1">;
@@ -3514,17 +3260,17 @@ export declare const ProtocolDocumentSchemas: {
             id: z.ZodString;
             source: z.ZodOptional<z.ZodString>;
             displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        }, {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        }>;
         action: z.ZodString;
         resource: z.ZodRecord<z.ZodString, z.ZodUnknown>;
         context: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
@@ -3534,91 +3280,59 @@ export declare const ProtocolDocumentSchemas: {
         policy: z.ZodOptional<z.ZodObject<{
             id: z.ZodString;
             version: z.ZodNumber;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">>>;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            version: number;
+        }, {
+            id: string;
+            version: number;
+        }>>;
         expiresAt: z.ZodOptional<z.ZodString>;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        schema: z.ZodLiteral<"viewport.authorization_decision/v1">;
-        id: z.ZodString;
-        workspaceId: z.ZodString;
-        occurredAt: z.ZodString;
-        subject: z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
-        action: z.ZodString;
-        resource: z.ZodRecord<z.ZodString, z.ZodUnknown>;
-        context: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        decision: z.ZodEnum<["allow", "deny", "require_approval"]>;
-        reason: z.ZodString;
-        matchedRules: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        policy: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">>>;
-        expiresAt: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        schema: z.ZodLiteral<"viewport.authorization_decision/v1">;
-        id: z.ZodString;
-        workspaceId: z.ZodString;
-        occurredAt: z.ZodString;
-        subject: z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
-        action: z.ZodString;
-        resource: z.ZodRecord<z.ZodString, z.ZodUnknown>;
-        context: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        decision: z.ZodEnum<["allow", "deny", "require_approval"]>;
-        reason: z.ZodString;
-        matchedRules: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        policy: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">>>;
-        expiresAt: z.ZodOptional<z.ZodString>;
-    }, z.ZodTypeAny, "passthrough">>;
+    }, "strict", z.ZodTypeAny, {
+        schema: "viewport.authorization_decision/v1";
+        id: string;
+        action: string;
+        decision: "allow" | "deny" | "require_approval";
+        reason: string;
+        workspaceId: string;
+        occurredAt: string;
+        subject: {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        };
+        resource: Record<string, unknown>;
+        context?: Record<string, unknown> | undefined;
+        matchedRules?: string[] | undefined;
+        expiresAt?: string | undefined;
+        policy?: {
+            id: string;
+            version: number;
+        } | undefined;
+    }, {
+        schema: "viewport.authorization_decision/v1";
+        id: string;
+        action: string;
+        decision: "allow" | "deny" | "require_approval";
+        reason: string;
+        workspaceId: string;
+        occurredAt: string;
+        subject: {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        };
+        resource: Record<string, unknown>;
+        context?: Record<string, unknown> | undefined;
+        matchedRules?: string[] | undefined;
+        expiresAt?: string | undefined;
+        policy?: {
+            id: string;
+            version: number;
+        } | undefined;
+    }>;
     readonly "viewport.approval_decision/v1": z.ZodObject<{
         schema: z.ZodLiteral<"viewport.approval_decision/v1">;
         id: z.ZodString;
@@ -3631,89 +3345,102 @@ export declare const ProtocolDocumentSchemas: {
             id: z.ZodString;
             source: z.ZodOptional<z.ZodString>;
             displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        }, {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        }>;
         reason: z.ZodOptional<z.ZodString>;
         createdAt: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        schema: z.ZodLiteral<"viewport.approval_decision/v1">;
-        id: z.ZodString;
-        subjectType: z.ZodString;
-        subjectId: z.ZodString;
-        subjectDigest: z.ZodString;
-        decision: z.ZodEnum<["approve", "deny", "request_changes"]>;
-        actor: z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
-        reason: z.ZodOptional<z.ZodString>;
-        createdAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        schema: z.ZodLiteral<"viewport.approval_decision/v1">;
-        id: z.ZodString;
-        subjectType: z.ZodString;
-        subjectId: z.ZodString;
-        subjectDigest: z.ZodString;
-        decision: z.ZodEnum<["approve", "deny", "request_changes"]>;
-        actor: z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
-        reason: z.ZodOptional<z.ZodString>;
-        createdAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>;
+        executionGrant: z.ZodOptional<z.ZodObject<{
+            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
+            digest: z.ZodString;
+            proposalKey: z.ZodString;
+            approvalDecisionKey: z.ZodString;
+            issuedAt: z.ZodString;
+        }, "strict", z.ZodTypeAny, {
+            schema: "viewport.execution_grant/v1";
+            digest: string;
+            proposalKey: string;
+            approvalDecisionKey: string;
+            issuedAt: string;
+        }, {
+            schema: "viewport.execution_grant/v1";
+            digest: string;
+            proposalKey: string;
+            approvalDecisionKey: string;
+            issuedAt: string;
+        }>>;
+    }, "strict", z.ZodTypeAny, {
+        schema: "viewport.approval_decision/v1";
+        id: string;
+        createdAt: string;
+        decision: "deny" | "approve" | "request_changes";
+        subjectType: string;
+        subjectId: string;
+        subjectDigest: string;
+        actor: {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        };
+        executionGrant?: {
+            schema: "viewport.execution_grant/v1";
+            digest: string;
+            proposalKey: string;
+            approvalDecisionKey: string;
+            issuedAt: string;
+        } | undefined;
+        reason?: string | undefined;
+    }, {
+        schema: "viewport.approval_decision/v1";
+        id: string;
+        createdAt: string;
+        decision: "deny" | "approve" | "request_changes";
+        subjectType: string;
+        subjectId: string;
+        subjectDigest: string;
+        actor: {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        };
+        executionGrant?: {
+            schema: "viewport.execution_grant/v1";
+            digest: string;
+            proposalKey: string;
+            approvalDecisionKey: string;
+            issuedAt: string;
+        } | undefined;
+        reason?: string | undefined;
+    }>;
     readonly "viewport.execution_grant/v1": z.ZodObject<{
         schema: z.ZodLiteral<"viewport.execution_grant/v1">;
         digest: z.ZodString;
         proposalKey: z.ZodString;
         approvalDecisionKey: z.ZodString;
         issuedAt: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-        digest: z.ZodString;
-        proposalKey: z.ZodString;
-        approvalDecisionKey: z.ZodString;
-        issuedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-        digest: z.ZodString;
-        proposalKey: z.ZodString;
-        approvalDecisionKey: z.ZodString;
-        issuedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>;
+    }, "strict", z.ZodTypeAny, {
+        schema: "viewport.execution_grant/v1";
+        digest: string;
+        proposalKey: string;
+        approvalDecisionKey: string;
+        issuedAt: string;
+    }, {
+        schema: "viewport.execution_grant/v1";
+        digest: string;
+        proposalKey: string;
+        approvalDecisionKey: string;
+        issuedAt: string;
+    }>;
     readonly "viewport.execution_receipt/v1": z.ZodObject<{
         schema: z.ZodLiteral<"viewport.execution_receipt/v1">;
         id: z.ZodString;
@@ -3736,19 +3463,19 @@ export declare const ProtocolDocumentSchemas: {
             proposalKey: z.ZodString;
             approvalDecisionKey: z.ZodString;
             issuedAt: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-            digest: z.ZodString;
-            proposalKey: z.ZodString;
-            approvalDecisionKey: z.ZodString;
-            issuedAt: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-            digest: z.ZodString;
-            proposalKey: z.ZodString;
-            approvalDecisionKey: z.ZodString;
-            issuedAt: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>>;
+        }, "strict", z.ZodTypeAny, {
+            schema: "viewport.execution_grant/v1";
+            digest: string;
+            proposalKey: string;
+            approvalDecisionKey: string;
+            issuedAt: string;
+        }, {
+            schema: "viewport.execution_grant/v1";
+            digest: string;
+            proposalKey: string;
+            approvalDecisionKey: string;
+            issuedAt: string;
+        }>>;
         providerReconciliation: z.ZodOptional<z.ZodObject<{
             status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
             method: z.ZodOptional<z.ZodString>;
@@ -3758,314 +3485,146 @@ export declare const ProtocolDocumentSchemas: {
                 id: z.ZodString;
                 source: z.ZodOptional<z.ZodString>;
                 displayName: z.ZodOptional<z.ZodString>;
-            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">>>;
+            }, "strict", z.ZodTypeAny, {
+                id: string;
+                kind: string;
+                source?: string | undefined;
+                displayName?: string | undefined;
+            }, {
+                id: string;
+                kind: string;
+                source?: string | undefined;
+                displayName?: string | undefined;
+            }>>;
             providerReference: z.ZodOptional<z.ZodString>;
             providerUrl: z.ZodOptional<z.ZodString>;
             targetDigest: z.ZodOptional<z.ZodString>;
             payloadDigest: z.ZodOptional<z.ZodString>;
             error: z.ZodOptional<z.ZodString>;
             payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-            method: z.ZodOptional<z.ZodString>;
-            checkedAt: z.ZodOptional<z.ZodString>;
-            checkedBy: z.ZodOptional<z.ZodObject<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">>>;
-            providerReference: z.ZodOptional<z.ZodString>;
-            providerUrl: z.ZodOptional<z.ZodString>;
-            targetDigest: z.ZodOptional<z.ZodString>;
-            payloadDigest: z.ZodOptional<z.ZodString>;
-            error: z.ZodOptional<z.ZodString>;
-            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-            method: z.ZodOptional<z.ZodString>;
-            checkedAt: z.ZodOptional<z.ZodString>;
-            checkedBy: z.ZodOptional<z.ZodObject<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">>>;
-            providerReference: z.ZodOptional<z.ZodString>;
-            providerUrl: z.ZodOptional<z.ZodString>;
-            targetDigest: z.ZodOptional<z.ZodString>;
-            payloadDigest: z.ZodOptional<z.ZodString>;
-            error: z.ZodOptional<z.ZodString>;
-            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        }, z.ZodTypeAny, "passthrough">>>;
+        }, "strict", z.ZodTypeAny, {
+            status: "not_checked" | "verified" | "mismatch" | "unavailable" | "failed";
+            payload?: Record<string, unknown> | undefined;
+            method?: string | undefined;
+            checkedAt?: string | undefined;
+            checkedBy?: {
+                id: string;
+                kind: string;
+                source?: string | undefined;
+                displayName?: string | undefined;
+            } | undefined;
+            providerReference?: string | undefined;
+            providerUrl?: string | undefined;
+            targetDigest?: string | undefined;
+            payloadDigest?: string | undefined;
+            error?: string | undefined;
+        }, {
+            status: "not_checked" | "verified" | "mismatch" | "unavailable" | "failed";
+            payload?: Record<string, unknown> | undefined;
+            method?: string | undefined;
+            checkedAt?: string | undefined;
+            checkedBy?: {
+                id: string;
+                kind: string;
+                source?: string | undefined;
+                displayName?: string | undefined;
+            } | undefined;
+            providerReference?: string | undefined;
+            providerUrl?: string | undefined;
+            targetDigest?: string | undefined;
+            payloadDigest?: string | undefined;
+            error?: string | undefined;
+        }>>;
         payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         executedAt: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        schema: z.ZodLiteral<"viewport.execution_receipt/v1">;
-        id: z.ZodString;
-        workflowRunId: z.ZodString;
-        actionProposalId: z.ZodOptional<z.ZodString>;
-        approvalDecisionId: z.ZodOptional<z.ZodString>;
-        adapter: z.ZodString;
-        action: z.ZodString;
-        status: z.ZodString;
-        providerReference: z.ZodOptional<z.ZodString>;
-        providerUrl: z.ZodOptional<z.ZodString>;
-        idempotencyKey: z.ZodString;
-        payloadDigest: z.ZodOptional<z.ZodString>;
-        providerResponseDigest: z.ZodOptional<z.ZodString>;
-        proposalDigest: z.ZodOptional<z.ZodString>;
-        approvalDecisionDigest: z.ZodOptional<z.ZodString>;
-        executionGrant: z.ZodOptional<z.ZodObject<{
-            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-            digest: z.ZodString;
-            proposalKey: z.ZodString;
-            approvalDecisionKey: z.ZodString;
-            issuedAt: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-            digest: z.ZodString;
-            proposalKey: z.ZodString;
-            approvalDecisionKey: z.ZodString;
-            issuedAt: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-            digest: z.ZodString;
-            proposalKey: z.ZodString;
-            approvalDecisionKey: z.ZodString;
-            issuedAt: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>>;
-        providerReconciliation: z.ZodOptional<z.ZodObject<{
-            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-            method: z.ZodOptional<z.ZodString>;
-            checkedAt: z.ZodOptional<z.ZodString>;
-            checkedBy: z.ZodOptional<z.ZodObject<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">>>;
-            providerReference: z.ZodOptional<z.ZodString>;
-            providerUrl: z.ZodOptional<z.ZodString>;
-            targetDigest: z.ZodOptional<z.ZodString>;
-            payloadDigest: z.ZodOptional<z.ZodString>;
-            error: z.ZodOptional<z.ZodString>;
-            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-            method: z.ZodOptional<z.ZodString>;
-            checkedAt: z.ZodOptional<z.ZodString>;
-            checkedBy: z.ZodOptional<z.ZodObject<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">>>;
-            providerReference: z.ZodOptional<z.ZodString>;
-            providerUrl: z.ZodOptional<z.ZodString>;
-            targetDigest: z.ZodOptional<z.ZodString>;
-            payloadDigest: z.ZodOptional<z.ZodString>;
-            error: z.ZodOptional<z.ZodString>;
-            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-            method: z.ZodOptional<z.ZodString>;
-            checkedAt: z.ZodOptional<z.ZodString>;
-            checkedBy: z.ZodOptional<z.ZodObject<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">>>;
-            providerReference: z.ZodOptional<z.ZodString>;
-            providerUrl: z.ZodOptional<z.ZodString>;
-            targetDigest: z.ZodOptional<z.ZodString>;
-            payloadDigest: z.ZodOptional<z.ZodString>;
-            error: z.ZodOptional<z.ZodString>;
-            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        }, z.ZodTypeAny, "passthrough">>>;
-        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        executedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        schema: z.ZodLiteral<"viewport.execution_receipt/v1">;
-        id: z.ZodString;
-        workflowRunId: z.ZodString;
-        actionProposalId: z.ZodOptional<z.ZodString>;
-        approvalDecisionId: z.ZodOptional<z.ZodString>;
-        adapter: z.ZodString;
-        action: z.ZodString;
-        status: z.ZodString;
-        providerReference: z.ZodOptional<z.ZodString>;
-        providerUrl: z.ZodOptional<z.ZodString>;
-        idempotencyKey: z.ZodString;
-        payloadDigest: z.ZodOptional<z.ZodString>;
-        providerResponseDigest: z.ZodOptional<z.ZodString>;
-        proposalDigest: z.ZodOptional<z.ZodString>;
-        approvalDecisionDigest: z.ZodOptional<z.ZodString>;
-        executionGrant: z.ZodOptional<z.ZodObject<{
-            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-            digest: z.ZodString;
-            proposalKey: z.ZodString;
-            approvalDecisionKey: z.ZodString;
-            issuedAt: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-            digest: z.ZodString;
-            proposalKey: z.ZodString;
-            approvalDecisionKey: z.ZodString;
-            issuedAt: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            schema: z.ZodLiteral<"viewport.execution_grant/v1">;
-            digest: z.ZodString;
-            proposalKey: z.ZodString;
-            approvalDecisionKey: z.ZodString;
-            issuedAt: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>>;
-        providerReconciliation: z.ZodOptional<z.ZodObject<{
-            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-            method: z.ZodOptional<z.ZodString>;
-            checkedAt: z.ZodOptional<z.ZodString>;
-            checkedBy: z.ZodOptional<z.ZodObject<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">>>;
-            providerReference: z.ZodOptional<z.ZodString>;
-            providerUrl: z.ZodOptional<z.ZodString>;
-            targetDigest: z.ZodOptional<z.ZodString>;
-            payloadDigest: z.ZodOptional<z.ZodString>;
-            error: z.ZodOptional<z.ZodString>;
-            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-            method: z.ZodOptional<z.ZodString>;
-            checkedAt: z.ZodOptional<z.ZodString>;
-            checkedBy: z.ZodOptional<z.ZodObject<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">>>;
-            providerReference: z.ZodOptional<z.ZodString>;
-            providerUrl: z.ZodOptional<z.ZodString>;
-            targetDigest: z.ZodOptional<z.ZodString>;
-            payloadDigest: z.ZodOptional<z.ZodString>;
-            error: z.ZodOptional<z.ZodString>;
-            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            status: z.ZodEnum<["not_checked", "verified", "mismatch", "unavailable", "failed"]>;
-            method: z.ZodOptional<z.ZodString>;
-            checkedAt: z.ZodOptional<z.ZodString>;
-            checkedBy: z.ZodOptional<z.ZodObject<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-                kind: z.ZodString;
-                id: z.ZodString;
-                source: z.ZodOptional<z.ZodString>;
-                displayName: z.ZodOptional<z.ZodString>;
-            }, z.ZodTypeAny, "passthrough">>>;
-            providerReference: z.ZodOptional<z.ZodString>;
-            providerUrl: z.ZodOptional<z.ZodString>;
-            targetDigest: z.ZodOptional<z.ZodString>;
-            payloadDigest: z.ZodOptional<z.ZodString>;
-            error: z.ZodOptional<z.ZodString>;
-            payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        }, z.ZodTypeAny, "passthrough">>>;
-        payload: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        recovery: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        executedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>;
+    }, "strict", z.ZodTypeAny, {
+        status: string;
+        schema: "viewport.execution_receipt/v1";
+        id: string;
+        workflowRunId: string;
+        adapter: string;
+        action: string;
+        idempotencyKey: string;
+        executedAt: string;
+        executionGrant?: {
+            schema: "viewport.execution_grant/v1";
+            digest: string;
+            proposalKey: string;
+            approvalDecisionKey: string;
+            issuedAt: string;
+        } | undefined;
+        payload?: Record<string, unknown> | undefined;
+        proposalDigest?: string | undefined;
+        providerReference?: string | undefined;
+        providerUrl?: string | undefined;
+        payloadDigest?: string | undefined;
+        actionProposalId?: string | undefined;
+        approvalDecisionId?: string | undefined;
+        providerResponseDigest?: string | undefined;
+        approvalDecisionDigest?: string | undefined;
+        providerReconciliation?: {
+            status: "not_checked" | "verified" | "mismatch" | "unavailable" | "failed";
+            payload?: Record<string, unknown> | undefined;
+            method?: string | undefined;
+            checkedAt?: string | undefined;
+            checkedBy?: {
+                id: string;
+                kind: string;
+                source?: string | undefined;
+                displayName?: string | undefined;
+            } | undefined;
+            providerReference?: string | undefined;
+            providerUrl?: string | undefined;
+            targetDigest?: string | undefined;
+            payloadDigest?: string | undefined;
+            error?: string | undefined;
+        } | undefined;
+        recovery?: Record<string, unknown> | undefined;
+    }, {
+        status: string;
+        schema: "viewport.execution_receipt/v1";
+        id: string;
+        workflowRunId: string;
+        adapter: string;
+        action: string;
+        idempotencyKey: string;
+        executedAt: string;
+        executionGrant?: {
+            schema: "viewport.execution_grant/v1";
+            digest: string;
+            proposalKey: string;
+            approvalDecisionKey: string;
+            issuedAt: string;
+        } | undefined;
+        payload?: Record<string, unknown> | undefined;
+        proposalDigest?: string | undefined;
+        providerReference?: string | undefined;
+        providerUrl?: string | undefined;
+        payloadDigest?: string | undefined;
+        actionProposalId?: string | undefined;
+        approvalDecisionId?: string | undefined;
+        providerResponseDigest?: string | undefined;
+        approvalDecisionDigest?: string | undefined;
+        providerReconciliation?: {
+            status: "not_checked" | "verified" | "mismatch" | "unavailable" | "failed";
+            payload?: Record<string, unknown> | undefined;
+            method?: string | undefined;
+            checkedAt?: string | undefined;
+            checkedBy?: {
+                id: string;
+                kind: string;
+                source?: string | undefined;
+                displayName?: string | undefined;
+            } | undefined;
+            providerReference?: string | undefined;
+            providerUrl?: string | undefined;
+            targetDigest?: string | undefined;
+            payloadDigest?: string | undefined;
+            error?: string | undefined;
+        } | undefined;
+        recovery?: Record<string, unknown> | undefined;
+    }>;
     readonly "viewport.context_package/v1": z.ZodObject<{
         schema: z.ZodLiteral<"viewport.context_package/v1">;
         name: z.ZodString;
@@ -5389,53 +4948,41 @@ export declare const ProtocolDocumentSchemas: {
         usedBy: z.ZodObject<{
             runId: z.ZodString;
             nodeId: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            runId: z.ZodString;
-            nodeId: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            runId: z.ZodString;
-            nodeId: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
+        }, "strict", z.ZodTypeAny, {
+            runId: string;
+            nodeId?: string | undefined;
+        }, {
+            runId: string;
+            nodeId?: string | undefined;
+        }>;
         resolvedAt: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        schema: z.ZodLiteral<"viewport.context_receipt/v1">;
-        package: z.ZodString;
-        requested: z.ZodString;
-        resolvedVersion: z.ZodString;
-        provider: z.ZodString;
-        digest: z.ZodString;
-        freshness: z.ZodString;
-        usedBy: z.ZodObject<{
-            runId: z.ZodString;
-            nodeId: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            runId: z.ZodString;
-            nodeId: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            runId: z.ZodString;
-            nodeId: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
-        resolvedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        schema: z.ZodLiteral<"viewport.context_receipt/v1">;
-        package: z.ZodString;
-        requested: z.ZodString;
-        resolvedVersion: z.ZodString;
-        provider: z.ZodString;
-        digest: z.ZodString;
-        freshness: z.ZodString;
-        usedBy: z.ZodObject<{
-            runId: z.ZodString;
-            nodeId: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            runId: z.ZodString;
-            nodeId: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            runId: z.ZodString;
-            nodeId: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
-        resolvedAt: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>;
+    }, "strict", z.ZodTypeAny, {
+        schema: "viewport.context_receipt/v1";
+        digest: string;
+        package: string;
+        requested: string;
+        resolvedVersion: string;
+        provider: string;
+        freshness: string;
+        usedBy: {
+            runId: string;
+            nodeId?: string | undefined;
+        };
+        resolvedAt: string;
+    }, {
+        schema: "viewport.context_receipt/v1";
+        digest: string;
+        package: string;
+        requested: string;
+        resolvedVersion: string;
+        provider: string;
+        freshness: string;
+        usedBy: {
+            runId: string;
+            nodeId?: string | undefined;
+        };
+        resolvedAt: string;
+    }>;
     readonly "viewport.audit_receipt/v1": z.ZodObject<{
         schema: z.ZodLiteral<"viewport.audit_receipt/v1">;
         id: z.ZodString;
@@ -5448,243 +4995,188 @@ export declare const ProtocolDocumentSchemas: {
             id: z.ZodString;
             source: z.ZodOptional<z.ZodString>;
             displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        }, {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        }>;
         route: z.ZodOptional<z.ZodObject<{
             id: z.ZodString;
             version: z.ZodNumber;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">>>;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            version: number;
+        }, {
+            id: string;
+            version: number;
+        }>>;
         executionProfile: z.ZodOptional<z.ZodObject<{
             id: z.ZodString;
             version: z.ZodNumber;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">>>;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            version: number;
+        }, {
+            id: string;
+            version: number;
+        }>>;
         workflow: z.ZodObject<{
             id: z.ZodString;
             schema: z.ZodLiteral<"viewport.workflow/v1">;
             digest: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+        }, "strict", z.ZodTypeAny, {
+            schema: "viewport.workflow/v1";
+            id: string;
+            digest: string;
+        }, {
+            schema: "viewport.workflow/v1";
+            id: string;
+            digest: string;
+        }>;
+        runner: z.ZodOptional<z.ZodObject<{
             id: z.ZodString;
-            schema: z.ZodLiteral<"viewport.workflow/v1">;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            schema: z.ZodLiteral<"viewport.workflow/v1">;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>;
+            workspaceTemplate: z.ZodOptional<z.ZodString>;
+            workspaceDigest: z.ZodOptional<z.ZodString>;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            workspaceTemplate?: string | undefined;
+            workspaceDigest?: string | undefined;
+        }, {
+            id: string;
+            workspaceTemplate?: string | undefined;
+            workspaceDigest?: string | undefined;
+        }>>;
         contextReceipts: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
         evidenceRefs: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         actionProposal: z.ZodOptional<z.ZodObject<{
             id: z.ZodString;
             digest: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>>;
+        }, "strict", z.ZodTypeAny, {
+            id: string;
+            digest: string;
+        }, {
+            id: string;
+            digest: string;
+        }>>;
         approvalDecision: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
         sideEffectReceipt: z.ZodOptional<z.ZodObject<{
             adapter: z.ZodString;
             action: z.ZodString;
             status: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            adapter: z.ZodString;
-            action: z.ZodString;
-            status: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            adapter: z.ZodString;
-            action: z.ZodString;
-            status: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>>;
+            providerReference: z.ZodOptional<z.ZodString>;
+            providerUrl: z.ZodOptional<z.ZodString>;
+        }, "strict", z.ZodTypeAny, {
+            status: string;
+            adapter: string;
+            action: string;
+            providerReference?: string | undefined;
+            providerUrl?: string | undefined;
+        }, {
+            status: string;
+            adapter: string;
+            action: string;
+            providerReference?: string | undefined;
+            providerUrl?: string | undefined;
+        }>>;
         payloadDigest: z.ZodString;
-    }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-        schema: z.ZodLiteral<"viewport.audit_receipt/v1">;
-        id: z.ZodString;
-        workspaceId: z.ZodString;
-        workflowRunId: z.ZodString;
-        eventType: z.ZodString;
-        occurredAt: z.ZodString;
-        actor: z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
-        route: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">>>;
-        executionProfile: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">>>;
-        workflow: z.ZodObject<{
-            id: z.ZodString;
-            schema: z.ZodLiteral<"viewport.workflow/v1">;
-            digest: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            schema: z.ZodLiteral<"viewport.workflow/v1">;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            schema: z.ZodLiteral<"viewport.workflow/v1">;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>;
-        contextReceipts: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
-        evidenceRefs: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        actionProposal: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            digest: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>>;
-        approvalDecision: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        sideEffectReceipt: z.ZodOptional<z.ZodObject<{
-            adapter: z.ZodString;
-            action: z.ZodString;
-            status: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            adapter: z.ZodString;
-            action: z.ZodString;
-            status: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            adapter: z.ZodString;
-            action: z.ZodString;
-            status: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>>;
-        payloadDigest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-        schema: z.ZodLiteral<"viewport.audit_receipt/v1">;
-        id: z.ZodString;
-        workspaceId: z.ZodString;
-        workflowRunId: z.ZodString;
-        eventType: z.ZodString;
-        occurredAt: z.ZodString;
-        actor: z.ZodObject<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            kind: z.ZodString;
-            id: z.ZodString;
-            source: z.ZodOptional<z.ZodString>;
-            displayName: z.ZodOptional<z.ZodString>;
-        }, z.ZodTypeAny, "passthrough">>;
-        route: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">>>;
-        executionProfile: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            version: z.ZodNumber;
-        }, z.ZodTypeAny, "passthrough">>>;
-        workflow: z.ZodObject<{
-            id: z.ZodString;
-            schema: z.ZodLiteral<"viewport.workflow/v1">;
-            digest: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            schema: z.ZodLiteral<"viewport.workflow/v1">;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            schema: z.ZodLiteral<"viewport.workflow/v1">;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>;
-        contextReceipts: z.ZodOptional<z.ZodArray<z.ZodRecord<z.ZodString, z.ZodUnknown>, "many">>;
-        evidenceRefs: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        actionProposal: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            digest: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            id: z.ZodString;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            id: z.ZodString;
-            digest: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>>;
-        approvalDecision: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
-        sideEffectReceipt: z.ZodOptional<z.ZodObject<{
-            adapter: z.ZodString;
-            action: z.ZodString;
-            status: z.ZodString;
-        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
-            adapter: z.ZodString;
-            action: z.ZodString;
-            status: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
-            adapter: z.ZodString;
-            action: z.ZodString;
-            status: z.ZodString;
-        }, z.ZodTypeAny, "passthrough">>>;
-        payloadDigest: z.ZodString;
-    }, z.ZodTypeAny, "passthrough">>;
+    }, "strict", z.ZodTypeAny, {
+        workflow: {
+            schema: "viewport.workflow/v1";
+            id: string;
+            digest: string;
+        };
+        schema: "viewport.audit_receipt/v1";
+        id: string;
+        workflowRunId: string;
+        workspaceId: string;
+        occurredAt: string;
+        actor: {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        };
+        payloadDigest: string;
+        eventType: string;
+        route?: {
+            id: string;
+            version: number;
+        } | undefined;
+        executionProfile?: {
+            id: string;
+            version: number;
+        } | undefined;
+        actionProposal?: {
+            id: string;
+            digest: string;
+        } | undefined;
+        approvalDecision?: Record<string, unknown> | undefined;
+        runner?: {
+            id: string;
+            workspaceTemplate?: string | undefined;
+            workspaceDigest?: string | undefined;
+        } | undefined;
+        evidenceRefs?: string[] | undefined;
+        contextReceipts?: Record<string, unknown>[] | undefined;
+        sideEffectReceipt?: {
+            status: string;
+            adapter: string;
+            action: string;
+            providerReference?: string | undefined;
+            providerUrl?: string | undefined;
+        } | undefined;
+    }, {
+        workflow: {
+            schema: "viewport.workflow/v1";
+            id: string;
+            digest: string;
+        };
+        schema: "viewport.audit_receipt/v1";
+        id: string;
+        workflowRunId: string;
+        workspaceId: string;
+        occurredAt: string;
+        actor: {
+            id: string;
+            kind: string;
+            source?: string | undefined;
+            displayName?: string | undefined;
+        };
+        payloadDigest: string;
+        eventType: string;
+        route?: {
+            id: string;
+            version: number;
+        } | undefined;
+        executionProfile?: {
+            id: string;
+            version: number;
+        } | undefined;
+        actionProposal?: {
+            id: string;
+            digest: string;
+        } | undefined;
+        approvalDecision?: Record<string, unknown> | undefined;
+        runner?: {
+            id: string;
+            workspaceTemplate?: string | undefined;
+            workspaceDigest?: string | undefined;
+        } | undefined;
+        evidenceRefs?: string[] | undefined;
+        contextReceipts?: Record<string, unknown>[] | undefined;
+        sideEffectReceipt?: {
+            status: string;
+            adapter: string;
+            action: string;
+            providerReference?: string | undefined;
+            providerUrl?: string | undefined;
+        } | undefined;
+    }>;
 };
 //# sourceMappingURL=schemas.d.ts.map
