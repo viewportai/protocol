@@ -52,7 +52,7 @@
             "kind",
             "id"
           ],
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "route": {
           "type": "object",
@@ -70,7 +70,7 @@
             "id",
             "version"
           ],
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "executionProfile": {
           "type": "object",
@@ -88,7 +88,7 @@
             "id",
             "version"
           ],
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "workflow": {
           "type": "object",
@@ -111,7 +111,28 @@
             "schema",
             "digest"
           ],
-          "additionalProperties": true
+          "additionalProperties": false
+        },
+        "runner": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "workspaceTemplate": {
+              "type": "string",
+              "minLength": 1
+            },
+            "workspaceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[A-Za-z0-9._-]+$"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
         "contextReceipts": {
           "type": "array",
@@ -143,7 +164,7 @@
             "id",
             "digest"
           ],
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "approvalDecision": {
           "type": "object",
@@ -163,6 +184,14 @@
             "status": {
               "type": "string",
               "minLength": 1
+            },
+            "providerReference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "providerUrl": {
+              "type": "string",
+              "minLength": 1
             }
           },
           "required": [
@@ -170,7 +199,7 @@
             "action",
             "status"
           ],
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "payloadDigest": {
           "type": "string",
@@ -188,7 +217,7 @@
         "workflow",
         "payloadDigest"
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"

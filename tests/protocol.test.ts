@@ -202,4 +202,26 @@ describe('@viewportai/protocol registry', () => {
       }).ok,
     ).toBe(false);
   });
+
+  it('rejects unknown top-level fields on security-critical envelopes', async () => {
+    const samples = await readAllSamples();
+    const approval = samples.find((sample) => sample.contract.key === 'approvalDecision');
+    const grant = samples.find((sample) => sample.contract.key === 'executionGrant');
+    const execution = samples.find((sample) => sample.contract.key === 'executionReceipt');
+    const context = samples.find((sample) => sample.contract.key === 'contextReceipt');
+    const audit = samples.find((sample) => sample.contract.key === 'auditReceipt');
+
+    for (const sample of [approval, grant, execution, context, audit]) {
+      expect(sample).toBeDefined();
+      expect(
+        validateSampleEnvelope({
+          ...sample!,
+          document: {
+            ...sample!.document,
+            untrusted_passthrough: 'must not be accepted',
+          },
+        }).ok,
+      ).toBe(false);
+    }
+  });
 });

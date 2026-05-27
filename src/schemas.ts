@@ -116,7 +116,7 @@ const ActorSchema = z
     source: NonEmptyString.optional(),
     displayName: NonEmptyString.optional(),
   })
-  .passthrough();
+  .strict();
 
 export const EvidenceContractSchema = z
   .object({
@@ -183,11 +183,21 @@ export const AuthorizationDecisionContractSchema = z
         id: NonEmptyString,
         version: z.number().int().positive(),
       })
-      .passthrough()
+      .strict()
       .optional(),
     expiresAt: IsoDateTime.optional(),
   })
-  .passthrough();
+  .strict();
+
+export const ExecutionGrantContractSchema = z
+  .object({
+    schema: z.literal(SchemaIds.executionGrant),
+    digest: Digest,
+    proposalKey: NonEmptyString,
+    approvalDecisionKey: NonEmptyString,
+    issuedAt: IsoDateTime,
+  })
+  .strict();
 
 export const ApprovalDecisionContractSchema = z
   .object({
@@ -200,18 +210,9 @@ export const ApprovalDecisionContractSchema = z
     actor: ActorSchema,
     reason: NonEmptyString.optional(),
     createdAt: IsoDateTime,
+    executionGrant: ExecutionGrantContractSchema.optional(),
   })
-  .passthrough();
-
-export const ExecutionGrantContractSchema = z
-  .object({
-    schema: z.literal(SchemaIds.executionGrant),
-    digest: Digest,
-    proposalKey: NonEmptyString,
-    approvalDecisionKey: NonEmptyString,
-    issuedAt: IsoDateTime,
-  })
-  .passthrough();
+  .strict();
 
 const ProviderReconciliationSchema = z
   .object({
@@ -226,7 +227,7 @@ const ProviderReconciliationSchema = z
     error: NonEmptyString.optional(),
     payload: z.record(z.unknown()).optional(),
   })
-  .passthrough();
+  .strict();
 
 export const ExecutionReceiptContractSchema = z
   .object({
@@ -251,7 +252,7 @@ export const ExecutionReceiptContractSchema = z
     recovery: z.record(z.unknown()).optional(),
     executedAt: IsoDateTime,
   })
-  .passthrough();
+  .strict();
 
 export const ContextReceiptContractSchema = z
   .object({
@@ -267,10 +268,10 @@ export const ContextReceiptContractSchema = z
         runId: NonEmptyString,
         nodeId: NonEmptyString.optional(),
       })
-      .passthrough(),
+      .strict(),
     resolvedAt: IsoDateTime,
   })
-  .passthrough();
+  .strict();
 
 const ContextSourceOfTruthSchema = z.enum([
   'viewport_managed',
@@ -430,14 +431,14 @@ export const AuditReceiptContractSchema = z
         id: NonEmptyString,
         version: z.number().int().positive(),
       })
-      .passthrough()
+      .strict()
       .optional(),
     executionProfile: z
       .object({
         id: NonEmptyString,
         version: z.number().int().positive(),
       })
-      .passthrough()
+      .strict()
       .optional(),
     workflow: z
       .object({
@@ -445,7 +446,15 @@ export const AuditReceiptContractSchema = z
         schema: z.literal(SchemaIds.workflow),
         digest: Digest,
       })
-      .passthrough(),
+      .strict(),
+    runner: z
+      .object({
+        id: NonEmptyString,
+        workspaceTemplate: NonEmptyString.optional(),
+        workspaceDigest: Digest.optional(),
+      })
+      .strict()
+      .optional(),
     contextReceipts: z.array(z.record(z.unknown())).optional(),
     evidenceRefs: z.array(NonEmptyString).optional(),
     actionProposal: z
@@ -453,7 +462,7 @@ export const AuditReceiptContractSchema = z
         id: NonEmptyString,
         digest: Digest,
       })
-      .passthrough()
+      .strict()
       .optional(),
     approvalDecision: z.record(z.unknown()).optional(),
     sideEffectReceipt: z
@@ -461,12 +470,14 @@ export const AuditReceiptContractSchema = z
         adapter: NonEmptyString,
         action: NonEmptyString,
         status: NonEmptyString,
+        providerReference: NonEmptyString.optional(),
+        providerUrl: NonEmptyString.optional(),
       })
-      .passthrough()
+      .strict()
       .optional(),
     payloadDigest: Digest,
   })
-  .passthrough();
+  .strict();
 
 export const ProtocolDocumentSchemas = {
   [SchemaIds.route]: RouteContractSchema,
